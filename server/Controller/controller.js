@@ -6,7 +6,7 @@ module.exports = {
     let endpoint = req.originalUrl.slice(baseUrl.length);
 
     return model.getAll(endpoint)
-      .then(data => res.send(data.data))
-      .catch(error => res.send(error));
+      .then(data => res.status(200).send(data.data))
+      .catch(error => res.status(404).send(error));
   }
 }
