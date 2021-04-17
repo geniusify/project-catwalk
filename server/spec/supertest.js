@@ -1,3 +1,6 @@
+// Testing HTTP
+const { TOKEN } = require('../../config.js');
+
 const request = require('supertest');
 const app = require('../index.js');
 
