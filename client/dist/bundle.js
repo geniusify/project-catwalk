@@ -316,6 +316,28 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./client/src/components/Overview/AddToCart.jsx":
+/*!******************************************************!*\
+  !*** ./client/src/components/Overview/AddToCart.jsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar AddToCart = function AddToCart(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"AddToCart\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddToCart);\n\n//# sourceURL=webpack://project-catwalk/./client/src/components/Overview/AddToCart.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/ImageGallery.jsx":
+/*!*********************************************************!*\
+  !*** ./client/src/components/Overview/ImageGallery.jsx ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar ImageGallery = function ImageGallery(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"ImageGallery\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageGallery);\n\n//# sourceURL=webpack://project-catwalk/./client/src/components/Overview/ImageGallery.jsx?");
+
+/***/ }),
+
 /***/ "./client/src/components/Overview/Overview.jsx":
 /*!*****************************************************!*\
   !*** ./client/src/components/Overview/Overview.jsx ***!
@@ -323,7 +345,29 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar Overview = function Overview(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"I'm an overview!\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Overview);\n\n//# sourceURL=webpack://project-catwalk/./client/src/components/Overview/Overview.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _ImageGallery_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImageGallery.jsx */ \"./client/src/components/Overview/ImageGallery.jsx\");\n/* harmony import */ var _ProductInfo_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProductInfo.jsx */ \"./client/src/components/Overview/ProductInfo.jsx\");\n/* harmony import */ var _StyleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./StyleSelector.jsx */ \"./client/src/components/Overview/StyleSelector.jsx\");\n/* harmony import */ var _AddToCart_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AddToCart.jsx */ \"./client/src/components/Overview/AddToCart.jsx\");\n\n\n\n\n\n\nvar Overview = function Overview(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    style: {\n      border: \"1px solid grey\",\n      backgroundColor: '#eee'\n    }\n  }, \"OVERVIEW\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ImageGallery_jsx__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductInfo_jsx__WEBPACK_IMPORTED_MODULE_2__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_StyleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AddToCart_jsx__WEBPACK_IMPORTED_MODULE_4__.default, null));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Overview);\n\n//# sourceURL=webpack://project-catwalk/./client/src/components/Overview/Overview.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/ProductInfo.jsx":
+/*!********************************************************!*\
+  !*** ./client/src/components/Overview/ProductInfo.jsx ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar ProductInfo = function ProductInfo(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"ProductInfo\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductInfo);\n\n//# sourceURL=webpack://project-catwalk/./client/src/components/Overview/ProductInfo.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/StyleSelector.jsx":
+/*!**********************************************************!*\
+  !*** ./client/src/components/Overview/StyleSelector.jsx ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar StyleSelector = function StyleSelector(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"StyleSelector\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StyleSelector);\n\n//# sourceURL=webpack://project-catwalk/./client/src/components/Overview/StyleSelector.jsx?");
 
 /***/ }),
 
