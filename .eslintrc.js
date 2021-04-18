@@ -17,6 +17,10 @@ module.exports = {
   plugins: [
     'react',
   ],
+  ignorePatterns: [
+    'bundle.js',
+  ],
   rules: {
+    'import/extensions': 'off',
   },
 };
