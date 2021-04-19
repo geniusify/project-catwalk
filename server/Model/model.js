@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { TOKEN } = require('../../config.js');
+const TOKEN = process.env.AUTHORIZATION || require('../../config.js').TOKEN;
 
 module.exports = {
   getAll: (endpoint) => {

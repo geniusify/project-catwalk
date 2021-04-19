@@ -22,5 +22,6 @@ module.exports = {
   ],
   rules: {
     'import/extensions': 'off',
+    'global-require': 'off',
   },
 };
