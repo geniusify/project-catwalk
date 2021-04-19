@@ -9,6 +9,28 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _arrayLikeToArray)\n/* harmony export */ });\nfunction _arrayLikeToArray(arr, len) {\n  if (len == null || len > arr.length) len = arr.length;\n\n  for (var i = 0, arr2 = new Array(len); i < len; i++) {\n    arr2[i] = arr[i];\n  }\n\n  return arr2;\n}\n\n//# sourceURL=webpack://project-catwalk/./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _arrayWithHoles)\n/* harmony export */ });\nfunction _arrayWithHoles(arr) {\n  if (Array.isArray(arr)) return arr;\n}\n\n//# sourceURL=webpack://project-catwalk/./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js?");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js":
 /*!**************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js ***!
@@ -64,6 +86,28 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _iterableToArrayLimit)\n/* harmony export */ });\nfunction _iterableToArrayLimit(arr, i) {\n  if (typeof Symbol === \"undefined\" || !(Symbol.iterator in Object(arr))) return;\n  var _arr = [];\n  var _n = true;\n  var _d = false;\n  var _e = undefined;\n\n  try {\n    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {\n      _arr.push(_s.value);\n\n      if (i && _arr.length === i) break;\n    }\n  } catch (err) {\n    _d = true;\n    _e = err;\n  } finally {\n    try {\n      if (!_n && _i[\"return\"] != null) _i[\"return\"]();\n    } finally {\n      if (_d) throw _e;\n    }\n  }\n\n  return _arr;\n}\n\n//# sourceURL=webpack://project-catwalk/./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _nonIterableRest)\n/* harmony export */ });\nfunction _nonIterableRest() {\n  throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\");\n}\n\n//# sourceURL=webpack://project-catwalk/./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js?");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js":
 /*!******************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js ***!
@@ -86,6 +130,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _slicedToArray)\n/* harmony export */ });\n/* harmony import */ var _arrayWithHoles_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./arrayWithHoles.js */ \"./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js\");\n/* harmony import */ var _iterableToArrayLimit_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./iterableToArrayLimit.js */ \"./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js\");\n/* harmony import */ var _unsupportedIterableToArray_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./unsupportedIterableToArray.js */ \"./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js\");\n/* harmony import */ var _nonIterableRest_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./nonIterableRest.js */ \"./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js\");\n\n\n\n\nfunction _slicedToArray(arr, i) {\n  return (0,_arrayWithHoles_js__WEBPACK_IMPORTED_MODULE_0__.default)(arr) || (0,_iterableToArrayLimit_js__WEBPACK_IMPORTED_MODULE_1__.default)(arr, i) || (0,_unsupportedIterableToArray_js__WEBPACK_IMPORTED_MODULE_2__.default)(arr, i) || (0,_nonIterableRest_js__WEBPACK_IMPORTED_MODULE_3__.default)();\n}\n\n//# sourceURL=webpack://project-catwalk/./node_modules/@babel/runtime/helpers/esm/slicedToArray.js?");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/esm/typeof.js":
 /*!***********************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/typeof.js ***!
@@ -94,6 +149,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _typeof)\n/* harmony export */ });\nfunction _typeof(obj) {\n  \"@babel/helpers - typeof\";\n\n  if (typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\") {\n    _typeof = function _typeof(obj) {\n      return typeof obj;\n    };\n  } else {\n    _typeof = function _typeof(obj) {\n      return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj;\n    };\n  }\n\n  return _typeof(obj);\n}\n\n//# sourceURL=webpack://project-catwalk/./node_modules/@babel/runtime/helpers/esm/typeof.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _unsupportedIterableToArray)\n/* harmony export */ });\n/* harmony import */ var _arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./arrayLikeToArray.js */ \"./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js\");\n\nfunction _unsupportedIterableToArray(o, minLen) {\n  if (!o) return;\n  if (typeof o === \"string\") return (0,_arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__.default)(o, minLen);\n  var n = Object.prototype.toString.call(o).slice(8, -1);\n  if (n === \"Object\" && o.constructor) n = o.constructor.name;\n  if (n === \"Map\" || n === \"Set\") return Array.from(o);\n  if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return (0,_arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__.default)(o, minLen);\n}\n\n//# sourceURL=webpack://project-catwalk/./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js?");
 
 /***/ }),
 
@@ -415,6 +481,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./client/src/components/Overview/Description.jsx":
+/*!********************************************************!*\
+  !*** ./client/src/components/Overview/Description.jsx ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* eslint-disable react/prop-types */\n\n/* eslint-disable arrow-body-style */\n\n\nvar Description = function Description(_ref) {\n  var description = _ref.description;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"Product Description\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, description));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Description);\n\n//# sourceURL=webpack://project-catwalk/./client/src/components/Overview/Description.jsx?");
+
+/***/ }),
+
 /***/ "./client/src/components/Overview/ImageGallery.jsx":
 /*!*********************************************************!*\
   !*** ./client/src/components/Overview/ImageGallery.jsx ***!
@@ -422,7 +499,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar ImageGallery = function ImageGallery(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"ImageGallery\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageGallery);\n\n//# sourceURL=webpack://project-catwalk/./client/src/components/Overview/ImageGallery.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* eslint-disable react/no-unescaped-entities */\n\n/* eslint-disable no-unused-vars */\n\n\nvar ImageGallery = function ImageGallery(props) {\n  var a = 123;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"ImageGallery\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageGallery);\n\n//# sourceURL=webpack://project-catwalk/./client/src/components/Overview/ImageGallery.jsx?");
 
 /***/ }),
 
@@ -433,7 +510,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _ImageGallery_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImageGallery.jsx */ \"./client/src/components/Overview/ImageGallery.jsx\");\n/* harmony import */ var _ProductInfo_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProductInfo.jsx */ \"./client/src/components/Overview/ProductInfo.jsx\");\n/* harmony import */ var _StyleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./StyleSelector.jsx */ \"./client/src/components/Overview/StyleSelector.jsx\");\n/* harmony import */ var _AddToCart_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AddToCart.jsx */ \"./client/src/components/Overview/AddToCart.jsx\");\n\n\n\n\n\n\nvar Overview = function Overview(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    style: {\n      border: \"1px solid grey\",\n      backgroundColor: '#eee'\n    }\n  }, \"OVERVIEW\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ImageGallery_jsx__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductInfo_jsx__WEBPACK_IMPORTED_MODULE_2__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_StyleSelector_jsx__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AddToCart_jsx__WEBPACK_IMPORTED_MODULE_4__.default, null));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Overview);\n\n//# sourceURL=webpack://project-catwalk/./client/src/components/Overview/Overview.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ \"./node_modules/@babel/runtime/helpers/esm/slicedToArray.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _mockdata_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mockdata.js */ \"./client/src/components/Overview/mockdata.js\");\n/* harmony import */ var _mockdata_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_mockdata_js__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _ImageGallery_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ImageGallery.jsx */ \"./client/src/components/Overview/ImageGallery.jsx\");\n/* harmony import */ var _ProductInfo_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ProductInfo.jsx */ \"./client/src/components/Overview/ProductInfo.jsx\");\n/* harmony import */ var _StyleSelector_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./StyleSelector.jsx */ \"./client/src/components/Overview/StyleSelector.jsx\");\n/* harmony import */ var _AddToCart_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AddToCart.jsx */ \"./client/src/components/Overview/AddToCart.jsx\");\n\n\n/* eslint-disable arrow-body-style */\n\n/* eslint-disable react/no-unescaped-entities */\n\n/* eslint-disable no-unused-vars */\n\n\n\n\n\n\n\nvar Overview = function Overview(props) {\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(23600),\n      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),\n      productId = _useState2[0],\n      setProductId = _useState2[1];\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n    className: \"ov-overview\"\n  }, \"OVERVIEW\", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_ImageGallery_jsx__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_ProductInfo_jsx__WEBPACK_IMPORTED_MODULE_4__.default, {\n    description: (_mockdata_js__WEBPACK_IMPORTED_MODULE_2___default().info.description)\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_StyleSelector_jsx__WEBPACK_IMPORTED_MODULE_5__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_AddToCart_jsx__WEBPACK_IMPORTED_MODULE_6__.default, null));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Overview);\n\n//# sourceURL=webpack://project-catwalk/./client/src/components/Overview/Overview.jsx?");
 
 /***/ }),
 
@@ -444,7 +521,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar ProductInfo = function ProductInfo(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"ProductInfo\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductInfo);\n\n//# sourceURL=webpack://project-catwalk/./client/src/components/Overview/ProductInfo.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Description_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Description.jsx */ \"./client/src/components/Overview/Description.jsx\");\n/* eslint-disable react/prop-types */\n\n/* eslint-disable no-unused-vars */\n\n // eslint-disable-next-line arrow-body-style\n\nvar ProductInfo = function ProductInfo(_ref) {\n  var description = _ref.description;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"ov-product-info\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h4\", null, \"ProductInfo\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"Star Rating\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"Product Category\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"Product Title\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"Price\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Description_jsx__WEBPACK_IMPORTED_MODULE_1__.default, {\n    description: description\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"Share on Social media\"));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductInfo);\n\n//# sourceURL=webpack://project-catwalk/./client/src/components/Overview/ProductInfo.jsx?");
 
 /***/ }),
 
@@ -456,6 +533,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar StyleSelector = function StyleSelector(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"StyleSelector\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StyleSelector);\n\n//# sourceURL=webpack://project-catwalk/./client/src/components/Overview/StyleSelector.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Overview/mockdata.js":
+/*!****************************************************!*\
+  !*** ./client/src/components/Overview/mockdata.js ***!
+  \****************************************************/
+/***/ ((module) => {
+
+eval("var info = {\n  id: 23600,\n  campus: 'hr-sfo',\n  name: 'Rod Shirt',\n  slogan: 'Cum minima qui maiores est esse quia maiores.',\n  description: 'Officia veritatis rerum sunt recusandae aut minima dolores. Praesentium perspiciatis laudantium molestiae dolorum. Sunt dolor ut animi odio id praesentium quis quisquam.',\n  category: 'Shirt',\n  default_price: '782.00',\n  created_at: '2021-04-07T20:43:30.731Z',\n  updated_at: '2021-04-07T20:43:30.731Z',\n  features: [{\n    feature: 'Lifetime Guarantee',\n    value: null\n  }, {\n    feature: 'Frame',\n    value: '\"DuraResin\"'\n  }]\n};\nvar styles = {\n  product_id: '23600',\n  results: [{\n    style_id: 132582,\n    name: 'Orange',\n    original_price: '782.00',\n    sale_price: null,\n    'default?': true,\n    photos: [{\n      thumbnail_url: 'https://images.unsplash.com/photo-1510867759970-3d2ca293be77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',\n      url: 'https://images.unsplash.com/photo-1457968867385-9f877f3f2bce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'\n    }],\n    skus: {\n      769226: {\n        quantity: 28,\n        size: 'XS'\n      },\n      769227: {\n        quantity: 59,\n        size: 'S'\n      },\n      769228: {\n        quantity: 47,\n        size: 'M'\n      },\n      769229: {\n        quantity: 12,\n        size: 'L'\n      },\n      769230: {\n        quantity: 23,\n        size: 'XL'\n      },\n      769231: {\n        quantity: 2,\n        size: 'XXL'\n      }\n    }\n  }, {\n    style_id: 132583,\n    name: 'Violet',\n    original_price: '643.00',\n    sale_price: null,\n    'default?': false,\n    photos: [{\n      thumbnail_url: 'https://images.unsplash.com/photo-1544376664-80b17f09d399?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',\n      url: 'https://images.unsplash.com/photo-1517278322228-3fe7a86cf6f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80'\n    }],\n    skus: {\n      769232: {\n        quantity: 21,\n        size: 'XS'\n      },\n      769233: {\n        quantity: 53,\n        size: 'S'\n      },\n      769234: {\n        quantity: 21,\n        size: 'M'\n      },\n      769235: {\n        quantity: 41,\n        size: 'L'\n      },\n      769236: {\n        quantity: 16,\n        size: 'XL'\n      },\n      769237: {\n        quantity: 55,\n        size: 'XXL'\n      }\n    }\n  }, {\n    style_id: 132584,\n    name: 'Orange',\n    original_price: '782.00',\n    sale_price: null,\n    'default?': false,\n    photos: [{\n      thumbnail_url: 'https://images.unsplash.com/photo-1553830591-2f39e38a013c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',\n      url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80'\n    }],\n    skus: {\n      769238: {\n        quantity: 52,\n        size: 'XS'\n      },\n      769239: {\n        quantity: 34,\n        size: 'S'\n      },\n      769240: {\n        quantity: 16,\n        size: 'M'\n      },\n      769241: {\n        quantity: 22,\n        size: 'L'\n      },\n      769242: {\n        quantity: 9,\n        size: 'XL'\n      },\n      769243: {\n        quantity: 37,\n        size: 'XXL'\n      }\n    }\n  }, {\n    style_id: 132585,\n    name: 'Mint green',\n    original_price: '782.00',\n    sale_price: null,\n    'default?': false,\n    photos: [{\n      thumbnail_url: 'https://images.unsplash.com/photo-1530821875964-91927b611bad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',\n      url: 'https://images.unsplash.com/photo-1518894781321-630e638d0742?ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80'\n    }],\n    skus: {\n      769244: {\n        quantity: 26,\n        size: 'XS'\n      },\n      769245: {\n        quantity: 44,\n        size: 'S'\n      },\n      769246: {\n        quantity: 18,\n        size: 'M'\n      },\n      769247: {\n        quantity: 21,\n        size: 'L'\n      },\n      769248: {\n        quantity: 6,\n        size: 'XL'\n      },\n      769249: {\n        quantity: 41,\n        size: 'XXL'\n      }\n    }\n  }]\n};\nmodule.exports = {\n  info: info,\n  styles: styles\n};\n\n//# sourceURL=webpack://project-catwalk/./client/src/components/Overview/mockdata.js?");
 
 /***/ }),
 
