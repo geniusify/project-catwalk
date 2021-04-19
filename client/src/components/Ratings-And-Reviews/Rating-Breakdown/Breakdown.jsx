@@ -1,21 +1,21 @@
 import React from 'react';
 
-class Ratings_And_Reviews extends React.Component {
+class Breakdown extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
 
-    }
+    };
   }
 
   render() {
-    return(
+    return (
       <div>
-        I'm a rating!
+        test rendering breakdown
       </div>
     );
   }
 }
 
-export default Ratings_And_Reviews;
+export default Breakdown;
