@@ -9,7 +9,6 @@ workflows:
 jobs:
   node/test:
     steps:
-      - checkout
       - run:
           name: "echo AUTHORIZATION that is part of our context"
           command: |
