@@ -1,6 +1,6 @@
 const path = require('path');
 
-const SRC_DIR = path.join(__dirname, '/client/src/index.js');
+const SRC_DIR = path.join(__dirname, '/client/src/index.jsx');
 const OUT_DIR = path.join(__dirname, '/client/dist');
 
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
   entry: SRC_DIR,
   output: {
     filename: 'bundle.js',
-    path: OUT_DIR
+    path: OUT_DIR,
   },
   module: {
     rules: [
@@ -16,12 +16,12 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-react', '@babel/preset-env']
-          }
-        }
-      }
-    ]
-  }
-}
+            presets: ['@babel/preset-react', '@babel/preset-env'],
+          },
+        },
+      },
+    ],
+  },
+};
