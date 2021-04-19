@@ -16,9 +16,8 @@ class RatingSummary extends React.Component {
 
     return (
       <div>
+        1. test rendering rating summary
         <p>
-          1. test rendering rating summary
-          <br />
           placeholder rating summmary:
           {ratingSummary}
           <br />
