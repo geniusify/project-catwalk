@@ -9,18 +9,21 @@ import ProductInfo from './ProductInfo.jsx';
 import ProductDescription from './ProductDescription.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
-import Attributes from './Attributes.jsx';
+import Features from './Features.jsx';
 
 const Overview = (props) => {
   const [productId, setProductId] = useState(23600);
   return (
     <div className="ov-container">
-      <ImageGallery />
+      <ImageGallery photos={mock.styles.results[0].photos} alt={mock.info.name} />
       <ProductInfo info={mock.info} />
-      <ProductDescription description={mock.info.description} />
+      <ProductDescription
+        description={mock.info.description}
+        slogan={mock.info.slogan}
+      />
       <StyleSelector styles={mock.styles.results} />
       <AddToCart />
-      <Attributes />
+      <Features features={mock.info.features} />
     </div>
   );
 };

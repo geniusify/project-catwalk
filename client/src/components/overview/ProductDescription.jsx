@@ -3,10 +3,10 @@
 import React from 'react';
 
 // eslint-disable-next-line arrow-body-style
-const ProductDescription = ({ description }) => {
+const ProductDescription = ({ description, slogan }) => {
   return (
     <div className="ov-description">
-      DESCRIPTION:
+      <h3>{slogan}</h3>
       {description}
     </div>
   );

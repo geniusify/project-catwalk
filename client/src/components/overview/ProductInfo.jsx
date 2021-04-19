@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react';
@@ -9,21 +10,23 @@ const ProductInfo = ({ info }) => {
 
   return (
     <div className="ov-product-info">
-      <h4>ProductInfo</h4>
-      <div><em>Star Rating</em></div>
       <div>
-        <b>Product Category: </b>
-        {info.category}
+        <em>Star Rating </em>
+        <a href="#"> Read all reviews </a>
       </div>
       <div>
-        <b>Product Name: </b>
-        {info.name}
+        <h4 className="ov-category">{info.category}</h4>
       </div>
       <div>
-        <b>Price: </b>
-        {info.default_price}
+        <h2>{info.name}</h2>
       </div>
-      <div><em>Share on Social media</em></div>
+      <div>
+        {`$${info.default_price}`}
+      </div>
+      <div>
+        <br />
+        <em>Share on Social media</em>
+      </div>
     </div>
   );
 };

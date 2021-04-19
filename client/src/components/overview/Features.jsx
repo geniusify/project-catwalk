@@ -3,13 +3,12 @@
 import React from 'react';
 
 // eslint-disable-next-line arrow-body-style
-const Attributes = ({ attributes }) => {
+const Features = ({ features }) => {
   return (
-    <div className="ov-attributes">
-      {attributes}
-      ATTRIBUTES
+    <div className="ov-features">
+      {JSON.stringify(features)}
     </div>
   );
 };
 
-export default Attributes;
+export default Features;

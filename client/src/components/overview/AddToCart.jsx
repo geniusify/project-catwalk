@@ -1,3 +1,5 @@
+/* eslint-disable arrow-body-style */
+/* eslint-disable no-unused-vars */
 import React from 'react';
 
 const AddToCart = (props) => {
