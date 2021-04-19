@@ -5,7 +5,7 @@ import React from 'react';
 const ImageGallery = (props) => {
   const a = 123;
   return (
-    <div>ImageGallery</div>
+    <div className="ov-image-gallery">ImageGallery</div>
   );
 };
 

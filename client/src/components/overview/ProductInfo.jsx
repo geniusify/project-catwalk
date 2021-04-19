@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import Description from './Description.jsx';
 
 // eslint-disable-next-line arrow-body-style
 const ProductInfo = ({ info }) => {
-  // info.default_price unless there's a sale price
+  // default_price is replaced by style price or style sale price
+  // description may or may not exist
+
   return (
     <div className="ov-product-info">
       <h4>ProductInfo</h4>
@@ -21,10 +22,6 @@ const ProductInfo = ({ info }) => {
       <div>
         <b>Price: </b>
         {info.default_price}
-      </div>
-      <div>
-        <b>Description: </b>
-        {info.description}
       </div>
       <div><em>Share on Social media</em></div>
     </div>

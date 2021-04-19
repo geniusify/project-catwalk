@@ -1,3 +1,47 @@
 .ov-product-info {
   background-color: #cfe;
 }
+
+.ov-style-selector {
+  background-color: #efc;
+}
+
+.ov-container {
+  display: grid;
+  grid-template:
+  'gallery info'
+  'gallery styles'
+  'gallery cart'
+  'description attributes';
+  grid-template-columns: 760px 457px;
+  grid-template-rows: 211px 284px 85px 300px;
+  overflow: clip;
+}
+
+.ov-image-gallery {
+  grid-area: gallery;
+  background-color: pink;
+}
+
+.ov-product-info {
+  grid-area: info;
+}
+
+.ov-description {
+  grid-area: description;
+  background-color: #88f;
+}
+
+.ov-style-selector {
+  grid-area: styles;
+  background-color: #ffa;
+}
+
+.ov-add-to-cart {
+  grid-area: cart;
+  background-color: #fca;
+}
+
+.ov-attributes {
+  grid-area: attributes;
+}

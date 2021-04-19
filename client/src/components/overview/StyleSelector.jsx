@@ -1,8 +1,15 @@
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+
 import React from 'react';
 
-const StyleSelector = (props) => {
+const StyleSelector = (styles) => {
   return (
-    <div>StyleSelector</div>
+    <div className="ov-style-selector">
+      <b>StyleSelector</b>
+      {/* {JSON.stringify(styles)} */}
+    </div>
   );
 };
 
