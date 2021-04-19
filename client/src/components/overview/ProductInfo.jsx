@@ -4,16 +4,29 @@ import React from 'react';
 import Description from './Description.jsx';
 
 // eslint-disable-next-line arrow-body-style
-const ProductInfo = ({ description }) => {
+const ProductInfo = ({ info }) => {
+  // info.default_price unless there's a sale price
   return (
     <div className="ov-product-info">
       <h4>ProductInfo</h4>
-      <div>Star Rating</div>
-      <div>Product Category</div>
-      <div>Product Title</div>
-      <div>Price</div>
-      <Description description={description} />
-      <div>Share on Social media</div>
+      <div><em>Star Rating</em></div>
+      <div>
+        <b>Product Category: </b>
+        {info.category}
+      </div>
+      <div>
+        <b>Product Name: </b>
+        {info.name}
+      </div>
+      <div>
+        <b>Price: </b>
+        {info.default_price}
+      </div>
+      <div>
+        <b>Description: </b>
+        {info.description}
+      </div>
+      <div><em>Share on Social media</em></div>
     </div>
   );
 };

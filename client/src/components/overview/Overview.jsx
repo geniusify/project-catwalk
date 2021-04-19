@@ -15,7 +15,7 @@ const Overview = (props) => {
     <div className="ov-overview">
       OVERVIEW
       <ImageGallery />
-      <ProductInfo description={mock.info.description} />
+      <ProductInfo info={mock.info} />
       <StyleSelector />
       <AddToCart />
     </div>
