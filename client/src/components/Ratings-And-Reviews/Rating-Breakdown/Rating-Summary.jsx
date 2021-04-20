@@ -1,28 +1,30 @@
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable no-console */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class RatingSummary extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      ratingSummary: 5,
-      starRating: 5,
-      ratingCount: 5,
+      rating: 0,
+      ratingCount: 0,
     };
   }
 
   render() {
-    const { ratingSummary, starRating, ratingCount } = this.state;
+    const { rating, ratingCount } = this.state;
 
     return (
       <div>
         1. test rendering rating summary
         <p>
           placeholder rating summmary:
-          {ratingSummary}
+          {rating}
           <br />
           placeholder star rating:
-          {starRating}
+          {rating}
           <br />
           placeholder count:
           {ratingCount}
@@ -31,5 +33,9 @@ class RatingSummary extends React.Component {
     );
   }
 }
+
+RatingSummary.propTypes = {
+  reviews: PropTypes.array.isRequired,
+};
 
 export default RatingSummary;

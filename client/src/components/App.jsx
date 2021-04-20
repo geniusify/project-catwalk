@@ -17,12 +17,12 @@ class App extends React.Component {
   componentDidMount() {
     axios({
       url: 'api/products/23718/styles',
-      method: 'get'
+      method: 'get',
     })
-      .then(data => {
+      .then((data) => {
         this.setState({
-          data: data
-        })
+          data,
+        });
       })
       .catch(() => console.log('failed retrieving data'));
   }
