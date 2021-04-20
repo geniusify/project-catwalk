@@ -95,7 +95,7 @@ const styles = {
           size: 'S',
         },
         769234: {
-          quantity: 21,
+          quantity: 3,
           size: 'M',
         },
         769235: {
