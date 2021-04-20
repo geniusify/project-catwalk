@@ -3,7 +3,7 @@ const info = {
   campus: 'hr-sfo',
   name: 'Rod Shirt',
   slogan: 'Cum minima qui maiores est esse quia maiores.',
-  description: 'Officia veritatis rerum sunt recusandae aut minima dolores. Praesentium perspiciatis laudantium molestiae dolorum. Sunt dolor ut animi odio id praesentium quis quisquam.',
+  description: 'Officia veritatis7rerum sunt recusandae aut minima dolores. Praesentium perspiciatis laudantium molestiae dolorum. Sunt dolor ut animi odio id praesentium quis quisquam.',
   category: 'Shirt',
   default_price: '782.00',
   created_at: '2021-04-07T20:43:30.731Z',
@@ -190,6 +190,46 @@ const styles = {
         },
       },
     },
+    {
+      style_id: 13258512345,
+      name: 'Mint green 2',
+      original_price: '782.00',
+      sale_price: null,
+      'default?': false,
+      photos: [
+        {
+          thumbnail_url: 'https://images.unsplash.com/photo-1530821875964-91927b611bad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+          url: 'https://images.unsplash.com/photo-1518894781321-630e638d0742?ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80',
+        },
+      ],
+      skus: {
+        769244: {
+          quantity: 26,
+          size: 'XS',
+        },
+        769245: {
+          quantity: 44,
+          size: 'S',
+        },
+        769246: {
+          quantity: 18,
+          size: 'M',
+        },
+        769247: {
+          quantity: 21,
+          size: 'L',
+        },
+        769248: {
+          quantity: 6,
+          size: 'XL',
+        },
+        769249: {
+          quantity: 41,
+          size: 'XXL',
+        },
+      },
+    },
+
   ],
 };
 

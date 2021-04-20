@@ -22,7 +22,6 @@ const StyleSelector = ({ styles, index }) => {
           />
         ))}
       </div>
-      <span>SELECT SIZE.............QUANTITY</span>
     </div>
   );
 };
