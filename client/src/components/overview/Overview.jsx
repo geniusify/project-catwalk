@@ -16,7 +16,7 @@ const Overview = (props) => {
   return (
     <div className="ov-container">
       <ImageGallery photos={mock.styles.results[0].photos} alt={mock.info.name} />
-      <ProductInfo info={mock.info} />
+      <ProductInfo info={mock.info} ratings={mock.meta.ratings} />
       <ProductDescription
         description={mock.info.description}
         slogan={mock.info.slogan}
