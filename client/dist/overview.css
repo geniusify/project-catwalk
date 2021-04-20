@@ -75,8 +75,60 @@
   text-transform: uppercase
 }
 
+.ov-sale-price {
+  color: red;
+}
+
+.ov-old-price {
+  text-decoration: line-through;
+}
+
 /* gallery */
 
 .ov-main-gallery-image {
   width: 100%;
+}
+
+/* style selector */
+
+.ov-style-selector {
+  background-color: pink;
+}
+
+.ov-style-item {
+  display: inline-block;
+  /* position: relative; */
+  height: 60px;
+  width: 60px;
+  margin: 12px;
+  border-radius: 30px;
+  border: 1px solid red;
+  background-size: cover;
+  background-position: center center;
+
+  /* background-size: contain; */
+  cursor: pointer;
+}
+
+.ov-selected-style-item {
+  font-size: 2em;
+}
+
+.ov-style-selector-check {
+  position: absolute;
+  /* display:block; */
+  /* float: right; */
+  /* left: 20px; */
+  /* top: 0px; */
+  /* margin: 0px; */
+  /* padding: 0px; */
+  margin-left: 40px;
+  background: white;
+  border: 2px solid purple;
+  color: purple;
+  padding-left: 2px;
+  font-size: .5em;
+  width: 13px;
+  border-radius: 999px;
+  /* display: none; */
 }
