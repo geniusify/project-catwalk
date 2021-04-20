@@ -15,7 +15,9 @@ const getAverageRating = (ratings) => {
   return (ratingSum / count).toFixed(1);
 };
 
-const ProductInfo = ({ info, ratings }) => {
+const ProductInfo = ({
+  info, ratings, price, salePrice,
+}) => {
   const ratingCount = getRatingCount(ratings);
 
   return (
@@ -26,9 +28,7 @@ const ProductInfo = ({ info, ratings }) => {
             <>
               <span>{`Star Rating: ${getAverageRating(ratings)}`}</span>
               <a href="#">
-                {' '}
                 {`Read all ${ratingCount} reviews`}
-                {' '}
               </a>
             </>
           )
@@ -41,7 +41,14 @@ const ProductInfo = ({ info, ratings }) => {
         <h2>{info.name}</h2>
       </div>
       <div>
-        {`$${info.default_price}`}
+        {salePrice
+          ? (
+            <>
+              <span className="ov-sale-price">{`$${salePrice}  `}</span>
+              <span className="ov-old-price">{`$${price}`}</span>
+            </>
+          )
+          : <span>{`$${price}`}</span>}
       </div>
       <div>
         <br />

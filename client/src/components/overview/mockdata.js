@@ -38,7 +38,7 @@ const styles = {
       style_id: 132582,
       name: 'Orange',
       original_price: '782.00',
-      sale_price: null,
+      sale_price: '42.00',
       'default?': true,
       photos: [
         {
