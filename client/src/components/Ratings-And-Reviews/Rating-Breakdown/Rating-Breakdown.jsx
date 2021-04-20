@@ -15,12 +15,10 @@ class RatingBreakdown extends React.Component {
 
   render() {
     return (
-      <div>
-        - begin rendering rating breakdown section
+      <div className="rr-rating-breakdown">
         <RatingSummary />
         <Breakdown />
         <ProductBreakdown />
-        - end rendering rating breakdown section
       </div>
     );
   }
