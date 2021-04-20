@@ -75,6 +75,14 @@
   text-transform: uppercase
 }
 
+.ov-sale-price {
+  color: red;
+}
+
+.ov-old-price {
+  text-decoration: line-through;
+}
+
 /* gallery */
 
 .ov-main-gallery-image {
