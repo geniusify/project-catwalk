@@ -1,21 +1,21 @@
 import React from 'react';
 
-class Related_Items extends React.Component {
+class RelatedItems extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
 
-    }
+    };
   }
 
   render() {
     return (
-      <div>
-        I'm a related item!
+      <div class="">
+       <h1>RELATED PRODUCTS</h1>
       </div>
     );
   }
 }
 
-export default Related_Items;
+export default RelatedItems;

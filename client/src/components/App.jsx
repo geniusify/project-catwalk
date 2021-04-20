@@ -3,26 +3,28 @@ import axios from 'axios';
 
 import Overview from './Overview/Overview.jsx';
 import RatingsAndReviews from './Ratings-And-Reviews/Ratings-And-Reviews.jsx';
-import Related_Items from './Related_Items/Related_Items.jsx';
+import RelatedItems from './RelatedItems/RelatedItems.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      data: {}
-    }
+      data: {},
+    };
   }
 
   componentDidMount() {
     axios({
       url: 'api/products/23718/styles',
-      method: 'get'
+      method: 'get',
     })
-      .then(data => {
+      .then((data) => {
         this.setState({
-          data: data
-        })
+          data,
+        });
       })
       .catch(() => console.log('failed retrieving data'));
   }
@@ -31,7 +33,7 @@ class App extends React.Component {
     return (
       <div>
         <Overview data={this.state.data}/>
-        <Related_Items data={this.state.data}/>
+        <RelatedItems data={this.state.data}/>
         <RatingsAndReviews data={this.state.data}/>
       </div>
     );
