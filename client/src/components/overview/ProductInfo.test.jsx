@@ -11,16 +11,24 @@ import userEvent from '@testing-library/user-event';
 
 import ProductInfo from './ProductInfo.jsx';
 
-it('renders the product\'s category', async () => {
-  render(<ProductInfo
-    info={{
-      category: 'stuff',
-      name: 'fake product',
-      default_price: '1000000.00',
-    }}
-  />);
+const info = {
+  category: 'stuff',
+  name: 'fake product',
+  default_price: '1000000.00',
+};
+
+it('renders the product\'s info', async () => {
+  render(<ProductInfo info={info} />);
 
   expect(screen.getByText('stuff')).toBeInTheDocument();
   expect(screen.getByText('fake product')).toBeInTheDocument();
   expect(screen.getByText('$1000000.00')).toBeInTheDocument();
+});
+
+it('is unaffected by a click', async () => {
+  render(<ProductInfo info={info} />);
+
+  const category = screen.getByText('stuff');
+  await userEvent.click(category);
+  expect(screen.getByText('stuff')).toBeInTheDocument();
 });
