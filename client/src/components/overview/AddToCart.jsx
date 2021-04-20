@@ -13,18 +13,15 @@ const AddToCart = ({ style }) => {
     .filter(([id, sku]) => sku.quantity > 0);
 
   const [clicked, setClicked] = useState(false);
-  const [size, setSize] = useState(null);
-  const [sku, setSku] = useState(null);
+  const [size, setSize] = useState(false);
+  const [sku, setSku] = useState(false);
 
-  const [quantity, setQuantity] = useState(null);
+  const [quantityAvail, setQuantityAvail] = useState(false);
 
   const onSizeChoice = (id) => {
     setSku(skus[id]);
-    setQuantity(skus[id].quantity);
+    setQuantityAvail(skus[id].quantity);
   };
-
-  useEffect(() => console.log('quantityAvailable', quantity,
-    'sku', sku));
 
   return (
     <div className="ov-add-to-cart">
@@ -46,9 +43,9 @@ const AddToCart = ({ style }) => {
         </select>
 
         <select className="ov-cart-quantity" name="quantity">
-          {quantity
-            ? range(quantity).map((n) => (
-              <option value="{n}">{n}</option>
+          {quantityAvail
+            ? range(quantityAvail).map((n) => (
+              <option key={n} value="{n}">{n}</option>
             ))
             : (<option value="-">-</option>)}
         </select>
