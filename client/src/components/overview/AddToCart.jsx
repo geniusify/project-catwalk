@@ -15,12 +15,13 @@ const AddToCart = ({ style }) => {
   const [clicked, setClicked] = useState(false);
   const [size, setSize] = useState(false);
   const [sku, setSku] = useState(false);
-
+  const [quantity, setQuantity] = useState(false);
   const [quantityAvail, setQuantityAvail] = useState(false);
 
   const onSizeChoice = (id) => {
     setSku(skus[id]);
     setQuantityAvail(skus[id].quantity);
+    setQuantity(1);
   };
 
   return (
@@ -42,10 +43,15 @@ const AddToCart = ({ style }) => {
               : <option value="Select Size">Select Size</option>}
         </select>
 
-        <select className="ov-cart-quantity" name="quantity">
+        <select
+          className="ov-cart-quantity"
+          name="quantity"
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+        >
           {quantityAvail
-            ? range(quantityAvail).map((n) => (
-              <option key={n} value="{n}">{n}</option>
+            ? range(Math.min(15, quantityAvail)).map((n) => (
+              <option key={n} value={n}>{n}</option>
             ))
             : (<option value="-">-</option>)}
         </select>

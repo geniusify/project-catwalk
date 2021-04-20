@@ -31,8 +31,8 @@ class App extends React.Component {
     return (
       <div>
         <Overview data={this.state.data}/>
-        {/* <Related_Items data={this.state.data}/> */}
-        {/* <RatingsAndReviews data={this.state.data}/> */}
+        <Related_Items data={this.state.data}/>
+        <RatingsAndReviews data={this.state.data}/>
       </div>
     );
   }
