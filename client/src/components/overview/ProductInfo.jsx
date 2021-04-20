@@ -4,10 +4,15 @@
 import React from 'react';
 
 // eslint-disable-next-line arrow-body-style
-const ProductInfo = ({ info }) => {
-  // default_price is replaced by style price or style sale price
-  // description may or may not exist
+const averageRating = (ratings) => {
+  const ratingSum = Object.entries(ratings)
+    .reduce((sum, [rating, count]) => sum + rating * count, 0);
+  const count = Object.values(ratings).reduce((sum, n) => sum + Number(n), 0);
+  return ratingSum / count;
+};
 
+const ProductInfo = ({ info, ratings }) => {
+  const rating = averageRating(ratings);
   return (
     <div className="ov-product-info">
       <div>
