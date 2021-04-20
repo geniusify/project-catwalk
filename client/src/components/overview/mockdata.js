@@ -20,6 +20,17 @@ const info = {
   ],
 };
 
+const meta = {
+  product_id: '23600',
+  ratings: {
+    1: '5',
+    2: '10',
+    3: '9',
+    4: '6',
+    5: '6',
+  },
+};
+
 const styles = {
   product_id: '23600',
   results: [
@@ -182,4 +193,4 @@ const styles = {
   ],
 };
 
-module.exports = { info, styles };
+module.exports = { info, styles, meta };
