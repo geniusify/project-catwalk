@@ -15,8 +15,7 @@ class RatingSummary extends React.Component {
     const { ratingSummary, starRating, ratingCount } = this.state;
 
     return (
-      <div>
-        1. test rendering rating summary
+      <div className="rr-rating-summary">
         <p>
           placeholder rating summmary:
           {ratingSummary}
