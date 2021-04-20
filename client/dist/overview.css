@@ -124,11 +124,11 @@
   /* padding: 0px; */
   margin-left: 40px;
   background: white;
-  border: 2px solid purple;
-  color: purple;
-  padding-left: 2px;
-  font-size: .5em;
-  width: 13px;
+  border: 1px solid #333;
+  color: #333;
+  padding-left: 2.5px;
+  font-size: .4em;
+  width: 12px;
   border-radius: 999px;
   /* display: none; */
 }

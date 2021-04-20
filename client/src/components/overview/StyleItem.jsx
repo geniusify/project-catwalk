@@ -16,7 +16,7 @@ const StyleItem = ({
         style={{ backgroundImage: `url(${style.photos[0].thumbnail_url})` }}
       >
         {selected
-          ? (<div className="ov-style-selector-check">√</div>)
+          ? (<div className="ov-style-selector-check">✓</div>)
           // ? null
           : null}
 
