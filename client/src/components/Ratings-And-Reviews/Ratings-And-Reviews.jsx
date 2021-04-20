@@ -13,7 +13,7 @@ class RatingsAndReviews extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="rr-container">
         <RatingBreakdown />
       </div>
     );
