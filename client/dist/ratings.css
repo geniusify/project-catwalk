@@ -18,3 +18,7 @@
 .rr-breakdown {
   grid-area: breakdown;
 }
+
+.rr-review-list {
+  grid-area: review;
+}
