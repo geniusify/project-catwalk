@@ -88,3 +88,27 @@
 .ov-main-gallery-image {
   width: 100%;
 }
+
+/* style selector */
+
+.ov-style-selector {
+  background-color: pink;
+}
+
+.ov-style-item {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  margin: 12px;
+  border-radius: 30px;
+  border: 1px solid red;
+  background-size: cover;
+  background-position: center center;
+
+  /* background-size: contain; */
+  cursor: pointer;
+}
+
+.ov-selected-style-item {
+  font-size: 2em;
+}

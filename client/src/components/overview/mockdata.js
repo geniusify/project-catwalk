@@ -77,7 +77,7 @@ const styles = {
       style_id: 132583,
       name: 'Violet',
       original_price: '643.00',
-      sale_price: null,
+      sale_price: '499.99',
       'default?': true,
       photos: [
         {
