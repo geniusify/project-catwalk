@@ -4,15 +4,35 @@
 import React from 'react';
 
 // eslint-disable-next-line arrow-body-style
-const ProductInfo = ({ info }) => {
-  // default_price is replaced by style price or style sale price
-  // description may or may not exist
+
+const getRatingCount = (ratings) => Object.values(ratings)
+  .reduce((sum, n) => sum + Number(n), 0);
+
+const getAverageRating = (ratings) => {
+  const ratingSum = Object.entries(ratings)
+    .reduce((sum, [rating, count]) => sum + rating * count, 0);
+  const count = getRatingCount(ratings);
+  return (ratingSum / count).toFixed(1);
+};
+
+const ProductInfo = ({ info, ratings }) => {
+  const ratingCount = getRatingCount(ratings);
 
   return (
     <div className="ov-product-info">
       <div>
-        <em>Star Rating </em>
-        <a href="#"> Read all reviews </a>
+        {ratingCount > 0
+          ? (
+            <>
+              <span>{`Star Rating: ${getAverageRating(ratings)}`}</span>
+              <a href="#">
+                {' '}
+                {`Read all ${ratingCount} reviews`}
+                {' '}
+              </a>
+            </>
+          )
+          : null}
       </div>
       <div>
         <h4 className="ov-category">{info.category}</h4>

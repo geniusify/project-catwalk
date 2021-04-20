@@ -32,3 +32,11 @@ it('is unaffected by a click', async () => {
   await userEvent.click(category);
   expect(screen.getByText('stuff')).toBeInTheDocument();
 });
+
+// it('calculates average rating correctly', async () => {
+//   const ratings = { 1: '5', 2: '10', 3: '9', 4: '6', 5: '7' };
+//   expect(getRatingCount(ratings)).toEqual(37);
+//   expect(getAverageRating(ratings)).toEqual(3);
+// });
+
+// test if no reviews, stars * link to reviews is hidden
