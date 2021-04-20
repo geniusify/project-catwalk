@@ -5,13 +5,18 @@
 
 import React from 'react';
 
-const StyleSelector = ({ styles }) => {
+const StyleSelector = ({ styles, index }) => {
   return (
     <div className="ov-style-selector">
       <b>STYLE {'>'} </b>
       <div>- </div>
-      {styles.map((style) => (
-        <div>{style.name}</div>
+      {styles.map((style, i) => (
+        <div key={style.style_id}>
+          {i === index
+            ? '*'
+            : ''}
+          {style.name}
+        </div>
       ))}
       SELECT SIZE.............QUANTITY
     </div>

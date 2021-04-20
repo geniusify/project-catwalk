@@ -20,6 +20,17 @@ const info = {
   ],
 };
 
+const meta = {
+  product_id: '23600',
+  ratings: {
+    1: '5',
+    2: '10',
+    3: '9',
+    4: '6',
+    5: '6',
+  },
+};
+
 const styles = {
   product_id: '23600',
   results: [
@@ -27,8 +38,8 @@ const styles = {
       style_id: 132582,
       name: 'Orange',
       original_price: '782.00',
-      sale_price: null,
-      'default?': true,
+      sale_price: '42.00',
+      'default?': false,
       photos: [
         {
           thumbnail_url: 'https://images.unsplash.com/photo-1510867759970-3d2ca293be77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
@@ -67,7 +78,7 @@ const styles = {
       name: 'Violet',
       original_price: '643.00',
       sale_price: null,
-      'default?': false,
+      'default?': true,
       photos: [
         {
           thumbnail_url: 'https://images.unsplash.com/photo-1544376664-80b17f09d399?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
@@ -182,4 +193,4 @@ const styles = {
   ],
 };
 
-module.exports = { info, styles };
+module.exports = { info, styles, meta };
