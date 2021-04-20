@@ -5,20 +5,24 @@
 
 import React from 'react';
 
-const StyleSelector = ({ styles, index }) => {
+import StyleItem from './StyleItem.jsx';
+
+const StyleSelector = ({ styles, index, select }) => {
   return (
-    <div className="ov-style-selector">
-      <b>STYLE {'>'} </b>
-      <div>- </div>
-      {styles.map((style, i) => (
-        <div key={style.style_id}>
-          {i === index
-            ? '*'
-            : ''}
-          {style.name}
-        </div>
-      ))}
-      SELECT SIZE.............QUANTITY
+    <div className='ov-style-selector'>
+      <div>
+        <b>STYLE {'>'} {styles[index].name}</b>
+      </div>
+      <div className="ov-style-name">
+        {styles.map((style, i) => (
+          <StyleItem
+            key={style.style_id}
+            style={style}
+            selected={i === index}
+            select={() => select(i)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

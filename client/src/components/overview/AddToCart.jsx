@@ -4,7 +4,10 @@ import React from 'react';
 
 const AddToCart = (props) => {
   return (
-    <div className="ov-add-to-cart">AddToCart</div>
+    <div className="ov-add-to-cart">
+      <div>SELECT SIZE.............QUANTITY</div>
+      AddToCart
+    </div>
   );
 };
 
