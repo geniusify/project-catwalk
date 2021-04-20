@@ -26,7 +26,7 @@ const ProductInfo = ({
         {ratingCount > 0
           ? (
             <>
-              <span>{`Star Rating: ${getAverageRating(ratings)}`}</span>
+              <span>{`${getAverageRating(ratings)} STARS  `}</span>
               <a href="#">
                 {`Read all ${ratingCount} reviews`}
               </a>

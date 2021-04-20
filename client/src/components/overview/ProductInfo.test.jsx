@@ -42,3 +42,7 @@ it('is unaffected by a click', async () => {
 // test if no reviews, stars * link to reviews is hidden
 
 // test price and salePrice
+
+// test when 'default?' isn't first style
+
+// test when there's no slogan and/or no description

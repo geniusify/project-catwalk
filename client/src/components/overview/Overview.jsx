@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
@@ -14,7 +15,14 @@ import Features from './Features.jsx';
 const Overview = (props) => {
   const [productId, setProductId] = useState(23600);
   // XXX: initial style is actually found in styles data
-  const [styleIndex, setStyleIndex] = useState(0);
+  let defaultStyleIndex = 0;
+  for (let i = 0; i < mock.styles.results.length; i++) {
+    if (mock.styles.results[i]['default?']) {
+      defaultStyleIndex = i;
+      break;
+    }
+  }
+  const [styleIndex, setStyleIndex] = useState(defaultStyleIndex);
   const style = mock.styles.results[styleIndex];
   const price = style.original_price;
   const salePrice = style.sale_price;

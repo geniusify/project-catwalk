@@ -11,9 +11,10 @@ const StyleSelector = ({ styles, index }) => {
       <b>STYLE {'>'} </b>
       <div>- </div>
       {styles.map((style, i) => (
-        <div>{i === index
-          ? '*'
-          : ''}
+        <div key={style.style_id}>
+          {i === index
+            ? '*'
+            : ''}
           {style.name}
         </div>
       ))}
