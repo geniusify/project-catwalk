@@ -7,7 +7,7 @@ import React from 'react';
 
 import StyleItem from './StyleItem.jsx';
 
-const StyleSelector = ({ styles, index }) => {
+const StyleSelector = ({ styles, index, select }) => {
   return (
     <div className='ov-style-selector'>
       <div>
@@ -19,6 +19,7 @@ const StyleSelector = ({ styles, index }) => {
             key={style.style_id}
             style={style}
             selected={i === index}
+            select={() => select(i)}
           />
         ))}
       </div>
