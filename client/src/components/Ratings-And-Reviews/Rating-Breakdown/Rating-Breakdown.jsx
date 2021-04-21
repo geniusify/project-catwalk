@@ -21,7 +21,9 @@ class RatingBreakdown extends React.Component {
     return (
       <div className="rr-rating-breakdown">
         <RatingSummary data={data} />
+        <hr />
         <Breakdown data={data} />
+        <hr />
         <ProductBreakdown />
       </div>
     );
