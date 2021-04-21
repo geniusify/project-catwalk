@@ -28,7 +28,10 @@ const Overview = (props) => {
   const salePrice = style.sale_price;
   return (
     <div className="ov-container">
-      <ImageGallery photos={mock.styles.results[0].photos} alt={mock.info.name} />
+      <ImageGallery
+        photos={style.photos}
+        alt={mock.info.name}
+      />
       <ProductInfo
         info={mock.info}
         ratings={mock.meta.ratings}
@@ -44,7 +47,7 @@ const Overview = (props) => {
         index={styleIndex}
         select={setStyleIndex}
       />
-      <AddToCart style={style}/>
+      <AddToCart style={style} />
       <Features features={mock.info.features} />
     </div>
   );
