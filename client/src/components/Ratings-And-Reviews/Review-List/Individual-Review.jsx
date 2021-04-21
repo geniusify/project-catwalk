@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable camelcase */
 /* eslint-disable react/prop-types */
 import React from 'react';
@@ -5,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const IndividualReview = ({ review }) => {
   const {
-    rating, reviewer_name, date, summary, body, recommend, response, helpfulness,
+    rating, reviewer_name, date, summary, body, photos, recommend, response, helpfulness,
   } = review;
 
   return (
@@ -26,18 +27,29 @@ const IndividualReview = ({ review }) => {
         Review body:
         {body}
       </p>
-      <span>
+      {photos.length > 0
+        ? (
+          photos.map((photo) => (
+            <img className="review-photo" src={photo.url} alt={photo.id} />
+          ))
+        )
+        : null}
+      <p>
         Recommended:
         {recommend.toString()}
-      </span>
-      <p>
-        Response to Review:
-        {response}
       </p>
-      <span>
+      {response.length > 0
+        ? (
+          <span>
+            Response:
+            {response}
+          </span>
+        )
+        : null}
+      <p>
         Helpful:
         {helpfulness}
-      </span>
+      </p>
     </div>
   );
 };
@@ -48,6 +60,7 @@ IndividualReview.propTypes = {
   date: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
+  photos: PropTypes.array.isRequired,
   recommend: PropTypes.bool.isRequired,
   response: PropTypes.string.isRequired,
   helpfulness: PropTypes.number.isRequired,
