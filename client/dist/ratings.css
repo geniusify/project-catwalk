@@ -2,20 +2,38 @@
   box-sizing: border-box;
   display: grid;
   grid-template:
-  'breakdown review';
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr 5fr 1fr;
+  'rating-summary sort'
+  'breakdown review-tile'
+  'breakdown review-tile'
+  'breakdown buttons';
+  grid-template-columns: minmax(1fr, 1fr) minmax(1fr, 3fr);
+  grid-template-rows: minmax(1fr, 1fr) minmax(1fr, 5fr) minmax(1fr, 1fr);
   padding: 10px;
   gap: 5%;
   overflow: clip;
+  background-color: rgb(228, 234, 237);
 }
 
-.rr-product-breakdown {
+/* rating breakdown */
+
+.rr-rating-breakdown {
   grid-area: breakdown;
+  border: 1px solid black;
+  border-spacing: 10px;
+  padding: 10px;
+  background-image: linear-gradient(rgb(92, 141, 173), rgb(158, 173, 184));
+  opacity: 0.8;
 }
+
+/* review list */
 
 .rr-review-list {
-  grid-area: review;
+  grid-area: review-tile;
+  border: 1px solid black;
+  border-spacing: 10px;
+  padding: 10px;
+  background-image: linear-gradient(rgb(92, 141, 173), rgb(158, 173, 184));
+  opacity: 0.8;
 }
 
 .review-photo {

@@ -50,6 +50,7 @@ const IndividualReview = ({ review }) => {
         Helpful:
         {helpfulness}
       </p>
+      <hr />
     </div>
   );
 };
