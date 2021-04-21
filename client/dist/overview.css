@@ -86,7 +86,9 @@
 
 /* style selector */
 
-
+.ov-style-selector {
+  margin-top: 12px;
+}
 
 .ov-style-item {
   display: inline-block;
