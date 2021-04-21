@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 const IndividualProductBreakdown = ({ barDescription, barCategories }) => (
   <span>
     bar description:
-    {barDescription}
+    {/* {barDescription} */}
     <br />
     bar: product breakdown bar placeholder
     <br />
     bar categories:
-    {barCategories}
+    {/* {barCategories} */}
   </span>
 );
 
