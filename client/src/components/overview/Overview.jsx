@@ -26,12 +26,18 @@ const getDefaultStyleIndex = (styles) => {
 };
 
 const Overview = ({ productId }) => {
+  console.log(productId);
   const [info, setInfo] = useState(undefined);
   const [styles, setStyles] = useState(undefined);
   const [meta, setMeta] = useState(undefined);
   const [styleIndex, setStyleIndex] = useState(0);
   // const [defaultStyleIndex, setDefaultStyleIndex] = useState(undefined);
   const [style, setStyle] = useState(undefined);
+
+  const updateStyleIndex = (idx) => {
+    setStyleIndex(idx);
+    setStyle(styles[idx]);
+  };
 
   useEffect(() => {
     if (!info) {
@@ -51,10 +57,6 @@ const Overview = ({ productId }) => {
           const dsi = getDefaultStyleIndex(stylesData);
           setStyleIndex(dsi);
           setStyle(stylesData[dsi]);
-          // price = style.original_price;
-          // salePrice = style.sale_price;
-          // console.log('styles inside useEffect:', stylesData);
-          // console.log('style inside useEffect:', style);
           setStyles(stylesData);
         })
         .catch((err) => console.log('failed retrieving data', err));
@@ -64,7 +66,6 @@ const Overview = ({ productId }) => {
       axios({ url: `api/reviews/meta?product_id=${productId}`, method: 'get' })
         .then((res) => {
           setMeta(res.data);
-          // console.log('meta:', res.data);
         })
         .catch(() => console.log('failed retrieving data'));
     }
@@ -72,19 +73,17 @@ const Overview = ({ productId }) => {
 
   // XXX: initial style is actually found in styles data
 
+  const readyToRender = !!(!!info && !!style && !!styles && !!meta);
 
-
-
-
-  // return (<div>temp</div>);
-
-  // return (info && styles.length && meta.length)
-  const readyToRender = !!(!!info && !!style && !!meta);
   console.log('readyToRender:', readyToRender);
+
   let rendering = 'fail';
+
   if (readyToRender) {
-    console.log(JSON.stringify(styles));
+    console.log('style as of render', JSON.stringify(style));
+    console.log('styles as of render', JSON.stringify(styles));
   }
+
   try {
     rendering = readyToRender ?
       // ? (
@@ -117,7 +116,7 @@ const Overview = ({ productId }) => {
           <StyleSelector
             styles={styles}
             index={styleIndex}
-            select={setStyleIndex}
+            select={updateStyleIndex}
           />
           <AddToCart style={style} />
           <Features features={info.features} />
