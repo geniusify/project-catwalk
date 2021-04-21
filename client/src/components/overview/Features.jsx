@@ -6,7 +6,13 @@ import React from 'react';
 const Features = ({ features }) => {
   return (
     <div className="ov-features">
-      {JSON.stringify(features)}
+      {features.map((feature) => (
+        <div>
+          <span className="ov-feature-check">✓</span>
+          {feature.feature}
+          {feature.value ? `: ${feature.value}` : null}
+        </div>
+      ))}
     </div>
   );
 };
