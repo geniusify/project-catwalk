@@ -1,0 +1,25 @@
+.rr-container {
+  box-sizing: border-box;
+  display: grid;
+  grid-template:
+  'breakdown review';
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 5fr 1fr;
+  padding: 10px;
+  gap: 5%;
+  overflow: clip;
+}
+
+.rr-product-breakdown {
+  grid-area: breakdown;
+}
+
+.rr-review-list {
+  grid-area: review;
+}
+
+.review-photo {
+  grid-area: review;
+  height: 100px;
+  width: 100px;
+}

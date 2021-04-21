@@ -1,5 +1,10 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
+<<<<<<< HEAD
 import axios from 'axios';
+=======
+import PropTypes from 'prop-types';
+>>>>>>> 085671a038dd4f15b79291c698af8691fd43a65f
 
 import RatingSummary from './Rating-Summary.jsx';
 import Breakdown from './Breakdown.jsx';
@@ -32,6 +37,7 @@ class RatingBreakdown extends React.Component {
   }
 
   render() {
+<<<<<<< HEAD
     const { reviews } = this.state;
     console.log('state: ', this.state);
 
@@ -42,11 +48,22 @@ class RatingBreakdown extends React.Component {
           reviews={reviews}
         />
         <Breakdown />
+=======
+    const { data } = this.props;
+
+    return (
+      <div className="rr-rating-breakdown">
+        <RatingSummary data={data} />
+        <Breakdown data={data} />
+>>>>>>> 085671a038dd4f15b79291c698af8691fd43a65f
         <ProductBreakdown />
-        - end rendering rating breakdown section
       </div>
     );
   }
 }
+
+RatingBreakdown.propTypes = {
+  data: PropTypes.array.isRequired,
+};
 
 export default RatingBreakdown;
