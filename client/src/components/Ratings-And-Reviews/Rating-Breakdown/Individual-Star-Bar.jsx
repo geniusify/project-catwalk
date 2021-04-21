@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const IndividualStarBar = ({ star }) => (
+const IndividualStarBar = ({ star, count }) => (
   <p>
-    star count:
+    star:
     {star}
     <br />
     bar: star bar placeholder
     <br />
-    counts: star counts placeholder
+    counts:
+    {count}
   </p>
 );
 
 IndividualStarBar.propTypes = {
   star: PropTypes.number.isRequired,
+  count: PropTypes.number.isRequired,
 };
 
 export default IndividualStarBar;
