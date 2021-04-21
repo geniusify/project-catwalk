@@ -1,7 +1,8 @@
+/* eslint-disable no-console */
 const express = require('express');
-const app = express();
-
 const path = require('path');
+
+const app = express();
 const port = 3000;
 
 const Controller = require('./Controller/controller.js');

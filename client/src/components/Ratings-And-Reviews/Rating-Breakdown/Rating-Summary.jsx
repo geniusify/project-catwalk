@@ -7,7 +7,6 @@ class RatingSummary extends React.Component {
     super(props);
 
     this.state = {
-
     };
   }
 
