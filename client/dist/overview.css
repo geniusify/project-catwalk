@@ -60,7 +60,10 @@
 
 .ov-features {
   margin-top: 60px;
-}
+  padding-top: 20px;
+  color: #444;
+  line-height: 1.5em;
+ }
 
 /* product info */
 

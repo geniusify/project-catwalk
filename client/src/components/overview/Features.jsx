@@ -6,7 +6,11 @@ import React from 'react';
 const Features = ({ features }) => {
   return (
     <div className="ov-features">
-      {JSON.stringify(features)}
+      {features.map((feature) => (
+        <div>{feature.feature}
+        {feature.value ? ` - ${feature.value}` : null}
+        </div>
+      ))}
     </div>
   );
 };
