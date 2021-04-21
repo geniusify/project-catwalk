@@ -44,7 +44,7 @@ const Overview = (props) => {
         index={styleIndex}
         select={setStyleIndex}
       />
-      <AddToCart />
+      <AddToCart style={style}/>
       <Features features={mock.info.features} />
     </div>
   );
