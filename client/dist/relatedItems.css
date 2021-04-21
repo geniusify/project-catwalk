@@ -1,6 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-
-
-body {
-  font-family: 'Poppins', sans-serif;
+/* <!--
+.outfitList {
+  background-color:#22CAE0;
+  border: 1px blueviolet solid;
+  padding: 150px;
 }
+
+.cards {
+  background-color:#FFFF00;
+  border: 1px blueviolet solid;
+  padding: 150px;
+}
+body {
+  color:gray;
+}
+-->
+
+.App {
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}*/

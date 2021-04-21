@@ -4,8 +4,8 @@ import axios from 'axios';
 import Overview from './Overview/Overview.jsx';
 import RatingsAndReviews from './Ratings-And-Reviews/Ratings-And-Reviews.jsx';
 import RelatedItems from './RelatedItems/RelatedItems.jsx';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import YourOutfitList from './RelatedItems/YourOutfitList.jsx';
+import CarouselContainer from './RelatedItems/CarouselContainer.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class App extends React.Component {
           data,
         });
       })
-      .catch(() => console.log('failed retrieving data'));
+      .catch((error) => console.log(error));
   }
 
   render() {
@@ -34,7 +34,10 @@ class App extends React.Component {
       <div>
         <Overview data={this.state.data}/>
         <RelatedItems data={this.state.data}/>
+        <YourOutfitList data={this.state.data} />
+        <CarouselContainer />
         <RatingsAndReviews data={this.state.data}/>
+
       </div>
     );
   }

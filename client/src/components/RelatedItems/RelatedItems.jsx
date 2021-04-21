@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 class RelatedItems extends React.Component {
   constructor(props) {
@@ -11,8 +11,9 @@ class RelatedItems extends React.Component {
 
   render() {
     return (
-      <div class="">
-       <h1>RELATED PRODUCTS</h1>
+      <div >
+        <h2>RELATED PRODUCTS</h2>
+        <h2 className="cards"></h2>
       </div>
     );
   }
