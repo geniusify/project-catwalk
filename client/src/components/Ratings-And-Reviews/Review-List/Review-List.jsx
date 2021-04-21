@@ -9,7 +9,7 @@ class ReviewList extends React.Component {
 
     this.state = {
       reviews: results,
-      numberToDisplay: 2,
+      numberToDisplay: 4,
     };
   }
 
