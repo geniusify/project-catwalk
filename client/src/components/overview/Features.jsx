@@ -7,8 +7,10 @@ const Features = ({ features }) => {
   return (
     <div className="ov-features">
       {features.map((feature) => (
-        <div>{feature.feature}
-        {feature.value ? ` - ${feature.value}` : null}
+        <div>
+          <span className="ov-feature-check">✓</span>
+          {feature.feature}
+          {feature.value ? `: ${feature.value}` : null}
         </div>
       ))}
     </div>

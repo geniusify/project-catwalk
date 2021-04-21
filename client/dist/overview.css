@@ -165,3 +165,11 @@
   background-color: white;
   border: 1px solid #666;
 }
+
+/* features list */
+
+.ov-feature-check {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2em;
+  padding-right: 5px;
+}
