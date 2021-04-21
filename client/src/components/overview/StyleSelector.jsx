@@ -9,11 +9,11 @@ import StyleItem from './StyleItem.jsx';
 
 const StyleSelector = ({ styles, index, select }) => {
   return (
-    <div className='ov-style-selector'>
-      <div>
+    <div className="ov-style-selector">
+      <div className="ov-style-name">
         <b>STYLE {'>'} {styles[index].name}</b>
       </div>
-      <div className="ov-style-name">
+      <div className="ov-style-item-container">
         {styles.map((style, i) => (
           <StyleItem
             key={style.style_id}
