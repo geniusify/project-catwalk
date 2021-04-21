@@ -1,9 +1,5 @@
 .ov-product-info {
-  background-color: #cfe;
-}
-
-.ov-style-selector {
-  background-color: #efc;
+  background-color: #fff;
 }
 
 .ov-container {
@@ -21,7 +17,6 @@
 
 .ov-image-gallery {
   grid-area: gallery;
-  background-color: pink;
 }
 
 .ov-product-info {
@@ -30,17 +25,15 @@
 
 .ov-description {
   grid-area: description;
-  background-color: #88f;
 }
 
 .ov-style-selector {
   grid-area: styles;
-  background-color: #ffa;
+  background-color: #fff;
 }
 
 .ov-add-to-cart {
   grid-area: cart;
-  background-color: #fca;
 }
 
 .ov-features {
@@ -75,8 +68,97 @@
   text-transform: uppercase
 }
 
+.ov-sale-price {
+  color: red;
+}
+
+.ov-old-price {
+  text-decoration: line-through;
+}
+
 /* gallery */
 
 .ov-main-gallery-image {
   width: 100%;
+  object-fit: fill;
+}
+
+
+/* style selector */
+
+.ov-style-selector {
+  margin-top: 12px;
+}
+
+.ov-style-item {
+  display: inline-block;
+  /* position: relative; */
+  height: 60px;
+  width: 60px;
+  margin: 12px;
+  border-radius: 30px;
+  border: 1px solid #333;
+  background-size: cover;
+  background-position: center center;
+
+  /* background-size: contain; */
+  cursor: pointer;
+}
+
+.ov-selected-style-item {
+  font-size: 2em;
+}
+
+.ov-style-selector-check {
+  position: absolute;
+  /* display:block; */
+  /* float: right; */
+  /* left: 20px; */
+  /* top: 0px; */
+  /* margin: 0px; */
+  /* padding: 0px; */
+  margin-left: 40px;
+  background: white;
+  border: 1px solid #333;
+  color: #333;
+  padding-left: 2.5px;
+  font-size: .4em;
+  width: 12px;
+  border-radius: 999px;
+  /* display: none; */
+}
+
+/* add to cart */
+
+.ov-cart-size {
+  width: 243px;
+  height: 60px;
+  margin-right: 24px;
+  margin-bottom: 24px;
+}
+
+.ov-cart-quantity {
+  width: 128px;
+  height: 60px;
+}
+
+.ov-cart-add {
+  width: 310px;
+  height: 60px;
+  margin-right: 24px;
+}
+
+.ov-cart-like {
+  width: 60px;
+  height: 60px;
+  font-size: 1em;
+}
+
+.ov-cart-size,
+.ov-cart-quantity,
+.ov-cart-add,
+.ov-cart-like {
+  padding: 0;
+  background-color: white;
+  border: 1px solid #666;
 }

@@ -22,8 +22,7 @@ class ProductBreakdown extends React.Component {
     const { barTypes } = this.state;
 
     return (
-      <div>
-        3. test rendering product breakdown
+      <div className="rr-product-breakdown">
         {Object.keys(barTypes).map((barDescription) => (
           <p>
             <IndividualProductBreakdown

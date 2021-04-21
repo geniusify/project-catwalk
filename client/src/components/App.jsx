@@ -30,14 +30,12 @@ class App extends React.Component {
   }
 
   render() {
+
     return (
       <div>
         <Overview data={this.state.data}/>
-        <RelatedItems data={this.state.data}/>
-        <YourOutfitList data={this.state.data} />
         <CarouselContainer />
         <RatingsAndReviews data={this.state.data}/>
-
       </div>
     );
   }
