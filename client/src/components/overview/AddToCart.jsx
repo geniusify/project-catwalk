@@ -13,18 +13,18 @@ const AddToCart = ({ style }) => {
     .filter(([id, sku]) => sku.quantity > 0);
 
   const [clicked, setClicked] = useState(false);
-  const [cartSize, setCartSize] = useState('M');
+  const [cartSize, setCartSize] = useState(false);
+  const [skuId, setSkuId] = useState(-1);
   const [sku, setSku] = useState(false);
   const [quantity, setQuantity] = useState(false);
   const [quantityAvail, setQuantityAvail] = useState(false);
 
   const onSizeChoice = (id) => {
+    setSkuId(id);
     setSku(skus[id]);
     setCartSize(skus[id].size);
     setQuantityAvail(skus[id].quantity);
     setQuantity(1);
-    console.log(id, skus[id].size);
-    setTimeout(function() {console.log(id, sku, cartSize, clicked, quantity)}, 1000);
   };
 
   return (
@@ -33,8 +33,9 @@ const AddToCart = ({ style }) => {
         <select
           className="ov-cart-size"
           name="size"
-          value={cartSize}
+          value={skuId}
           onChange={(e) => onSizeChoice(e.target.value)}
+          // onChange={(e) => setCartSize(e.target.value)}
           onClick={() => setClicked(true)}
         >
           {clicked
