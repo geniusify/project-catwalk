@@ -10,7 +10,7 @@ const IndividualReview = ({ review }) => {
   } = review;
 
   return (
-    <div>
+    <div className="rr-review-tile">
       <span>
         Star rating:
         {rating}
