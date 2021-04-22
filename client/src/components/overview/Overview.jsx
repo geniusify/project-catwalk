@@ -79,10 +79,10 @@ const Overview = ({ productId }) => {
 
   let rendering = 'fail';
 
-  if (readyToRender) {
-    console.log('style as of render', JSON.stringify(style));
-    console.log('styles as of render', JSON.stringify(styles));
-  }
+  // if (readyToRender) {
+  //   console.log('style as of render', JSON.stringify(style));
+  //   console.log('styles as of render', JSON.stringify(styles));
+  // }
 
   try {
     rendering = readyToRender ?
