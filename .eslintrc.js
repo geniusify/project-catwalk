@@ -22,6 +22,5 @@ module.exports = {
   ],
   rules: {
     'import/extensions': 'off',
-    'react/jsx-uses-react': 'on',
   },
 };

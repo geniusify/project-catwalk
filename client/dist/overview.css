@@ -99,12 +99,19 @@
 
 .ov-gallery-left {
   grid-area: left;
-  border: 2px solid blueviolet;
 }
 
 .ov-gallery-right {
   grid-area: right;
-  border: 2px solid blueviolet;
+}
+
+.ov-gallery-left,
+.ov-gallery-right {
+  display: inline-block;
+  position: relative;
+  /* border: 2px solid blueviolet; */
+  top: 280px;
+  cursor: pointer;
 }
 
 .ov-gallery-thumbnail-viewer {

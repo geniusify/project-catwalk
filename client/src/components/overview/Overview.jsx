@@ -66,8 +66,8 @@ const Overview = ({ productId }) => {
   // console.log('readyToRender:', readyToRender);
   let rendering = 'unrendered';
   try {
-    rendering = readyToRender ?
-      (
+    rendering = readyToRender
+      ? (
         <div className="ov-container">
           <ImageGallery photos={style.photos} alt={info.name} />
           <ProductInfo
