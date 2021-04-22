@@ -42,7 +42,7 @@ const GalleryThumbnails = ({
               key={photo.url}
               className={classNames(index)}
               onClick={() => chooseThumbnail(index)}
-              style={{ backgroundImage: `url(${photo.thumbnail_url})` }}
+              style={false ? {} : { backgroundImage: `url(${photo.thumbnail_url})` }}
             />
           ))}
         </div>
