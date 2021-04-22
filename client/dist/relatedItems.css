@@ -1,0 +1,74 @@
+/* <!--
+.outfitList {
+  background-color:#22CAE0;
+  border: 1px blueviolet solid;
+  padding: 150px;
+}
+
+.cards {
+  background-color:#FFFF00;
+  border: 1px blueviolet solid;
+  padding: 150px;
+}
+body {
+  color:gray;
+}
+-->
+
+.App {
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}*/
+
+.carouselOuterDiv {
+  height: 600px;
+  width: 80%;
+  background-color: #FFFFFF;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-color: rgb(156, 147, 13);
+  border-style: solid;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.carouselInnerDiv {
+  height: 400px;
+  background-color: #ffffff;
+  border-color: black;
+  border-style: solid;
+  margin: 10px;
+  float: left;
+  width: 200px;
+  border-color: #656565;
+  border-style: solid;
+  border-width: 1.5px;
+}
+
+.relatedProductsImage {
+
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.relatedProductText {
+
+  margin-left: 5px;
+  text-shadow: blue;
+  font-style: normal;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.carouselItem {
+
+  margin: 0px;
+  padding: 0px;
+  width:100%;
+  height:100%;
+  background-color: rgb(255, 255, 255);
+}

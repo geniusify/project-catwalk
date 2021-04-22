@@ -4,7 +4,7 @@ import React from 'react';
 
 import Overview from './Overview/Overview.jsx';
 import RatingsAndReviews from './Ratings-And-Reviews/Ratings-And-Reviews.jsx';
-import Related_Items from './Related_Items/Related_Items.jsx';
+import CarouselContainer from './RelatedItems/CarouselContainer.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class App extends React.Component {
     return this.state.productId ? (
       <div>
         <Overview productId={this.state.productId} />
-        <Related_Items productId={this.state.productId} />
+        <CarouselContainer productId={this.state.productId} />
         <RatingsAndReviews productId={this.state.productId} />
       </div>
     ) : (<div>loading...</div>);
