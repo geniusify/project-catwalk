@@ -121,6 +121,14 @@
   transition: .2s;
 }
 
+.ov-up-arrow,
+.ov-down-arrow {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border: 1px solid chocolate;
+}
+
 /* style selector */
 
 .ov-style-selector {
