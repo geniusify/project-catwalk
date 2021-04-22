@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -5,12 +6,20 @@
 import React from 'react';
 
 const GalleryThumbnails = ({
-  photos, chooseThumbnail, imageIndex, topIndex, setTopIndex,
+  photos, chooseThumbnail, imageIndex, topIndex, setTopIndex, extendedView,
 }) => {
   const thumbOffset = -90;
   const height = Math.min(photos.length, 7) * 90 - 30 + 4;
   const canScrollUp = topIndex > 0;
   const canScrollDown = photos.length - topIndex > 7;
+  const classNames = (index) => {
+    const selected = index === imageIndex;
+    if (!extendedView) {
+      return `ov-gallery-thumbnail ${selected ? 'ov-gallery-thumbnail-selected' : ''}`;
+    } else {
+      return `ov-gallery-thumbnail-extended ${selected ? 'ov-gallery-thumbnail-extended-selected' : ''}`;
+    }
+  };
   return (
     <div
       className="ov-gallery-thumbnail-viewer"
@@ -31,7 +40,7 @@ const GalleryThumbnails = ({
           {photos.map((photo, index) => (
             <div
               key={photo.url}
-              className={`ov-gallery-thumbnail ${index === imageIndex ? 'ov-gallery-thumbnail-selected' : ''}`}
+              className={classNames(index)}
               onClick={() => chooseThumbnail(index)}
               style={{ backgroundImage: `url(${photo.thumbnail_url})` }}
             />

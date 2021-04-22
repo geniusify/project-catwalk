@@ -94,7 +94,11 @@
   display: grid;
   grid-template: 'thumbnails left image right';
   grid-template-columns: 94px 24px 650px 24px;
-  /* grid-template-rows: 211px 284px 85px 300px; */
+}
+
+.ov-image-gallery-extended {
+  grid-template-columns: 94px 24px 1050px 24px;
+  /* border: 12px solid pink; */
 }
 
 .ov-main-gallery-image {
