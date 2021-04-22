@@ -32,6 +32,7 @@ const Overview = ({ productId }) => {
   const [meta, setMeta] = useState(undefined);
   const [styleIndex, setStyleIndex] = useState(0);
   const [style, setStyle] = useState(undefined);
+  const [extendedView, setExtendedView] = useState(false);
 
   const updateStyleIndex = (idx) => {
     setStyleIndex(idx);
@@ -65,28 +66,41 @@ const Overview = ({ productId }) => {
   const readyToRender = !!(!!info && !!style && !!styles && !!meta);
   // console.log('readyToRender:', readyToRender);
   let rendering = 'unrendered';
+  console.log('extendedView', extendedView);
   try {
     rendering = readyToRender
       ? (
-        <div className="ov-container">
-          <ImageGallery photos={style.photos} alt={info.name} />
-          <ProductInfo
-            info={info}
-            ratings={meta.ratings}
-            price={style.original_price}
-            salePrice={style.sale_salePrice}
+        <div
+          className={`ov-container${extendedView ? ' ov-container-extended' : ''}`}
+        >
+          <ImageGallery
+            photos={style.photos}
+            alt={info.name}
+            extendedView={extendedView}
+            setExtendedView={setExtendedView}
           />
-          <ProductDescription
-            description={info.description}
-            slogan={info.slogan}
-          />
-          <StyleSelector
-            styles={styles}
-            index={styleIndex}
-            select={updateStyleIndex}
-          />
-          <AddToCart style={style} />
-          <Features features={info.features} />
+          {extendedView ? null : (
+            <>
+              <ProductInfo
+                info={info}
+                ratings={meta.ratings}
+                price={style.original_price}
+                salePrice={style.sale_salePrice}
+              />
+              <ProductDescription
+                description={info.description}
+                slogan={info.slogan}
+              />
+              <StyleSelector
+                styles={styles}
+                index={styleIndex}
+                select={updateStyleIndex}
+              />
+              <AddToCart style={style} />
+              <Features features={info.features} />
+            </>
+          )}
+
         </div>
       )
       : (<div>loading...</div>);

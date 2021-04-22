@@ -6,7 +6,7 @@
 import React, { useState } from 'react';
 import GalleryThumbnails from './GalleryThumbnails.jsx';
 
-const ImageGallery = ({ photos, alt }) => {
+const ImageGallery = ({ photos, alt, setExtendedView }) => {
   const [imageIndex, setImageIndex] = useState(0);
   const [topIndex, setTopIndex] = useState(0);
   const canScrollLeft = imageIndex > 0;
@@ -27,7 +27,16 @@ const ImageGallery = ({ photos, alt }) => {
 
   return (
     <div className="ov-image-gallery">
-      <img className="ov-main-gallery-image" src={photos[imageIndex].url} alt={alt} />
+      <img
+        className="ov-main-gallery-image"
+        src={photos[imageIndex].url}
+        alt={alt}
+        onClick={() => {
+          console.log('click');
+          setExtendedView((isSet) => !isSet);
+        }}
+      />
+
       {canScrollLeft
         ? (
           <img
@@ -51,7 +60,8 @@ const ImageGallery = ({ photos, alt }) => {
         photos={photos}
         chooseThumbnail={setImageIndex}
         imageIndex={imageIndex}
-        topIndex={topIndex} setTopIndex={setTopIndex}
+        topIndex={topIndex}
+        setTopIndex={setTopIndex}
       />
     </div>
   );
