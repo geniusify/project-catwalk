@@ -1,7 +1,7 @@
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
-import StarRating from '../../shared/Star.jsx';
+import StarRating from '../../shared/StarDynamic.jsx';
 
 class RatingSummary extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class RatingSummary extends React.Component {
       <div className="rr-rating-summary">
         <p>
           star:
-          {/* <StarRating /> */}
+          <StarRating />
           rating summmary:
           {this.calculateAverage()}
           <br />

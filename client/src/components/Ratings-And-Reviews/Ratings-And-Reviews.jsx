@@ -2,6 +2,7 @@ import React from 'react';
 
 import RatingBreakdown from './Rating-Breakdown/Rating-Breakdown.jsx';
 import ReviewList from './Review-List/Review-List.jsx';
+import AddReview from './Add-Review/Add-Review.jsx';
 
 import data from './testReviewData.js';
 
@@ -21,6 +22,7 @@ class RatingsAndReviews extends React.Component {
       <div className="rr-container">
         <RatingBreakdown data={reviewData} />
         <ReviewList data={reviewData} />
+        <AddReview data={reviewData} />
       </div>
     );
   }
