@@ -85,7 +85,7 @@
   box-sizing: border-box;
   display: grid;
   grid-template: 'thumbnails image';
-  grid-template-columns: 120px 650px;
+  grid-template-columns: 80px 650px;
   /* grid-template-rows: 211px 284px 85px 300px; */
 }
 
@@ -97,12 +97,34 @@
   /* border: 2px solid purple; */
 }
 
-.ov-gallery-thumbnails {
+.ov-gallery-thumbnail-viewer {
   grid-area: thumbnails;
-  position: absolute;
-  top: 30px;
-  left: 30px;
+  display: grid;
+  justify-items: center;
+  grid-template: 'up' 'ths' 'down';
+  grid-template-columns: 80px;
+  grid-template-rows: 50px 600px 50px;
   /* border: 1px solid red; */
+}
+
+.ov-gallery-thumbnails-container {
+  grid-area: ths;
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  overflow: hidden;
+  top: 48px;
+  height: 600px;
+  width: 80px;
+  margin: 0;
+  padding: 0;
+}
+
+.ov-gallery-thumbnails {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  transition: top .25s ease-in-out;
 }
 
 .ov-gallery-thumbnail {
@@ -110,7 +132,6 @@
   height: 60px;
   width: 60px;
   margin: 0 0 30px 0;
-  /* border: 1px solid green; */
   background-size: cover;
   background-position: center center;
   cursor: pointer;
@@ -121,12 +142,20 @@
   transition: .2s;
 }
 
+.ov-up-arrow {
+  grid-area: up;
+}
+
+.ov-down-arrow {
+  grid-area: down;
+}
+
 .ov-up-arrow,
 .ov-down-arrow {
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  border: 1px solid chocolate;
+  display: block;
+  height: 24px;
+  width: 24px;
+  /* border: 1px solid yellowgreen; */
 }
 
 /* style selector */
