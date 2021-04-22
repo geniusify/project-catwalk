@@ -92,7 +92,9 @@
 .ov-main-gallery-image {
   grid-area: image;
   width: 100%;
-  object-fit: fill;
+  height: 100%;
+  object-fit: contain;
+  border: 2px solid purple;
 }
 
 .ov-gallery-thumbnails {
