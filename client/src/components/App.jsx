@@ -1,10 +1,9 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable class-methods-use-this */
 import React from 'react';
-import axios from 'axios';
 
 import Overview from './Overview/Overview.jsx';
 import RatingsAndReviews from './Ratings-And-Reviews/Ratings-And-Reviews.jsx';
-import RelatedItems from './RelatedItems/RelatedItems.jsx';
-import YourOutfitList from './RelatedItems/YourOutfitList.jsx';
 import CarouselContainer from './RelatedItems/CarouselContainer.jsx';
 
 class App extends React.Component {
@@ -12,32 +11,30 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      data: {},
+      productId: undefined,
     };
   }
 
   componentDidMount() {
-    axios({
-      url: 'api/products/23718/styles',
-      method: 'get',
-    })
-      .then((data) => {
-        this.setState({
-          data,
-        });
-      })
-      .catch((error) => console.log(error));
+    const defaultId = '23718'; // A random default product
+    const productId = this.getProductIdFromUrl() ?? defaultId;
+    this.setState({ productId });
+  }
+
+  getProductIdFromUrl() {
+    const { search } = window.location;
+    const productIdRegex = /p_id=([0-9]+)/; // E.g.: "?p_id=12345"
+    return productIdRegex.exec(search)?.[1];
   }
 
   render() {
-
-    return (
+    return this.state.productId ? (
       <div>
-        <Overview data={this.state.data}/>
-        <CarouselContainer />
-        <RatingsAndReviews data={this.state.data}/>
+        <Overview productId={this.state.productId} />
+        <CarouselContainer productId={this.state.productId} />
+        <RatingsAndReviews productId={this.state.productId} />
       </div>
-    );
+    ) : (<div>loading...</div>);
   }
 }
 
