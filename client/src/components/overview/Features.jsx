@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react';
@@ -6,8 +7,8 @@ import React from 'react';
 const Features = ({ features }) => {
   return (
     <div className="ov-features">
-      {features.map((feature) => (
-        <div>
+      {features.map((feature, idx) => (
+        <div key={idx}>
           <span className="ov-feature-check">✓</span>
           {feature.feature}
           {feature.value ? `: ${feature.value}` : null}
