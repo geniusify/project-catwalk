@@ -85,7 +85,7 @@
   box-sizing: border-box;
   display: grid;
   grid-template: 'thumbnails image';
-  grid-template-columns: 80px 650px;
+  grid-template-columns: 94px 650px;
   /* grid-template-rows: 211px 284px 85px 300px; */
 }
 
@@ -101,9 +101,13 @@
   grid-area: thumbnails;
   display: grid;
   justify-items: center;
-  grid-template: 'up' 'ths' 'down';
+  grid-template:
+    'up'
+    'ths'
+    'down';
   grid-template-columns: 80px;
-  grid-template-rows: 50px 600px 50px;
+  height: 610px;
+  /* grid-template-rows: 50px 520px 50px; */
   /* border: 1px solid red; */
 }
 
@@ -114,10 +118,11 @@
   position: absolute;
   overflow: hidden;
   top: 48px;
-  height: 600px;
+  /* height: 600px; */
   width: 80px;
   margin: 0;
   padding: 0;
+  /* border: 2px solid red; */
 }
 
 .ov-gallery-thumbnails {
