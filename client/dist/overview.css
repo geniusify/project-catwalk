@@ -84,8 +84,8 @@
 .ov-image-gallery {
   box-sizing: border-box;
   display: grid;
-  grid-template: 'thumbnails image';
-  grid-template-columns: 94px 650px;
+  grid-template: 'thumbnails left image right';
+  grid-template-columns: 94px 24px 650px 24px;
   /* grid-template-rows: 211px 284px 85px 300px; */
 }
 
@@ -95,6 +95,16 @@
   height: 100%;
   object-fit: contain;
   /* border: 2px solid purple; */
+}
+
+.ov-gallery-left {
+  grid-area: left;
+  border: 2px solid blueviolet;
+}
+
+.ov-gallery-right {
+  grid-area: right;
+  border: 2px solid blueviolet;
 }
 
 .ov-gallery-thumbnail-viewer {
@@ -144,6 +154,7 @@
 
 .ov-gallery-thumbnail-selected {
   transform: scale(1.1, 1.1);
+  box-shadow: 0px 0px 10px black;
   transition: .2s;
 }
 
@@ -160,6 +171,7 @@
   display: block;
   height: 24px;
   width: 24px;
+  cursor: pointer;
   /* border: 1px solid yellowgreen; */
 }
 

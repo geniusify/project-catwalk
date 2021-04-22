@@ -9,6 +9,8 @@ const ImageGallery = ({ photos, alt }) => {
   return (
     <div className="ov-image-gallery">
       <img className="ov-main-gallery-image" src={photos[imageIndex].url} alt={alt} />
+      <img src="icons/left.svg" className="ov-gallery-left" />
+      <img src="icons/right.svg" className="ov-gallery-right" />
       <GalleryThumbnails
         photos={photos}
         chooseThumbnail={setImageIndex}
