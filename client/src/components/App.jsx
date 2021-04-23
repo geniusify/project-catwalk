@@ -11,22 +11,28 @@ import CarouselContainer from './RelatedItems/CarouselContainer.jsx';
 
 window.clicks = [];
 
-const loadTime = new Date();
+const logClicks = (WrappedComponent) => (props) => {
+  const startTime = new Date();
+  const [name, Component] = Object.entries(WrappedComponent)[0];
+  return (
+    <div onClick={(event) => {
+      const clickInfo = {
+        module: name,
+        element: event.target,
+        time: (new Date() - startTime) / 1000,
+      };
+      console.log(clickInfo);
+      window.clicks.push(clickInfo);
+    }}
+    >
+      <Component {...props} />
+    </div>
+  );
+};
 
-const logClicks = (WrappedComponent, module) => (props) => (
-  <div onClick={(event) => {
-    const clickInfo = { module, element: event.target, time: (new Date() - loadTime) / 1000 };
-    console.log(clickInfo);
-    window.clicks.push(clickInfo);
-  }}
-  >
-    <WrappedComponent {...props} />
-  </div>
-);
-
-const LoggedOverview = logClicks(Overview, 'Overview');
-const LoggedCarouselContainer = logClicks(CarouselContainer, 'CarouselContainer');
-const LoggedRatingsAndReviews = logClicks(RatingsAndReviews, 'RatingsAndReviews');
+const LoggedOverview = logClicks({ Overview });
+const LoggedCarouselContainer = logClicks({ CarouselContainer });
+const LoggedRatingsAndReviews = logClicks({ RatingsAndReviews });
 
 class App extends React.Component {
   constructor(props) {
