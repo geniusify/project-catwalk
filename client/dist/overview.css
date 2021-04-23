@@ -37,7 +37,6 @@
 
 .ov-style-selector {
   grid-area: styles;
-  background-color: #fff;
 }
 
 .ov-add-to-cart {
@@ -47,6 +46,8 @@
 .ov-features {
   grid-area: features;
 }
+
+/* product info */
 
 .ov-product-info,
 .ov-style-selector,
@@ -73,8 +74,6 @@
   line-height: 1.5em;
  }
 
-/* product info */
-
 .ov-category {
   text-transform: uppercase
 }
@@ -85,6 +84,34 @@
 
 .ov-old-price {
   text-decoration: line-through;
+}
+
+.ov-share-hn {
+  background-color: #ff4000;
+}
+
+.ov-share-reddit {
+  background-color: #ff4500;
+}
+
+.ov-share-pinterest {
+  background-color: #cb2027;
+}
+
+.ov-share-hn,
+.ov-share-reddit,
+.ov-share-pinterest {
+  display: inline-block;
+  object-fit: scale-down;
+}
+
+.ov-share-hn:hover,
+.ov-share-reddit:hover,
+.ov-share-pinterest:hover {
+  display: inline-block;
+  object-fit: scale-down;
+  opacity: .6;
+  cursor: pointer;
 }
 
 /* gallery */

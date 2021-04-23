@@ -50,9 +50,29 @@ const ProductInfo = ({
           )
           : <span>{`$${price}`}</span>}
       </div>
-      <div>
+      <div className="ov-share-on-social">
         <br />
-        <em>Share on Social media</em>
+        <img
+          src="https://platform-cdn.sharethis.com/img/pinterest.svg"
+          alt="share on pinterest"
+          title="share on pinterest"
+          className="ov-share-pinterest"
+          height="24"
+        />
+        <img
+          src="https://platform-cdn.sharethis.com/img/reddit.svg"
+          alt="share on reddit"
+          title="share on reddit"
+          className="ov-share-reddit"
+          height="24"
+        />
+        <img
+          src="https://platform-cdn.sharethis.com/img/hackernews.svg"
+          alt="share on hackernews"
+          title="share on hackernews"
+          className="ov-share-hn"
+          height="24"
+        />
       </div>
     </div>
   );
