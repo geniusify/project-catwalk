@@ -23,10 +23,10 @@ class RelatedItems extends React.Component {
             <b>{this.props.riName}</b><br /><br />
             {this.props.riPrice}<br /><br />
 
-              <FontAwesomeIcon icon={faStar} color="orange"/>
-              <FontAwesomeIcon icon={faStar} color="orange"/>
-              <FontAwesomeIcon icon={faStar} color="orange"/>
-              <FontAwesomeIcon icon={faStar} color="orange"/>
+              <FontAwesomeIcon icon={faStar} color="aqua"/>
+              <FontAwesomeIcon icon={faStar} color="aqua"/>
+              <FontAwesomeIcon icon={faStar} color="aqua"/>
+              <FontAwesomeIcon icon={faStar} color="aqua"/>
               <FontAwesomeIcon icon={faStar} />
           </p>
         </div>

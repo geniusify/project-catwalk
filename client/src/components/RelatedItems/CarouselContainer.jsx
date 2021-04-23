@@ -1,9 +1,9 @@
 import React from 'react';
 import RelatedItems from './RelatedItems.jsx';
 import Carousel from "react-multi-carousel";
+import YourOutfitList from './YourOutfitList.jsx';
 
 class CarouselContainer extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {};
@@ -20,6 +20,10 @@ class CarouselContainer extends React.Component {
       <RelatedItems riCategory="JACKETS" riID="23145" riName="Camo Onesie - 5" riPrice="$140.00" riImage="https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"/>,
       <RelatedItems riCategory="JACKETS" riID="23145" riName="Camo Onesie - 6" riPrice="$140.00" riImage="https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"/>,
     ];
+
+    var relatedOutfit = [
+      <YourOutfitList />
+    ]
 
     // This responsive variable was added from the react-multi-carousel docs (https://www.npmjs.com/package/react-multi-carousel)
     // The important option here is the items (number of cards shown at one time)
@@ -46,6 +50,10 @@ class CarouselContainer extends React.Component {
         <p>RELATED PRODUCTS</p>
         <Carousel responsive={responsive}>
             {relatedItemsList}
+        </Carousel>
+        <p>YOUR OUTFIT</p>
+        <Carousel className="test" responsive={responsive}>
+            {relatedOutfit}
         </Carousel>
       </div>
     );

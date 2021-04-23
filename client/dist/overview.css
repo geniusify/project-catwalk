@@ -13,6 +13,14 @@
   grid-template-columns: 760px 457px;
   grid-template-rows: 211px 284px 85px 300px;
   overflow: clip;
+  /* transition: grid-template-rows .5s;
+  transition: grid-template-columns .5s; */
+  transition: .5s;
+}
+
+.ov-container-extended {
+  grid-template-columns: 1217px 0px;
+  grid-template-rows: 211px 284px 385px 0px;
 }
 
 .ov-image-gallery {
@@ -81,11 +89,132 @@
 
 /* gallery */
 
-.ov-main-gallery-image {
-  width: 100%;
-  object-fit: fill;
+.ov-image-gallery {
+  box-sizing: border-box;
+  display: grid;
+  grid-template: 'thumbnails left image right';
+  grid-template-columns: 94px 24px 650px 24px;
 }
 
+.ov-image-gallery-extended {
+  grid-template-columns: 94px 24px 1050px 24px;
+  /* border: 12px solid pink; */
+}
+
+.ov-main-gallery-image {
+  grid-area: image;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: zoom-in;
+  /* border: 2px solid purple; */
+}
+
+.ov-gallery-left, .ov-gallery-left-extended {
+  grid-area: left;
+}
+
+.ov-gallery-right, .ov-gallery-right-extended {
+  grid-area: right;
+}
+
+.ov-gallery-left,
+.ov-gallery-right {
+  display: inline-block;
+  position: relative;
+  /* border: 2px solid blueviolet; */
+  top: 280px;
+  cursor: pointer;
+}
+
+.ov-gallery-left-extended,
+.ov-gallery-right-extended {
+  display: inline-block;
+  position: relative;
+  top: 430px;
+  cursor: pointer;
+}
+
+.ov-gallery-thumbnail-viewer {
+  grid-area: thumbnails;
+  display: grid;
+  justify-items: center;
+  grid-template: 'up' 'ths' 'down';
+  grid-template-columns: 80px;
+  height: 610px;
+}
+
+.ov-gallery-thumbnails-container {
+  grid-area: ths;
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  overflow: hidden;
+  top: 48px;
+  width: 80px;
+  margin: 0;
+  padding: 0;
+}
+
+.ov-gallery-thumbnails {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  transition: top .25s ease-in-out;
+}
+
+.ov-gallery-thumbnail {
+  box-sizing: border-box;
+  height: 60px;
+  width: 60px;
+  margin: 0 0 30px 0;
+  opacity: .8;
+  background-size: cover;
+  background-position: center center;
+  cursor: pointer;
+}
+
+.ov-gallery-thumbnail-selected {
+  transform: scale(1.1, 1.1);
+  box-shadow: 0px 0px 10px black;
+  opacity: 1;
+  transition: .2s;
+}
+
+.ov-gallery-thumbnail-extended {
+  box-sizing: border-box;
+  transform: scale(1.1, 1.1);
+  background-color: #666;
+  height: 60px;
+  width: 60px;
+  opacity: .4;
+  margin: 0 0 30px 0;
+  background-size: cover;
+  background-position: center center;
+  cursor: pointer;
+}
+
+.ov-gallery-thumbnail-extended-selected {
+  box-shadow: 0px 0px 10px black;
+  transition: .2s;
+  opacity: 1;
+}
+
+.ov-up-arrow {
+  grid-area: up;
+}
+
+.ov-down-arrow {
+  grid-area: down;
+}
+
+.ov-up-arrow,
+.ov-down-arrow {
+  display: block;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
 
 /* style selector */
 
@@ -95,7 +224,6 @@
 
 .ov-style-item {
   display: inline-block;
-  /* position: relative; */
   height: 60px;
   width: 60px;
   margin: 12px;
@@ -103,8 +231,6 @@
   border: 1px solid #333;
   background-size: cover;
   background-position: center center;
-
-  /* background-size: contain; */
   cursor: pointer;
 }
 
@@ -114,12 +240,6 @@
 
 .ov-style-selector-check {
   position: absolute;
-  /* display:block; */
-  /* float: right; */
-  /* left: 20px; */
-  /* top: 0px; */
-  /* margin: 0px; */
-  /* padding: 0px; */
   margin-left: 40px;
   background: white;
   border: 1px solid #333;
@@ -128,7 +248,6 @@
   font-size: .4em;
   width: 12px;
   border-radius: 999px;
-  /* display: none; */
 }
 
 /* add to cart */
