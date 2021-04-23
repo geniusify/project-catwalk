@@ -42,18 +42,19 @@ p{
 .carouselInnerDiv {
   height: 400px;
   background-color: #f7f7f7;
-  border-color: black;
+  border-color:#D7CFFB;
   border-style: solid;
   margin: 10px;
   float: left;
-  width: 200px;
-  border-color: #656565;
+ width: 200px;
+  border-color:#D7CFFB;
   border-style: solid;
   border-width: 1px;
+  position: relative;
+  /*width: 50%;*/
 }
 
 .relatedProductsImage {
-
   width: 100%;
   height: 60%;
   object-fit: cover;
@@ -61,9 +62,8 @@ p{
 }
 
 .relatedProductText {
-
   margin-left: 6px;
-  text-shadow: blue;
+  /* text-shadow: blue; */
   font-style: normal;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -78,11 +78,23 @@ p{
 }
 
 .outfitButton{
-    border-color: black;
-    padding: 50px;
+    border-color: #D7CFFB;
+    padding: 30px;
     text-align: center;
     text-decoration: none;
     display:inline-flex;
-    font-size: 50px;
-    border-radius: 50%;
+    font-size: 60px;
+    border-radius: 20%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+
+    color:#D7CFFB;
+
+}
+
+.carouselInnerDiv .outfitButton:hover {
+  background-color: #00BEC5;
 }
