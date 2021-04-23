@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useEffect } from 'react';
 
 const Favorite = ({ styleId }) => {
@@ -5,7 +7,8 @@ const Favorite = ({ styleId }) => {
   useEffect(() => {
     setLiked(localStorage.getItem(styleId) === 'liked');
   }, [styleId]);
-  const toggleLiked = () => {
+  const toggleLiked = (e) => {
+    e.preventDefault();
     if (liked) {
       localStorage.removeItem(styleId);
     } else {
@@ -15,13 +18,25 @@ const Favorite = ({ styleId }) => {
   };
 
   return (
-    <button
-      className={liked ? 'ov-cart-liked' : 'ov-cart-like'}
-      type="button"
+    // <button
+    //   className={liked ? 'ov-cart-liked' : 'ov-cart-like'}
+    //   type="button"
+    //   onClick={toggleLiked}
+    // >
+    //   {styleId}
+    // </button>
+    <div
+      className="ov-cart-like"
       onClick={toggleLiked}
     >
-      {styleId}
-    </button>
+      <input
+        className="ov-cart-like-input"
+        type="image"
+        alt="like"
+        title="like"
+        src={liked ? 'icons/heart.svg' : 'icons/heart_border.svg'}
+      />
+    </div>
   );
 };
 

@@ -65,6 +65,7 @@ const AddToCart = ({ style }) => {
         <button className="ov-cart-add" type="button">Add To Bag</button>
 
         <Favorite styleId={style.style_id} />
+        {/* <div className="ov-cart-like">test</div> */}
       </form>
     </div>
   );
