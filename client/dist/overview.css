@@ -303,6 +303,12 @@
   font-size: 1em;
 }
 
+.ov-cart-liked {
+  width: 60px;
+  height: 60px;
+  background-color: red;
+}
+
 .ov-cart-size,
 .ov-cart-quantity,
 .ov-cart-add,
