@@ -114,6 +114,25 @@
   cursor: pointer;
 }
 
+.ov-share-hn:hover,
+.ov-share-reddit:hover,
+.ov-share-pinterest:hover {
+  display: inline-block;
+  object-fit: scale-down;
+  opacity: .6;
+  cursor: pointer;
+}
+
+.ov-share-hn:active,
+.ov-share-reddit:active,
+.ov-share-pinterest:active {
+  display: inline-block;
+  object-fit: scale-down;
+  opacity: .8;
+  cursor: pointer;
+}
+
+
 /* gallery */
 
 .ov-image-gallery {
