@@ -1,10 +1,8 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable class-methods-use-this */
-import React from 'react';
 
+import React from 'react';
+import logClicks from '../clicklogger.jsx';
 import Overview from './overview/Overview.jsx';
 import RatingsAndReviews from './Ratings-And-Reviews/Ratings-And-Reviews.jsx';
 import CarouselContainer from './RelatedItems/CarouselContainer.jsx';
@@ -14,24 +12,6 @@ window.clicks = [];
 const handleClicks = (clickInfo) => {
   console.log(clickInfo);
   window.clicks.push(clickInfo);
-};
-
-const logClicks = (WrappedComponent, cb) => (props) => {
-  const startTime = new Date();
-  const [name, Component] = Object.entries(WrappedComponent)[0];
-  return (
-    <div onClick={(event) => {
-      const clickInfo = {
-        module: name,
-        element: event.target,
-        time: (new Date() - startTime) / 1000,
-      };
-      cb(clickInfo);
-    }}
-    >
-      <Component {...props} />
-    </div>
-  );
 };
 
 const LoggedOverview = logClicks({ Overview }, handleClicks);
