@@ -8,7 +8,7 @@
    '. ov .'
    '. rel .'
    '. rr .';
-  grid-template-columns: 1fr 1200px 1fr;
+  grid-template-columns: 1fr minmax(600px, 1200px) 1fr;
   /* grid-template-rows: auto; */
 }
 
