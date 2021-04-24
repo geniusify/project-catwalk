@@ -2,6 +2,7 @@
 /* eslint-disable class-methods-use-this */
 
 import React from 'react';
+import { Element } from 'react-scroll';
 import logClicks from '../clicklogger.jsx';
 import Overview from './overview/Overview.jsx';
 import RatingsAndReviews from './Ratings-And-Reviews/Ratings-And-Reviews.jsx';
@@ -44,7 +45,9 @@ class App extends React.Component {
       <div>
         <LoggedOverview productId={this.state.productId} />
         <LoggedCarouselContainer productId={this.state.productId} />
-        <LoggedRatingsAndReviews productId={this.state.productId} />
+        <Element name="reviewsContainer">
+          <LoggedRatingsAndReviews productId={this.state.productId} />
+        </Element>
       </div>
     ) : (<div>loading...</div>);
   }
