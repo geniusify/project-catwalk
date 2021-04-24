@@ -29,7 +29,7 @@ class RatingSummary extends React.Component {
       <div className="rr-rating-summary">
         <p>
           star:
-          <StarRating />
+          <StarRating key={Math.random() * 1000000} />
           rating summmary:
           {this.calculateAverage()}
           <br />

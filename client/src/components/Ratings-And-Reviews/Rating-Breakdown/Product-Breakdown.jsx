@@ -28,6 +28,7 @@ class ProductBreakdown extends React.Component {
             <IndividualProductBreakdown
               barDescription={barDescription}
               barCategories={barTypes[barDescription]}
+              key={Math.random() * 1000000}
             />
           </p>
         ))}

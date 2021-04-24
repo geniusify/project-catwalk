@@ -36,6 +36,7 @@ class Breakdown extends React.Component {
           <IndividualStarBar
             star={star}
             count={stars[star]}
+            key={Math.random() * 1000000}
           />
         ))}
       </div>

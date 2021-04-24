@@ -20,11 +20,11 @@ class RatingBreakdown extends React.Component {
 
     return (
       <div className="rr-rating-breakdown">
-        <RatingSummary data={data} />
+        <RatingSummary data={data} key={Math.random() * 1000000} />
         <hr />
-        <Breakdown data={data} />
+        <Breakdown data={data} key={Math.random() * 1000000} />
         <hr />
-        <ProductBreakdown />
+        <ProductBreakdown key={Math.random() * 1000000} />
       </div>
     );
   }
