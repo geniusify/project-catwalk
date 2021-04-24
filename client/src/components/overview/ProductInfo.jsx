@@ -2,6 +2,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import * as Scroll from 'react-scroll';
+import { Link } from 'react-scroll';
 
 // eslint-disable-next-line arrow-body-style
 
@@ -27,12 +29,13 @@ const ProductInfo = ({
           ? (
             <>
               <span>{`${getAverageRating(ratings)} STARS  `}</span>
-              <a href="#">
-                {`Read all ${ratingCount} reviews`}
-              </a>
+              <Link to="reviewsContainer" smooth>
+                <a href="#">
+                  {`Read all ${ratingCount} reviews`}
+                </a>
+              </Link>
             </>
-          )
-          : null}
+          ) : null}
       </div>
       <div>
         <h4 className="ov-category">{info.category}</h4>
@@ -50,9 +53,29 @@ const ProductInfo = ({
           )
           : <span>{`$${price}`}</span>}
       </div>
-      <div>
+      <div className="ov-share-on-social">
         <br />
-        <em>Share on Social media</em>
+        <img
+          src="https://platform-cdn.sharethis.com/img/pinterest.svg"
+          alt="share on pinterest"
+          title="share on pinterest"
+          className="ov-share-pinterest"
+          height="24"
+        />
+        <img
+          src="https://platform-cdn.sharethis.com/img/reddit.svg"
+          alt="share on reddit"
+          title="share on reddit"
+          className="ov-share-reddit"
+          height="24"
+        />
+        <img
+          src="https://platform-cdn.sharethis.com/img/hackernews.svg"
+          alt="share on hackernews"
+          title="share on hackernews"
+          className="ov-share-hn"
+          height="24"
+        />
       </div>
     </div>
   );

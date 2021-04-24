@@ -1,10 +1,23 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable class-methods-use-this */
-import React from 'react';
 
-import Overview from './Overview/Overview.jsx';
+import React from 'react';
+import { Element } from 'react-scroll';
+import logClicks from '../clicklogger.jsx';
+import Overview from './overview/Overview.jsx';
 import RatingsAndReviews from './Ratings-And-Reviews/Ratings-And-Reviews.jsx';
 import CarouselContainer from './RelatedItems/CarouselContainer.jsx';
+
+window.clicks = [];
+
+const handleClicks = (clickInfo) => {
+  console.log(clickInfo);
+  window.clicks.push(clickInfo);
+};
+
+const LoggedOverview = logClicks({ Overview }, handleClicks);
+const LoggedCarouselContainer = logClicks({ CarouselContainer }, handleClicks);
+const LoggedRatingsAndReviews = logClicks({ RatingsAndReviews }, handleClicks);
 
 class App extends React.Component {
   constructor(props) {
@@ -30,9 +43,11 @@ class App extends React.Component {
   render() {
     return this.state.productId ? (
       <div>
-        <Overview productId={this.state.productId} />
-        <CarouselContainer productId={this.state.productId} />
-        <RatingsAndReviews productId={this.state.productId} />
+        <LoggedOverview productId={this.state.productId} />
+        <LoggedCarouselContainer productId={this.state.productId} />
+        <Element name="reviewsContainer">
+          <LoggedRatingsAndReviews productId={this.state.productId} />
+        </Element>
       </div>
     ) : (<div>loading...</div>);
   }
