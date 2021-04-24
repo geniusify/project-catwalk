@@ -1,15 +1,18 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import StarDynamic from '../../shared/StarDynamic.jsx';
 
 const AddReview = ({ product }) => (
-  <div className="rr-buttons">
-    <h1>
+  <form>
+    <label for="review">
       Write Your Review:
       About the
       {product}
-    </h1>
+    </label>
+    <br />
     <StarDynamic />
     <p>
       Recommended:
@@ -28,7 +31,7 @@ const AddReview = ({ product }) => (
       <br />
       Submit:
     </p>
-  </div>
+  </form>
 );
 
 AddReview.propTypes = {
