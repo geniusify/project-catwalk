@@ -4,6 +4,7 @@
 import React from 'react';
 import { Element } from 'react-scroll';
 import logClicks from '../clicklogger.jsx';
+import Header from './Header.jsx';
 import Overview from './overview/Overview.jsx';
 import RatingsAndReviews from './Ratings-And-Reviews/Ratings-And-Reviews.jsx';
 import CarouselContainer from './RelatedItems/CarouselContainer.jsx';
@@ -15,6 +16,7 @@ const handleClicks = (clickInfo) => {
   window.clicks.push(clickInfo);
 };
 
+const LoggedHeader = logClicks({ Header }, handleClicks);
 const LoggedOverview = logClicks({ Overview }, handleClicks);
 const LoggedCarouselContainer = logClicks({ CarouselContainer }, handleClicks);
 const LoggedRatingsAndReviews = logClicks({ RatingsAndReviews }, handleClicks);
@@ -43,13 +45,18 @@ class App extends React.Component {
   render() {
     return this.state.productId ? (
       <div className="app-container">
-        <div className="header">GENIUSIFY</div>
-        <div className="ov-c">
-          <LoggedOverview className="ov-c" productId={this.state.productId} />
+        <div className="header-container">
+          <LoggedHeader />
         </div>
+
+        <div className="ov-c">
+          <LoggedOverview productId={this.state.productId} />
+        </div>
+
         <div className="cc-c">
           <LoggedCarouselContainer productId={this.state.productId} />
         </div>
+
         <div className="rr-c">
           <Element name="reviewsContainer">
             <LoggedRatingsAndReviews productId={this.state.productId} />
