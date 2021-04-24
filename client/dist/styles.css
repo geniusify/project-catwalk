@@ -1,0 +1,37 @@
+body {
+  display: grid;
+  grid-template:
+   /* 'ov ov ov' */
+   ' hdr  hdr hdr '
+   ' ov  ov   ov '
+   ' rel  rel  rel '
+   ' rr  rr   rr '
+
+   ;
+  grid-template-columns: 50px 1170px 50px;
+  /* grid-template-rows: auto; */
+}
+
+.header-container {
+  grid-area: hdr;
+  background-color: tomato;
+  display: block;
+}
+
+.ov-container {
+  grid-area: ov;
+  background-color: pink;
+  /* display: block; */
+}
+
+.carouselOuterDiv {
+  grid-area: rel;
+  background-color: yellowgreen;
+  display: block;
+}
+
+.rr-container {
+  grid-area: rr;
+  background-color: turquoise;
+  display: block;
+}
