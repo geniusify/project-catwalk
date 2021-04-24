@@ -29,10 +29,8 @@ const ProductInfo = ({
           ? (
             <>
               <span>{`${getAverageRating(ratings)} STARS  `}</span>
-              <Link to="reviewsContainer" smooth>
-                <a href="#">
-                  {`Read all ${ratingCount} reviews`}
-                </a>
+              <Link className="ov-rr-link" to="reviewsContainer" smooth>
+                {`Read all ${ratingCount} reviews`}
               </Link>
             </>
           ) : null}
