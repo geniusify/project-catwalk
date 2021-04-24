@@ -42,12 +42,20 @@ class App extends React.Component {
 
   render() {
     return this.state.productId ? (
-      <div>
-        <LoggedOverview productId={this.state.productId} />
-        <LoggedCarouselContainer productId={this.state.productId} />
-        <Element name="reviewsContainer">
-          <LoggedRatingsAndReviews productId={this.state.productId} />
-        </Element>
+      <div className="app-container">
+        <div className="header">GENIUSIFY</div>
+        <div className="ov-c">
+          <LoggedOverview className="ov-c" productId={this.state.productId} />
+        </div>
+        <div className="cc-c">
+          <LoggedCarouselContainer productId={this.state.productId} />
+        </div>
+        <div className="rr-c">
+          <Element name="reviewsContainer">
+            <LoggedRatingsAndReviews productId={this.state.productId} />
+          </Element>
+        </div>
+
       </div>
     ) : (<div>loading...</div>);
   }

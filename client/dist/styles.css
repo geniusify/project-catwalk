@@ -1,37 +1,42 @@
-body {
+.app {
   display: grid;
   grid-template:
    /* 'ov ov ov' */
-   ' hdr  hdr hdr '
-   ' ov  ov   ov '
-   ' rel  rel  rel '
-   ' rr  rr   rr '
+   'hdr hdr hdr'
+   '. ov .'
+   '. rel .'
+   '. rr .'
 
    ;
-  grid-template-columns: 50px 1170px 50px;
-  /* grid-template-rows: auto; */
+  grid-template-columns: 200px 1170px 1fr;
+  grid-template-rows: auto;
 }
 
 .header-container {
   grid-area: hdr;
   background-color: tomato;
-  display: block;
+  /* display: block; */
 }
 
-.ov-container {
+.ov-c {
   grid-area: ov;
   background-color: pink;
   /* display: block; */
 }
 
-.carouselOuterDiv {
+.cc-c {
   grid-area: rel;
   background-color: yellowgreen;
-  display: block;
+  /* display: block; */
 }
 
-.rr-container {
+.rr-c {
   grid-area: rr;
   background-color: turquoise;
-  display: block;
+  /* display: block; */
+}
+
+.test {
+  grid-area: test;
+  background-color: darkslategray;
 }
