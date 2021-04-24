@@ -61,6 +61,11 @@
   margin-top: 30px;
 }
 
+.ov-rr-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .ov-description {
   margin-left: 120px;
   /* margin-top: 60px; */
