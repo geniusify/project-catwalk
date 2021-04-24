@@ -2,6 +2,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import * as Scroll from 'react-scroll';
+import { Link } from 'react-scroll';
 
 // eslint-disable-next-line arrow-body-style
 
@@ -27,12 +29,13 @@ const ProductInfo = ({
           ? (
             <>
               <span>{`${getAverageRating(ratings)} STARS  `}</span>
-              <a href="#">
-                {`Read all ${ratingCount} reviews`}
-              </a>
+              <Link to="reviewsContainer" smooth>
+                <a href="#">
+                  {`Read all ${ratingCount} reviews`}
+                </a>
+              </Link>
             </>
-          )
-          : null}
+          ) : null}
       </div>
       <div>
         <h4 className="ov-category">{info.category}</h4>
