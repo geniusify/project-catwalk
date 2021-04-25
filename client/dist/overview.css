@@ -31,10 +31,22 @@
     'gallery styles'
     'gallery cart'
     'description features';
-    grid-template-columns: 3fr 2fr;
     grid-template-rows: auto;
   }
 }
+
+@media (min-width:780px) and (max-width: 1100px) {
+  .ov-container {
+    grid-template-columns: 3fr 320px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .ov-container {
+    grid-template-columns: 3fr 408px;
+  }
+}
+
 
 .ov-container-extended {
   grid-template-columns: 1217px 0px;
@@ -291,6 +303,10 @@
   margin-top: 12px;
 }
 
+.ov-style-item-container {
+  margin-right: 0;
+}
+
 .ov-style-item {
   display: inline-block;
   height: 60px;
@@ -310,6 +326,7 @@
 .ov-style-selector-check {
   position: absolute;
   margin-left: 40px;
+  margin-right: 0;
   background: white;
   border: 1px solid #333;
   color: #333;
