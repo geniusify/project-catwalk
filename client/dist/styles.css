@@ -1,3 +1,7 @@
-input[type="radio"] {
+/* input[type="radio"] {
+  display: none;
+} */
+
+.star {
   display: none;
 }

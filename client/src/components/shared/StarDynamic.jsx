@@ -11,15 +11,19 @@ const StarRating = () => {
       const ratingValue = index + 1;
 
       return (
-        <label>
+        <label
+          htmlFor="star-rating"
+          key={Math.random() * 1000000}
+        >
           <input
             type="radio"
             name="rating"
+            className="star"
             value={ratingValue}
             onClick={() => setRating(ratingValue)}
           />
           <FaStar
-            className="star"
+            // className="star"
             color={ratingValue <= (hover || rating) ? '#ffc107' : '#e4e5e9'}
             size={10}
             onMouseEnter={() => setHover(ratingValue)}

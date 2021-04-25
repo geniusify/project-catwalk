@@ -1,32 +1,31 @@
-import React from 'react';
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable import/no-named-as-default */
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
+// import ProductContext from '../Context/ProductContext.jsx';
 import IndividualReview from './Individual-Review.jsx';
-import { results } from '../testReviewData.js';
 
-class ReviewList extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      reviews: results,
-      numberToDisplay: 4,
-    };
-  }
-
-  render() {
-    const { reviews, numberToDisplay } = this.state;
-    const displayList = reviews.slice(0, numberToDisplay);
+const ReviewList = ({ reviewData }) => {
+  // use context to get state of displayReviews
+  if (reviewData) {
+    const { results } = reviewData;
+    const displayReviews = results.slice(0, 4);
 
     return (
       <div className="rr-review-list">
-        {displayList.map((review) => (
-          <IndividualReview
-            review={review}
-          />
+        {displayReviews.map((review) => (
+          <IndividualReview review={review} />
         ))}
       </div>
     );
   }
-}
+
+  return null;
+};
+
+ReviewList.propTypes = {
+  reviewData: PropTypes.object.isRequired,
+};
 
 export default ReviewList;
