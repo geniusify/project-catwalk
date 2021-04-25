@@ -5,6 +5,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 
+import Favorite from './Favorite.jsx';
+
 const range = (n) => [...new Array(n)].map((_, idx) => idx + 1);
 
 const AddToCart = ({ style }) => {
@@ -62,7 +64,8 @@ const AddToCart = ({ style }) => {
 
         <button className="ov-cart-add" type="button">Add To Bag</button>
 
-        <button className="ov-cart-like" type="button">*</button>
+        <Favorite styleId={style.style_id} />
+        {/* <div className="ov-cart-like">test</div> */}
       </form>
     </div>
   );

@@ -11,7 +11,7 @@
   'gallery cart'
   'description features';
   grid-template-columns: 760px 457px;
-  grid-template-rows: 211px 284px 85px 300px;
+  grid-template-rows: 211px 284px 150px 150px;
   overflow: clip;
   /* transition: grid-template-rows .5s;
   transition: grid-template-columns .5s; */
@@ -37,7 +37,6 @@
 
 .ov-style-selector {
   grid-area: styles;
-  background-color: #fff;
 }
 
 .ov-add-to-cart {
@@ -47,6 +46,8 @@
 .ov-features {
   grid-area: features;
 }
+
+/* product info */
 
 .ov-product-info,
 .ov-style-selector,
@@ -60,20 +61,23 @@
   margin-top: 30px;
 }
 
+.ov-rr-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .ov-description {
   margin-left: 120px;
-  margin-top: 60px;
+  /* margin-top: 60px; */
   padding-top: 0px;
 }
 
 .ov-features {
-  margin-top: 60px;
+  /* margin-top: 60px; */
   padding-top: 20px;
   color: #444;
   line-height: 1.5em;
  }
-
-/* product info */
 
 .ov-category {
   text-transform: uppercase
@@ -86,6 +90,53 @@
 .ov-old-price {
   text-decoration: line-through;
 }
+
+.ov-share-hn {
+  background-color: #ff4000;
+}
+
+.ov-share-reddit {
+  background-color: #ff4500;
+}
+
+.ov-share-pinterest {
+  background-color: #cb2027;
+}
+
+.ov-share-hn,
+.ov-share-reddit,
+.ov-share-pinterest {
+  display: inline-block;
+  object-fit: scale-down;
+}
+
+.ov-share-hn:hover,
+.ov-share-reddit:hover,
+.ov-share-pinterest:hover {
+  display: inline-block;
+  object-fit: scale-down;
+  opacity: .6;
+  cursor: pointer;
+}
+
+.ov-share-hn:hover,
+.ov-share-reddit:hover,
+.ov-share-pinterest:hover {
+  display: inline-block;
+  object-fit: scale-down;
+  opacity: .6;
+  cursor: pointer;
+}
+
+.ov-share-hn:active,
+.ov-share-reddit:active,
+.ov-share-pinterest:active {
+  display: inline-block;
+  object-fit: scale-down;
+  opacity: .8;
+  cursor: pointer;
+}
+
 
 /* gallery */
 
@@ -150,7 +201,7 @@
   box-sizing: border-box;
   position: absolute;
   overflow: hidden;
-  top: 48px;
+  top: 132px;
   width: 80px;
   margin: 0;
   padding: 0;
@@ -176,7 +227,7 @@
 
 .ov-gallery-thumbnail-selected {
   transform: scale(1.1, 1.1);
-  box-shadow: 0px 0px 10px black;
+  box-shadow: 0px 0px 5px 2px #0004;
   opacity: 1;
   transition: .2s;
 }
@@ -195,7 +246,7 @@
 }
 
 .ov-gallery-thumbnail-extended-selected {
-  box-shadow: 0px 0px 10px black;
+  box-shadow: 0px 0px 5px 2px #0004;;
   transition: .2s;
   opacity: 1;
 }
@@ -252,11 +303,25 @@
 
 /* add to cart */
 
+.ov-add-to-cart {
+  display: grid;
+  grid-template:
+    'size . quant quant quant'
+    'add add add . like';
+  grid-template-rows: 90px 60px;
+  grid-template-columns: 243 24px 43px 24px 60px;
+}
+
+.ov-cart-size { grid-area: size; }
+.ov-cart-quantity {grid-area: quant; }
+.ov-cart-add { grid-area: add; }
+.ov-cart-like { grid-area: like; }
+
 .ov-cart-size {
   width: 243px;
   height: 60px;
   margin-right: 24px;
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
 }
 
 .ov-cart-quantity {
@@ -268,18 +333,31 @@
   width: 310px;
   height: 60px;
   margin-right: 24px;
+  margin-top: 24px;
+  float: left;
+}
+
+.ov-cart-like-input {
+  position: relative;
+  top: 0px;
+  left: 0px;
 }
 
 .ov-cart-like {
+  display: inline-block;
+  box-sizing: border-box;
   width: 60px;
   height: 60px;
-  font-size: 1em;
+  border: 1px solid black;
+  padding: 15px !important;
+  margin: 0;
+  margin-top: 24px;
+  cursor: pointer;
 }
 
 .ov-cart-size,
 .ov-cart-quantity,
-.ov-cart-add,
-.ov-cart-like {
+.ov-cart-add {
   padding: 0;
   background-color: white;
   border: 1px solid #666;
