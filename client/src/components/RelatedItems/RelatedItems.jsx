@@ -27,7 +27,7 @@ class RelatedItems extends React.Component {
               <FontAwesomeIcon icon={faStar} color="#D7CFFB"/>
               <FontAwesomeIcon icon={faStar} color="#D7CFFB"/>
               <FontAwesomeIcon icon={faStar} color="#D7CFFB"/>
-              <FontAwesomeIcon icon={faStar} color='grey' />
+              <FontAwesomeIcon icon={faStar} color='black' />
           </p>
         </div>
     );
