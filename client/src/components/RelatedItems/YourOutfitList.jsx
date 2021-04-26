@@ -1,12 +1,14 @@
 import React from 'react';
 
-const YourOutfitList = () => (
-  // <div>
-  //   <h2>YOUR OUTFIT</h2>
-  //   <h3 className="outfitList"></h3>
-  // </div>
+const YourOutfitList = () => {
+  return (
+    <div className='carouselInnerDiv'>
+      <button className='outfitButton'>
+        +
+        </button>
+    </div>
 
-  <div></div>
-);
+  )
+}
 
 export default YourOutfitList;
