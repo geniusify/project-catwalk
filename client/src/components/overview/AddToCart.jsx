@@ -70,8 +70,6 @@ const AddToCart = ({ style }) => {
         </div>
         {/* <div className="ov-cart-like">test</div> */}
       </form>
-
-
     </div>
   );
 };
