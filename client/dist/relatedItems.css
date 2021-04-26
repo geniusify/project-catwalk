@@ -40,14 +40,14 @@ p{
 }
 
 .carouselInnerDiv {
-  height: 400px;
+  height: 450px;
   background-color: #f7f7f7;
-  border-color:#D7CFFB;
+  border-color:#0c0c0c;
   border-style: solid;
   margin: 10px;
   float: left;
  width: 200px;
-  border-color:#D7CFFB;
+  border-color:#0e0e0e;
   border-style: solid;
   border-width: 1px;
   position: relative;
@@ -78,7 +78,7 @@ p{
 }
 
 .outfitButton{
-    border-color: #D7CFFB;
+    border-color: #030303;
     padding: 30px;
     text-align: center;
     text-decoration: none;
@@ -91,10 +91,10 @@ p{
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
 
-    color:#D7CFFB;
+    color:#080808;
 
 }
 
 .carouselInnerDiv .outfitButton:hover {
-  background-color: #00BEC5;
+  background-color: #837e7e;
 }
