@@ -385,7 +385,8 @@
 .ov-cart-size {
   height: 100%;
   width: 100%;
-  /* padding-left: 20px; */
+  text-indent: 12px;
+  text-transform: uppercase;
 }
 
 .ov-cart-quantity {
@@ -395,11 +396,10 @@
 }
 
 .ov-cart-add {
-  /* width: 310px; */
   height: 100%;
-  /* margin-right: 24px; */
-  /* margin-top: 24px; */
-  /* float: left; */
+  text-indent: 12px;
+  text-transform: uppercase;
+  text-align: left;
 }
 
 .ov-cart-add-active {
