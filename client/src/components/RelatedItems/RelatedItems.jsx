@@ -19,7 +19,7 @@ class RelatedItems extends React.Component {
           </img>
           <p className="relatedProductText">
             {this.props.riCategory}<br />
-            Product ID: {this.props.riID}<br />
+           <br />
             <b>{this.props.riName}</b><br />
             {this.props.riStyle}<br /><br />
             {this.props.riPrice}<br /><br />
