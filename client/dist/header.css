@@ -1,0 +1,44 @@
+.header-container {
+  box-sizing: border-box;
+  position: relative;
+  /* background-color: #ff04; */
+  width: 100%;
+}
+
+.hdr-logo {
+  float: left;
+  font-family: 'Codystar', cursive;
+  font-size: 3em;
+}
+
+.hdr-search {
+  /* float: right; */
+  box-sizing: border-box;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 20px;
+  /* background-color: #fa87; */
+}
+
+.hdr-search-field {
+  display: inline-block;
+  bottom: 5px;
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  outline: none;
+  border: 0;
+  width: 145px;
+  height: 20px;
+  overflow-x: auto,;
+  overflow-y: hidden;
+  /* background-color: #F5a5; */
+  border-bottom: 1px solid black;
+}
+
+.hdr-search-icon {
+  height: 20px;
+}

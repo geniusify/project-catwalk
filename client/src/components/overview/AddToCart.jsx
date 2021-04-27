@@ -5,6 +5,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 
+import Favorite from './Favorite.jsx';
+
 const range = (n) => [...new Array(n)].map((_, idx) => idx + 1);
 
 const AddToCart = ({ style }) => {
@@ -30,39 +32,43 @@ const AddToCart = ({ style }) => {
   return (
     <div className="ov-add-to-cart">
       <form>
-        <select
-          className="ov-cart-size"
-          name="size"
-          value={skuId}
-          onChange={(e) => onSizeChoice(e.target.value)}
-          // onChange={(e) => setCartSize(e.target.value)}
-          onClick={() => setClicked(true)}
-        >
-          {clicked
-            ? availableSkus.map((s) => (
-              <option key={s[0]} value={s[0]}>{s[1].size}</option>
-            ))
-            : sku
-              ? <option value={sku[1].size}>{sku[1].size}</option>
-              : <option value="Select Size">Select Size</option>}
-        </select>
+        <div className="atc1">
+          <select
+            className="ov-cart-size"
+            name="size"
+            value={skuId}
+            onChange={(e) => onSizeChoice(e.target.value)}
+            // onChange={(e) => setCartSize(e.target.value)}
+            onClick={() => setClicked(true)}
+          >
+            {clicked
+              ? availableSkus.map((s) => (
+                <option key={s[0]} value={s[0]}>{s[1].size}</option>
+              ))
+              : sku
+                ? <option value={sku[1].size}>{sku[1].size}</option>
+                : <option value="Select Size">Select Size</option>}
+          </select>
 
-        <select
-          className="ov-cart-quantity"
-          name="quantity"
-          value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-        >
-          {quantityAvail
-            ? range(Math.min(15, quantityAvail)).map((n) => (
-              <option key={n} value={n}>{n}</option>
-            ))
-            : (<option value="-">-</option>)}
-        </select>
+          <select
+            className="ov-cart-quantity"
+            name="quantity"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+          >
+            {quantityAvail
+              ? range(Math.min(15, quantityAvail)).map((n) => (
+                <option key={n} value={n}>{n}</option>
+              ))
+              : (<option value="-">-</option>)}
+          </select>
+        </div>
+        <div className="atc2">
+          <button className="ov-cart-add" type="button">Add To Bag</button>
 
-        <button className="ov-cart-add" type="button">Add To Bag</button>
-
-        <button className="ov-cart-like" type="button">*</button>
+          <Favorite styleId={style.style_id} />
+        </div>
+        {/* <div className="ov-cart-like">test</div> */}
       </form>
     </div>
   );

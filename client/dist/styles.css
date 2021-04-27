@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* input[type="radio"] {
   display: none;
 } */
@@ -5,3 +6,44 @@
 .star {
   display: none;
 }
+=======
+/* PAGE LAYOUT */
+
+.app-container {
+  display: grid;
+  grid-template:
+   /* 'ov ov ov' */
+   'hdr hdr hdr'
+   '. ov .'
+   '. rel .'
+   '. rr .';
+  grid-template-columns: 1fr minmax(300px, 1200px) 1fr;
+  /* grid-template-rows: auto; */
+}
+
+.header-container {
+  grid-area: hdr;
+}
+
+.ov-c {
+  grid-area: ov;
+  margin-bottom: 30px;
+}
+
+.cc-c {
+  grid-area: rel;
+  margin-bottom: 30px;
+}
+
+.rr-c {
+  grid-area: rr;
+}
+
+/* PAGE-WIDE STYLES */
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 200;
+}
+
+>>>>>>> a7a0f78f28b71979c6318e24860c1050b45514ad
