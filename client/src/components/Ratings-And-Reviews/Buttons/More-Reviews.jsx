@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const MoreReviews = () => {
-  const [reviews, addReviews] = useState(2);
+const MoreReviews = ({ displayReviewCount, setDisplayReviewCount }) => (
+  <button
+    type="button"
+    onClick={() => setDisplayReviewCount(() => displayReviewCount + 2)}
+  >
+    More Reviews
+  </button>
+);
 
-  return (
-    <button
-      type="button"
-      onClick={() => addReviews(() => reviews + 2)}
-    >
-      More Reviews
-    </button>
-  );
+MoreReviews.propTypes = {
+  displayReviewCount: PropTypes.number.isRequired,
+  setDisplayReviewCount: PropTypes.func.isRequired,
 };
 
 export default MoreReviews;

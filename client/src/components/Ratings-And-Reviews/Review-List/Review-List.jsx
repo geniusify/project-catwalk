@@ -1,16 +1,14 @@
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable import/no-named-as-default */
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-// import ProductContext from '../Context/ProductContext.jsx';
 import IndividualReview from './Individual-Review.jsx';
 
-const ReviewList = ({ reviewData }) => {
-  // use context to get state of displayReviews
+const ReviewList = ({ reviewData, displayReviewCount }) => {
   if (reviewData) {
     const { results } = reviewData;
-    const displayReviews = results.slice(0, 4);
+    const displayReviews = results.slice(0, displayReviewCount);
 
     return (
       <div className="rr-review-list">
@@ -26,6 +24,7 @@ const ReviewList = ({ reviewData }) => {
 
 ReviewList.propTypes = {
   reviewData: PropTypes.object.isRequired,
+  displayReviewCount: PropTypes.number.isRequired,
 };
 
 export default ReviewList;

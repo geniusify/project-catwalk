@@ -1,10 +1,7 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-param-reassign */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-
-// import ProductProvider from './Context/ProductContext.jsx';
 
 import RatingBreakdown from './Rating-Breakdown/Rating-Breakdown.jsx';
 import ReviewList from './Review-List/Review-List.jsx';
@@ -18,6 +15,7 @@ const RatingsAndReviews = ({ productId }) => {
 
   const [reviewData, setReviewData] = useState(undefined);
   const [reviewMetaData, setReviewMetaData] = useState(undefined);
+  const [displayReviewCount, setDisplayReviewCount] = useState(2);
 
   useEffect(() => {
     axios({
@@ -26,6 +24,7 @@ const RatingsAndReviews = ({ productId }) => {
     })
       .then(({ data }) => setReviewData(data))
       .catch(() => {});
+    console.log('inside first useEffect');
   }, []);
 
   useEffect(() => {
@@ -35,19 +34,35 @@ const RatingsAndReviews = ({ productId }) => {
     })
       .then(({ data }) => setReviewMetaData(data))
       .catch(() => {});
-  }, [reviewData]);
+    console.log('inside second useEffect');
+  }, []);
 
   const renderComponents = () => (
     <div className="rr-container" key="rr-container">
-      <RatingBreakdown reviewMetaData={reviewMetaData} />
-      <ReviewList reviewData={reviewData} />
-      <Buttons />
+      <RatingBreakdown
+        reviewMetaData={reviewMetaData}
+      />
+      <ReviewList
+        reviewData={reviewData}
+        displayReviewCount={displayReviewCount}
+      />
+      <Buttons
+        productId={productId}
+        setReviewData={setReviewData}
+        setReviewMetaData={setReviewMetaData}
+        displayReviewCount={displayReviewCount}
+        setDisplayReviewCount={setDisplayReviewCount}
+      />
     </div>
   );
 
   return (
     (reviewData, reviewMetaData) ? renderComponents() : null
   );
+};
+
+RatingsAndReviews.propTypes = {
+  productId: PropTypes.string.isRequired,
 };
 
 export default RatingsAndReviews;
