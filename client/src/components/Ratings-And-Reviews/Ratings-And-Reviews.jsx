@@ -10,8 +10,11 @@ import Buttons from './Buttons/Buttons.jsx';
 // import data from './testReviewData.js';
 
 const RatingsAndReviews = ({ productId }) => {
-  productId = '23146';
+  // pass down from App
   // productId = '23718';
+
+  // productId = '23146';
+  productId = '23156';
 
   const [reviewData, setReviewData] = useState(undefined);
   const [reviewMetaData, setReviewMetaData] = useState(undefined);

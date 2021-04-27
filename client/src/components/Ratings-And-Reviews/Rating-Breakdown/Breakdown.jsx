@@ -7,8 +7,16 @@ import PropTypes from 'prop-types';
 
 import IndividualStarBar from './Individual-Star-Bar.jsx';
 
-const Breakdown = ({ ratings }) => (
-  Object.entries(ratings).slice().reverse().map((rating) => {
+const Breakdown = ({ ratings }) => {
+  let mostRatings = 0;
+
+  Object.values(ratings).forEach((rating) => {
+    if (parseInt(rating) > mostRatings) {
+      mostRatings = parseInt(rating);
+    }
+  });
+
+  return Object.entries(ratings).slice().reverse().map((rating) => {
     const [key, value] = rating;
 
     return (
@@ -16,11 +24,12 @@ const Breakdown = ({ ratings }) => (
         <IndividualStarBar
           star={parseInt(key)}
           counts={parseInt(value)}
+          max={mostRatings}
         />
       </div>
     );
-  })
-);
+  });
+};
 
 Breakdown.propTypes = {
   ratings: PropTypes.object.isRequired,
