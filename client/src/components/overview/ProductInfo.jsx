@@ -17,6 +17,10 @@ const getAverageRating = (ratings) => {
   return (ratingSum / count).toFixed(1);
 };
 
+const shareUrl = 'https://example.com/geniusify';
+const shareTitle = encodeURI('Are you ready to Geniusify?');
+const shareImageUrl = encodeURI('https://images.unsplash.com/photo-1465877783223-4eba513e27c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80');
+
 const ProductInfo = ({
   info, ratings, price, salePrice,
 }) => {
@@ -53,14 +57,18 @@ const ProductInfo = ({
       </div>
       <div className="ov-share-on-social">
         <br />
-        <img
-          src="https://platform-cdn.sharethis.com/img/pinterest.svg"
-          alt="share on pinterest"
-          title="share on pinterest"
-          className="ov-share-pinterest"
-          height="24"
-        />
-        <a href="http://www.reddit.com/submit?url=https://example.com/geniusify&title=Post%20to%20Reddit%20via%20URL">
+
+        <a href={`//pinterest.com/pin/create/link/?url=${shareUrl}&media=${shareImageUrl}&description=${shareTitle}`}>
+          <img
+            src="https://platform-cdn.sharethis.com/img/pinterest.svg"
+            alt="share on pinterest"
+            title="share on pinterest"
+            className="ov-share-pinterest"
+            height="24"
+          />
+        </a>
+
+        <a href={`http://www.reddit.com/submit?url=${shareUrl}&title=${shareTitle}`}>
           <img
             src="https://platform-cdn.sharethis.com/img/reddit.svg"
             alt="share on reddit"
@@ -69,13 +77,16 @@ const ProductInfo = ({
             height="24"
           />
         </a>
-        <img
-          src="https://platform-cdn.sharethis.com/img/hackernews.svg"
-          alt="share on hackernews"
-          title="share on hackernews"
-          className="ov-share-hn"
-          height="24"
-        />
+
+        <a href={`http://news.ycombinator.com/submitlink?u=${shareUrl}&t=${shareTitle}`}>
+          <img
+            src="https://platform-cdn.sharethis.com/img/hackernews.svg"
+            alt="share on hackernews"
+            title="share on hackernews"
+            className="ov-share-hn"
+            height="24"
+          />
+        </a>
       </div>
     </div>
   );
