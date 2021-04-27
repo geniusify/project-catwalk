@@ -5,8 +5,14 @@ import PropTypes from 'prop-types';
 
 const IndividualReview = ({ review }) => {
   const {
-    rating, reviewer_name, date, summary, body, photos, recommend, response, helpfulness,
+    rating, reviewer_name, date, summary, body, photos, recommend, helpfulness,
   } = review;
+
+  let { response } = review;
+
+  if (!response) {
+    response = '';
+  }
 
   return (
     <div className="rr-review-tile">
