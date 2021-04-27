@@ -4,7 +4,7 @@ import Carousel from "react-multi-carousel";
 import YourOutfitList from './YourOutfitList.jsx';
 import axios from 'axios';
 
-const config = require('/Users/yasi/Desktop/HackReactor1/project-catwalk/config.js');
+//const config = require('../../../../config.js');
 
 class CarouselContainer extends React.Component {
   constructor(props) {
@@ -18,11 +18,14 @@ class CarouselContainer extends React.Component {
 
   async componentDidMount() {
 
-    const headerInfo = { 'User-agent': 'request', 'Authorization' : config['TOKEN'] };
+    const headerInfo = { 'User-agent': 'request',
+    // 'Authorization' : config['TOKEN']
+  };
 
     await axios.get(
 
-      `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products`,
+      //`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products`
+      'api/products',
       { headers: headerInfo })
 
       .then((res) => { this.setState({ productsList: res.data }); return res.data })
@@ -34,7 +37,7 @@ class CarouselContainer extends React.Component {
 
            axios.get(
 
-            `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/` + dList[i]['id'] + `/styles`,
+            `api/products/` + dList[i]['id'] + `/styles`,
             { headers: headerInfo })
 
             .then((res2) => { this.setState({ productStyles: [...this.state.productStyles, res2.data] }) })
@@ -67,7 +70,7 @@ class CarouselContainer extends React.Component {
               <RelatedItems
 
                 riCategory={productsList[i].category}
-                riID={productsList[i].id}
+
                 riName={productsList[i].name}
                 riStyle={currentStyle[k].name}
                 riPrice={productsList[i].default_price}
@@ -107,14 +110,15 @@ class CarouselContainer extends React.Component {
 
     return (
       <div className="carouselOuterDiv">
-        <p>RELATED PRODUCTS</p>
+        <h3 className="pRelated">RELATED PRODUCTS</h3>
         <Carousel responsive={responsive}>
             {relatedItemsList}
         </Carousel>
-        <p>YOUR OUTFIT</p>
+        <h3 className="pRelated">YOUR OUTFIT</h3>
         <Carousel className="test" responsive={responsive}>
             {relatedOutfit}
         </Carousel>
+
       </div>
     );
   }
