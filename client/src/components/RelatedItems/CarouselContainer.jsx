@@ -18,7 +18,7 @@ class CarouselContainer extends React.Component {
 
   async componentDidMount() {
 
-    const headerInfo = { 'User-agent': 'request',
+    const headerInfo = {
     // 'Authorization' : config['TOKEN']
   };
 

@@ -26,7 +26,6 @@ const getDefaultStyleIndex = (styles) => {
 };
 
 const Overview = ({ productId }) => {
-  console.log(productId);
   const [info, setInfo] = useState(undefined);
   const [styles, setStyles] = useState(undefined);
   const [meta, setMeta] = useState(undefined);
@@ -64,9 +63,8 @@ const Overview = ({ productId }) => {
   }, []);
 
   const readyToRender = !!(!!info && !!style && !!styles && !!meta);
-  // console.log('readyToRender:', readyToRender);
   let rendering = 'unrendered';
-  console.log('extendedView', extendedView);
+
   try {
     rendering = readyToRender
       ? (
