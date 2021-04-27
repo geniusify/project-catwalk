@@ -1,6 +1,5 @@
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable camelcase */
-/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -56,15 +55,7 @@ const IndividualReview = ({ review }) => {
 };
 
 IndividualReview.propTypes = {
-  rating: PropTypes.number.isRequired,
-  reviewer_name: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  summary: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  photos: PropTypes.array.isRequired,
-  recommend: PropTypes.bool.isRequired,
-  response: PropTypes.string.isRequired,
-  helpfulness: PropTypes.number.isRequired,
+  review: PropTypes.object.isRequired,
 };
 
 export default IndividualReview;

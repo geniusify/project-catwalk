@@ -9,4 +9,13 @@ module.exports = {
       .then((data) => res.status(200).send(data.data))
       .catch((error) => res.status(404).send(error));
   },
+
+  post: (req, res) => {
+    const baseUrl = '/api';
+    const endpoint = req.originalUrl.slice(baseUrl.length);
+
+    return model.add(endpoint, req.body)
+      .then((data) => res.status(200).send(data.data))
+      .catch((error) => res.status(404).send(error));
+  },
 };
