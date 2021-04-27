@@ -1,32 +1,30 @@
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable import/no-named-as-default */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import IndividualReview from './Individual-Review.jsx';
-import { results } from '../testReviewData.js';
 
-class ReviewList extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      reviews: results,
-      numberToDisplay: 4,
-    };
-  }
-
-  render() {
-    const { reviews, numberToDisplay } = this.state;
-    const displayList = reviews.slice(0, numberToDisplay);
+const ReviewList = ({ reviewData, displayReviewCount }) => {
+  if (reviewData) {
+    const { results } = reviewData;
+    const displayReviews = results.slice(0, displayReviewCount);
 
     return (
       <div className="rr-review-list">
-        {displayList.map((review) => (
-          <IndividualReview
-            review={review}
-          />
+        {displayReviews.map((review) => (
+          <IndividualReview review={review} />
         ))}
       </div>
     );
   }
-}
+
+  return null;
+};
+
+ReviewList.propTypes = {
+  reviewData: PropTypes.object.isRequired,
+  displayReviewCount: PropTypes.number.isRequired,
+};
 
 export default ReviewList;

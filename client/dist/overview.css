@@ -5,18 +5,47 @@
 .ov-container {
   box-sizing: border-box;
   display: grid;
-  grid-template:
-  'gallery info'
-  'gallery styles'
-  'gallery cart'
-  'description features';
-  grid-template-columns: 760px 457px;
-  grid-template-rows: 211px 284px 150px 150px;
   overflow: clip;
-  /* transition: grid-template-rows .5s;
-  transition: grid-template-columns .5s; */
-  transition: .5s;
 }
+
+/* phone/tablet layout */
+@media (max-width:780px) {
+  .ov-container {
+    grid-template:
+    'gallery'
+    'info'
+    'styles'
+    'cart'
+    'description'
+    'features';
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }}
+
+/* desktop layout */
+@media (min-width:780px) {
+  .ov-container {
+    grid-template:
+    'gallery info'
+    'gallery styles'
+    'gallery cart'
+    'description features';
+    grid-template-rows: auto;
+  }
+}
+
+@media (min-width:780px) and (max-width: 1100px) {
+  .ov-container {
+    grid-template-columns: 3fr 320px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .ov-container {
+    grid-template-columns: 3fr 408px;
+  }
+}
+
 
 .ov-container-extended {
   grid-template-columns: 1217px 0px;
@@ -58,7 +87,7 @@
 }
 
 .ov-product-info {
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
 .ov-rr-link {
@@ -66,10 +95,12 @@
   cursor: pointer;
 }
 
-.ov-description {
-  margin-left: 120px;
-  /* margin-top: 60px; */
-  padding-top: 0px;
+@media (min-width: 780px) {
+  .ov-description {
+    margin-left: 120px;
+    /* margin-top: 10px; */
+    padding-top: 0px;
+  }
 }
 
 .ov-features {
@@ -143,8 +174,15 @@
 .ov-image-gallery {
   box-sizing: border-box;
   display: grid;
+  height: 680px;
   grid-template: 'thumbnails left image right';
-  grid-template-columns: 94px 24px 650px 24px;
+  grid-template-columns: 94px 1fr 20fr 1fr;
+}
+
+@media (max-width: 780px) {
+  .ov-image-gallery {
+    margin-bottom: 20px;
+  }
 }
 
 .ov-image-gallery-extended {
@@ -156,6 +194,7 @@
   grid-area: image;
   width: 100%;
   height: 100%;
+  max-height: 680px;
   object-fit: contain;
   cursor: zoom-in;
   /* border: 2px solid purple; */
@@ -174,7 +213,7 @@
   display: inline-block;
   position: relative;
   /* border: 2px solid blueviolet; */
-  top: 280px;
+  top: 322px;
   cursor: pointer;
 }
 
@@ -187,6 +226,7 @@
 }
 
 .ov-gallery-thumbnail-viewer {
+  position: relative;
   grid-area: thumbnails;
   display: grid;
   justify-items: center;
@@ -196,12 +236,13 @@
 }
 
 .ov-gallery-thumbnails-container {
+  position: absolute;
   grid-area: ths;
   display: block;
   box-sizing: border-box;
   position: absolute;
   overflow: hidden;
-  top: 132px;
+  top: -15px;
   width: 80px;
   margin: 0;
   padding: 0;
@@ -273,6 +314,10 @@
   margin-top: 12px;
 }
 
+.ov-style-item-container {
+  margin-right: 0;
+}
+
 .ov-style-item {
   display: inline-block;
   height: 60px;
@@ -292,6 +337,7 @@
 .ov-style-selector-check {
   position: absolute;
   margin-left: 40px;
+  margin-right: 0;
   background: white;
   border: 1px solid #333;
   color: #333;
@@ -306,10 +352,29 @@
 .ov-add-to-cart {
   display: grid;
   grid-template:
-    'size . quant quant quant'
-    'add add add . like';
-  grid-template-rows: 90px 60px;
-  grid-template-columns: 243 24px 43px 24px 60px;
+    'atc1'
+    'atc2';
+  row-gap: 24px;
+  grid-template-rows: 60px 60px;
+}
+
+.atc1 {
+  grid-area: atc1;
+  display: grid;
+  grid-template: 'size quant';
+  column-gap: 24px;
+  grid-template-columns: 5fr 3fr;
+  grid-template-rows: 60px;
+  margin-bottom: 24px;
+}
+
+.atc2 {
+  grid-area: atc2;
+  display: grid;
+  grid-template: 'add like';
+  column-gap: 24px;
+  grid-template-columns: 1fr 60px;
+  grid-template-rows: 60px;
 }
 
 .ov-cart-size { grid-area: size; }
@@ -318,40 +383,43 @@
 .ov-cart-like { grid-area: like; }
 
 .ov-cart-size {
-  width: 243px;
-  height: 60px;
-  margin-right: 24px;
+  /* width: 243px; */
+  /* height: 60px; */
+  height: 100%;
+  width: 100%;
+  /* margin-right: 24px; */
   /* margin-bottom: 24px; */
 }
 
 .ov-cart-quantity {
-  width: 128px;
-  height: 60px;
+  /* width: 128px; */
+  width: 100%;
+  height: 100%;
 }
 
 .ov-cart-add {
-  width: 310px;
-  height: 60px;
-  margin-right: 24px;
-  margin-top: 24px;
-  float: left;
+  /* width: 310px; */
+  height: 100%;
+  /* margin-right: 24px; */
+  /* margin-top: 24px; */
+  /* float: left; */
 }
 
 .ov-cart-like-input {
-  position: relative;
-  top: 0px;
-  left: 0px;
+  /* position: relative; */
+  /* top: 0px; */
+  /* left: 0px; */
 }
 
 .ov-cart-like {
   display: inline-block;
   box-sizing: border-box;
   width: 60px;
-  height: 60px;
+  height: 100%;
   border: 1px solid black;
   padding: 15px !important;
-  margin: 0;
-  margin-top: 24px;
+  /* margin: 0; */
+  /* margin-top: 24px; */
   cursor: pointer;
 }
 

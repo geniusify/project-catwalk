@@ -25,7 +25,7 @@ const ProductInfo = ({
   return (
     <div className="ov-product-info">
       <div>
-        {ratingCount > 0
+        {ratingCount >= 2
           ? (
             <>
               <span>{`${getAverageRating(ratings)} STARS  `}</span>
