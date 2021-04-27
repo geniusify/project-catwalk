@@ -30,7 +30,7 @@ const ImageGallery = ({
   return (
     <div className={`ov-image-gallery ${extendedView ? 'ov-image-gallery-extended' : ''}`}>
       <img
-        className="ov-main-gallery-image"
+        className={extendedView ? 'ov-main-gallery-image-extended' : 'ov-main-gallery-image'}
         src={photos[imageIndex].url}
         alt={alt}
         onClick={() => setExtendedView((isSet) => !isSet)}
