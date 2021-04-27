@@ -19,15 +19,16 @@ class RelatedItems extends React.Component {
           </img>
           <p className="relatedProductText">
             {this.props.riCategory}<br />
-            Product ID: {this.props.riID}<br />
-            <b>{this.props.riName}</b><br /><br />
+           <br />
+            <b>{this.props.riName}</b><br />
+            {this.props.riStyle}<br /><br />
             {this.props.riPrice}<br /><br />
 
-              <FontAwesomeIcon icon={faStar} color="orange"/>
-              <FontAwesomeIcon icon={faStar} color="orange"/>
-              <FontAwesomeIcon icon={faStar} color="orange"/>
-              <FontAwesomeIcon icon={faStar} color="orange"/>
-              <FontAwesomeIcon icon={faStar} />
+              <FontAwesomeIcon icon={faStar} color="red"/>
+              <FontAwesomeIcon icon={faStar} color="red"/>
+              <FontAwesomeIcon icon={faStar} color="red"/>
+              <FontAwesomeIcon icon={faStar} color="red"/>
+              <FontAwesomeIcon icon={faStar} color='black' />
           </p>
         </div>
     );
