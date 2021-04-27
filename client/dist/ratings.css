@@ -20,7 +20,7 @@
   border: 1px solid black;
   border-spacing: 10px;
   padding: 10px;
-  background-image: linear-gradient(rgb(223, 227, 230), rgb(158, 173, 184));
+  /* background-image: linear-gradient(rgb(223, 227, 230), rgb(158, 173, 184)); */
   opacity: 0.8;
 }
 
@@ -32,7 +32,7 @@
   border: 1px solid black;
   border-spacing: 10px;
   padding: 10px;
-  background-image: linear-gradient(rgb(223, 227, 230), rgb(158, 173, 184));
+  /* background-image: linear-gradient(rgb(223, 227, 230), rgb(158, 173, 184)); */
   opacity: 0.8;
 }
 

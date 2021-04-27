@@ -24,7 +24,6 @@ const RatingsAndReviews = ({ productId }) => {
     })
       .then(({ data }) => setReviewData(data))
       .catch(() => {});
-    console.log('inside first useEffect');
   }, []);
 
   useEffect(() => {
@@ -34,7 +33,6 @@ const RatingsAndReviews = ({ productId }) => {
     })
       .then(({ data }) => setReviewMetaData(data))
       .catch(() => {});
-    console.log('inside second useEffect');
   }, []);
 
   const renderComponents = () => (
