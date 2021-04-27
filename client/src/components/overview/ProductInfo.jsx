@@ -60,13 +60,15 @@ const ProductInfo = ({
           className="ov-share-pinterest"
           height="24"
         />
-        <img
-          src="https://platform-cdn.sharethis.com/img/reddit.svg"
-          alt="share on reddit"
-          title="share on reddit"
-          className="ov-share-reddit"
-          height="24"
-        />
+        <a href="http://www.reddit.com/submit?url=https://example.com/geniusify&title=Post%20to%20Reddit%20via%20URL">
+          <img
+            src="https://platform-cdn.sharethis.com/img/reddit.svg"
+            alt="share on reddit"
+            title="share on reddit"
+            className="ov-share-reddit"
+            height="24"
+          />
+        </a>
         <img
           src="https://platform-cdn.sharethis.com/img/hackernews.svg"
           alt="share on hackernews"
