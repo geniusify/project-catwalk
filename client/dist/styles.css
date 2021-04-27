@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-/* input[type="radio"] {
-  display: none;
-} */
-
-.star {
-  display: none;
-}
-=======
 /* PAGE LAYOUT */
 
 .app-container {
@@ -45,5 +36,3 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 200;
 }
-
->>>>>>> a7a0f78f28b71979c6318e24860c1050b45514ad
