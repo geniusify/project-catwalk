@@ -383,12 +383,9 @@
 .ov-cart-like { grid-area: like; }
 
 .ov-cart-size {
-  /* width: 243px; */
-  /* height: 60px; */
   height: 100%;
   width: 100%;
-  /* margin-right: 24px; */
-  /* margin-bottom: 24px; */
+  /* padding-left: 20px; */
 }
 
 .ov-cart-quantity {
@@ -403,6 +400,18 @@
   /* margin-right: 24px; */
   /* margin-top: 24px; */
   /* float: left; */
+}
+
+.ov-cart-add-active {
+  cursor: pointer;
+}
+
+.ov-cart-add-active:hover {
+  box-shadow: 0px 0px 2px 2px #0002;
+}
+
+.ov-cart-add-active:active {
+  box-shadow: 0px 0px 2px 2px #0004;
 }
 
 .ov-cart-like-input {
