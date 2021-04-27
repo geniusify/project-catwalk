@@ -25,7 +25,7 @@ const calculateAverage = (ratings) => {
     average += parseInt(rating) * parseInt(ratings[rating]);
   }
 
-  return average / count;
+  return (average / count).toFixed(2);
 };
 
 const calculateRecommended = (recommended) => {
@@ -35,18 +35,16 @@ const calculateRecommended = (recommended) => {
     totalCount += parseInt(recommended[count]);
   }
 
-  return recommended.true / totalCount;
+  return (recommended.true / totalCount).toFixed(2);
 };
 
 const RatingSummary = ({ ratings, recommended }) => (
   <div className="rr-rating-summary">
     <p>
-      <StarRating />
       rating summmary:
       {calculateAverage(ratings)}
       <br />
-      star rating:
-      {calculateAverage(ratings)}
+      <StarRating />
       <br />
       reviews count:
       {calculateCounts(ratings)}

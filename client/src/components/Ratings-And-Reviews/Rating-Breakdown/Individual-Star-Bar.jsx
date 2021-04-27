@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const IndividualStarBar = ({ star, counts }) => (
+const IndividualStarBar = ({ star, counts, max }) => (
   <p>
     star:
     {star}
     <br />
-    bar: star bar placeholder
+    <progress value={counts} max={max} />
     <br />
     counts:
     {counts}
@@ -16,6 +16,7 @@ const IndividualStarBar = ({ star, counts }) => (
 IndividualStarBar.propTypes = {
   star: PropTypes.number.isRequired,
   counts: PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
 };
 
 export default IndividualStarBar;
