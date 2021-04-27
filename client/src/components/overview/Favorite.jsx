@@ -18,13 +18,6 @@ const Favorite = ({ styleId }) => {
   };
 
   return (
-    // <button
-    //   className={liked ? 'ov-cart-liked' : 'ov-cart-like'}
-    //   type="button"
-    //   onClick={toggleLiked}
-    // >
-    //   {styleId}
-    // </button>
     <div
       className="ov-cart-like"
       onClick={toggleLiked}
