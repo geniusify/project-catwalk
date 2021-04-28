@@ -1,87 +1,101 @@
-import React from 'react';
-import RelatedItems from './RelatedItems.jsx';
-import Carousel from "react-multi-carousel";
-import YourOutfitList from './YourOutfitList.jsx';
-import axios from 'axios';
+/* eslint-disable react/prop-types */
+/* eslint-disable no-plusplus */
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable no-unused-vars */
 
-//const config = require('../../../../config.js');
+import React from 'react';
+import axios from 'axios';
+import Carousel from 'react-multi-carousel';
+import RelatedItems from './RelatedItems.jsx';
+import YourOutfitList from './YourOutfitList.jsx';
 
 class CarouselContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
       productsList: [],
       productStyles: [],
+      selectedCategory: '',
+      selectedCatRun: 1,
+      outfitList: [],
+      outfitRun: 1
     };
   }
 
-  async componentDidMount() {
+   componentDidMount() {
 
-    const headerInfo = { 'User-agent': 'request',
-    // 'Authorization' : config['TOKEN']
-  };
-
-    await axios.get(
-
-      //`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products`
-      'api/products',
-      { headers: headerInfo })
-
-      .then((res) => { this.setState({ productsList: res.data }); return res.data })
+     axios.get('api/products')
+      .then((resProduct) => { this.setState({ productsList: resProduct.data }); return (resProduct.data); })
       .then((data) => {
 
         const dList = data;
 
         for (var i = 0; i < dList.length; i++) {
-
            axios.get(
-
-            `api/products/` + dList[i]['id'] + `/styles`,
-            { headers: headerInfo })
-
-            .then((res2) => { this.setState({ productStyles: [...this.state.productStyles, res2.data] }) })
+            `api/products/` + dList[i]['id'] + `/styles`)
+            .then((resStyle) => { this.setState({ productStyles: [...this.state.productStyles, resStyle.data] }) })
         }
       })
-  };
+   };
+
+   getProductCategory(id) {
+
+     if (this.state.selectedCatRun === 1) {
+
+      axios.get('api/products/' + id)
+      .then((resSelect) => { this.setState({ selectedCategory: resSelect.data.category }); return(0) })
+      .then((resSelectState) => { this.setState({ selectedCatRun: resSelectState }); })
+     }
+   }
+
+   setOutfitItem(id) {
+//...
+  }
 
   render() {
 
-    const { productsList, productStyles } = this.state;
-
+    const { productsList, productStyles, selectedCategory } = this.state;
     var relatedItemsList = []
+
+    var selectedWindowsItemID = window.location.search.replace('?p_id=', '');
+    this.getProductCategory(selectedWindowsItemID);
+
+    console.log('window location - carousel')
+    console.log(selectedWindowsItemID)
+    console.log('window location - carousel - category')
+    console.log(this.state.selectedCategory)
+    console.log(productsList)
 
     for (var i = 0; i < productsList.length; i++) {
 
       const productID = productsList[i].id;
+      const productCAT = productsList[i].category;
 
-      for (var j = 0; j < productStyles.length; j++) {
+      if ((productCAT === this.state.selectedCategory) || !(this.state.selectedCategory)) {
 
-        if (productStyles[j].product_id === productID.toString()) {
+        for (var j = 0; j < productStyles.length; j++) {
+          if (productStyles[j].product_id === productID.toString()) {
+            var currentStyle = productStyles[j].results;
+            for (var k = 0; k < currentStyle.length; k++) {
+              var styleImageNumber = currentStyle[k].photos.length;
+              var styleRandomImage = Math.floor(Math.random() * styleImageNumber)
 
-          var currentStyle = productStyles[j].results;
-
-          for (var k = 0; k < currentStyle.length; k++) {
-
-            var styleImageNumber = currentStyle[k].photos.length;
-            var styleRandomImage = Math.floor(Math.random() * styleImageNumber)
-
-            relatedItemsList.push(
-              <RelatedItems
-
-                riCategory={productsList[i].category}
-
-                riName={productsList[i].name}
-                riStyle={currentStyle[k].name}
-                riPrice={productsList[i].default_price}
-                riImage={currentStyle[k].photos[styleRandomImage].thumbnail_url}
-              />)
+              relatedItemsList.push(
+                <RelatedItems
+                  riCategory={productsList[i].category}
+                  riName={productsList[i].name}
+                  riStyle={currentStyle[k].name}
+                  riPrice={productsList[i].default_price}
+                  riImage={currentStyle[k].photos[styleRandomImage].thumbnail_url}
+                />)
+            }
           }
         }
       }
     }
 
-    console.log(productStyles);
+    //console.log('===>productSyles: ',productStyles);
 
 
     var relatedOutfit = [
@@ -111,7 +125,7 @@ class CarouselContainer extends React.Component {
     return (
       <div className="carouselOuterDiv">
         <h3 className="pRelated">RELATED PRODUCTS</h3>
-        <Carousel responsive={responsive}>
+        <Carousel responsive={responsive} >
             {relatedItemsList}
         </Carousel>
         <h3 className="pRelated">YOUR OUTFIT</h3>
