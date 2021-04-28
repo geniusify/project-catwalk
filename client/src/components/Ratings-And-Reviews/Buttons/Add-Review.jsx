@@ -15,6 +15,7 @@ const AddReview = ({
     <div>
       <button
         type="button"
+        className="review-button"
         onClick={() => setShowModal(!showModal)}
       >
         Add Review

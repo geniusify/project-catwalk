@@ -21,10 +21,17 @@ class CarouselContainer extends React.Component {
     };
   }
 
+<<<<<<< HEAD
   componentDidMount() {
     axios.get('api/products')
       .then((resProduct) => {
         this.setState({ productsList: resProduct.data }); return (resProduct.data); })
+=======
+   componentDidMount() {
+
+     axios.get('api/products')
+      .then((resProduct) => { this.setState({ productsList: resProduct.data }); return (resProduct.data); })
+>>>>>>> ac95df9eff9844059a8486f719e6f51ae74a67d3
       .then((data) => {
         const dList = data;
         for (var i = 0; i < dList.length; i++) {
