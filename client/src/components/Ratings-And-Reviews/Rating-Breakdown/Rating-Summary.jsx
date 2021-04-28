@@ -1,48 +1,64 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
+/* eslint-disable radix */
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class RatingSummary extends React.Component {
-  constructor(props) {
-    super(props);
+import StarRating from '../../shared/StarDynamic.jsx';
 
-    this.state = {
-    };
+const calculateCounts = (ratings) => {
+  let count = 0;
+
+  for (const rating in ratings) {
+    count += parseInt(ratings[rating]);
   }
 
-  calculateAverage() {
-    const { data } = this.props;
-    let average = 0;
+  return count;
+};
 
-    data.results.forEach((review) => {
-      average += review.rating;
-    });
+const calculateAverage = (ratings) => {
+  let average = 0;
+  const count = calculateCounts(ratings);
 
-    return average / data.count;
+  for (const rating in ratings) {
+    average += parseInt(rating) * parseInt(ratings[rating]);
   }
 
-  render() {
-    const { data } = this.props;
+  return (average / count).toFixed(2);
+};
 
-    return (
-      <div className="rr-rating-summary">
-        <p>
-          rating summmary:
-          {this.calculateAverage()}
-          <br />
-          star rating:
-          {this.calculateAverage()}
-          <br />
-          reviews count:
-          {data.count}
-        </p>
-      </div>
-    );
+const calculateRecommended = (recommended) => {
+  let totalCount = 0;
+
+  for (const count in recommended) {
+    totalCount += parseInt(recommended[count]);
   }
-}
+
+  return (recommended.true / totalCount).toFixed(2);
+};
+
+const RatingSummary = ({ ratings, recommended }) => (
+  <div className="rr-rating-summary">
+    <p>
+      rating summmary:
+      {calculateAverage(ratings)}
+      <br />
+      <StarRating />
+      <br />
+      reviews count:
+      {calculateCounts(ratings)}
+      <br />
+      recommended:
+      {calculateRecommended(recommended) * 100}
+      %
+    </p>
+  </div>
+);
 
 RatingSummary.propTypes = {
-  data: PropTypes.array.isRequired,
+  ratings: PropTypes.object.isRequired,
+  recommended: PropTypes.object.isRequired,
 };
 
 export default RatingSummary;

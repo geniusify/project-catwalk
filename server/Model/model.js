@@ -10,8 +10,23 @@ module.exports = {
       method: 'get',
       headers: {
         'User-Agent': 'request',
+        'Content-Type': 'application/json',
         Authorization: `${TOKEN}`,
-      }
+      },
+    });
+  },
+
+  add: (endpoint, data) => {
+    const url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo${endpoint}`;
+    console.log(data);
+
+    return axios({
+      url,
+      method: 'post',
+      headers: {
+        Authorization: `${TOKEN}`,
+      },
+      data,
     });
   },
 };

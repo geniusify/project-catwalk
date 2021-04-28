@@ -11,9 +11,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // check if property is called extended
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 app.get('/api/*', Controller.get);
+app.post('/api/*', Controller.post);
 
 app.listen(port, () => {
   console.log(`server running on port ${port}`);

@@ -11,7 +11,7 @@ import userEvent from '@testing-library/user-event';
 
 import ProductDescription from './ProductDescription.jsx';
 
-it('renders the product\'s slogan description', async () => {
+xit('renders the product\'s slogan description', async () => {
   render(<ProductDescription
     slogan="Just do it."
     description="We stole this from Nike."
@@ -21,7 +21,7 @@ it('renders the product\'s slogan description', async () => {
   expect(screen.getByText('We stole this from Nike.')).toBeInTheDocument();
 });
 
-it('doesn\'t crash if no description is provided', async () => {
+xit('doesn\'t crash if no description is provided', async () => {
   render(<ProductDescription
     slogan="Indescribable."
   />);

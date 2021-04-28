@@ -1,25 +1,92 @@
 import React from 'react';
 import RelatedItems from './RelatedItems.jsx';
 import Carousel from "react-multi-carousel";
+import YourOutfitList from './YourOutfitList.jsx';
+import axios from 'axios';
+
+//const config = require('../../../../config.js');
 
 class CarouselContainer extends React.Component {
-
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+
+      productsList: [],
+      productStyles: [],
+    };
   }
+
+  async componentDidMount() {
+
+    const headerInfo = {
+    // 'Authorization' : config['TOKEN']
+  };
+
+    await axios.get(
+
+      //`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products`
+      'api/products',
+      { headers: headerInfo })
+
+      .then((res) => { this.setState({ productsList: res.data }); return res.data })
+      .then((data) => {
+
+        const dList = data;
+
+        for (var i = 0; i < dList.length; i++) {
+
+           axios.get(
+
+            `api/products/` + dList[i]['id'] + `/styles`,
+            { headers: headerInfo })
+
+            .then((res2) => { this.setState({ productStyles: [...this.state.productStyles, res2.data] }) })
+        }
+      })
+  };
 
   render() {
 
-    var relatedItemsList = [
+    const { productsList, productStyles } = this.state;
 
-      <RelatedItems riCategory="JACKETS" riID="23145" riName="Camo Onesie - 1" riPrice="$140.00" riImage="https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"/>,
-      <RelatedItems riCategory="JACKETS" riID="23145" riName="Camo Onesie - 2" riPrice="$140.00" riImage="https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"/>,
-      <RelatedItems riCategory="JACKETS" riID="23145" riName="Camo Onesie - 3" riPrice="$140.00" riImage="https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"/>,
-      <RelatedItems riCategory="JACKETS" riID="23145" riName="Camo Onesie - 4" riPrice="$140.00" riImage="https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"/>,
-      <RelatedItems riCategory="JACKETS" riID="23145" riName="Camo Onesie - 5" riPrice="$140.00" riImage="https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"/>,
-      <RelatedItems riCategory="JACKETS" riID="23145" riName="Camo Onesie - 6" riPrice="$140.00" riImage="https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"/>,
-    ];
+    var relatedItemsList = []
+
+    for (var i = 0; i < productsList.length; i++) {
+
+      const productID = productsList[i].id;
+
+      for (var j = 0; j < productStyles.length; j++) {
+
+        if (productStyles[j].product_id === productID.toString()) {
+
+          var currentStyle = productStyles[j].results;
+
+          for (var k = 0; k < currentStyle.length; k++) {
+
+            var styleImageNumber = currentStyle[k].photos.length;
+            var styleRandomImage = Math.floor(Math.random() * styleImageNumber)
+
+            relatedItemsList.push(
+              <RelatedItems
+
+                riCategory={productsList[i].category}
+
+                riName={productsList[i].name}
+                riStyle={currentStyle[k].name}
+                riPrice={productsList[i].default_price}
+                riImage={currentStyle[k].photos[styleRandomImage].thumbnail_url}
+              />)
+          }
+        }
+      }
+    }
+
+    console.log(productStyles);
+
+
+    var relatedOutfit = [
+      <YourOutfitList />
+    ]
 
     // This responsive variable was added from the react-multi-carousel docs (https://www.npmjs.com/package/react-multi-carousel)
     // The important option here is the items (number of cards shown at one time)
@@ -43,10 +110,15 @@ class CarouselContainer extends React.Component {
 
     return (
       <div className="carouselOuterDiv">
-        <p>RELATED PRODUCTS</p>
+        <h3 className="pRelated">RELATED PRODUCTS</h3>
         <Carousel responsive={responsive}>
             {relatedItemsList}
         </Carousel>
+        <h3 className="pRelated">YOUR OUTFIT</h3>
+        <Carousel className="test" responsive={responsive}>
+            {relatedOutfit}
+        </Carousel>
+
       </div>
     );
   }

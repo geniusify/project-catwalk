@@ -1,55 +1,43 @@
 .rr-container {
-  box-sizing: border-box;
   display: grid;
-  grid-template:
-  'rr-rating-summary review-tile'
-  'rr-breakdown review-tile'
-  'rr-product-breakdown buttons';
-  grid-template-columns: minmax(1fr, 1fr) minmax(1fr, 3fr);
-  grid-template-rows: minmax(1fr, 1fr) minmax(1fr, 3fr) minmax(1fr, 1fr);
-  padding: 10px;
-  gap: 5%;
-  overflow: clip;
-  background-color: rgb(228, 234, 237);
+  grid-template-areas:
+  /* 'rr-product-breakdown  rr-sort-buttons' */
+  'rr-product-breakdown  rr-review-list'
+  'rr-product-breakdown  rr-buttons';
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 4fr 1fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  height: 100vh;
+
+  /* background-color: rgb(228, 234, 237); */
 }
 
-/* rating breakdown */
-
-.rr-rating-summary {
-  grid-area: rr-rating-summary;
-}
-
+/* .rr-sort-buttons { grid-area: rr-sort-buttons; } */
 .rr-product-breakdown {
   grid-area: rr-product-breakdown;
-}
-
-.rr-breakdown {
-  grid-area: rr-breakdown;
-}
-
-.rr-rating-breakdown {
-  max-height: 60%;
-  max-width: auto;
   overflow: scroll;
   border: 1px solid black;
   border-spacing: 10px;
   padding: 10px;
-  background-image: linear-gradient(rgb(223, 227, 230), rgb(158, 173, 184));
+  /* background-image: linear-gradient(rgb(223, 227, 230), rgb(158, 173, 184)); */
   opacity: 0.8;
 }
-
-/* review list */
 
 .rr-review-list {
-  grid-area: review-tile;
-  max-height: 80%;
-  max-width: 100%;
+  grid-area: rr-review-list;
+  /* max-height: auto;
+  max-width: auto; */
   overflow: scroll;
   border: 1px solid black;
   border-spacing: 10px;
   padding: 10px;
-  background-image: linear-gradient(rgb(223, 227, 230), rgb(158, 173, 184));
+  /* background-image: linear-gradient(rgb(223, 227, 230), rgb(158, 173, 184)); */
   opacity: 0.8;
+}
+
+.rr-buttons {
+  grid-area: rr-buttons;
 }
 
 .review-photo {
@@ -57,3 +45,4 @@
   height: 100px;
   width: 100px;
 }
+
