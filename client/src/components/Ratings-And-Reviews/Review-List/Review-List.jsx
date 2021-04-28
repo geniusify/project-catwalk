@@ -11,7 +11,9 @@ const ReviewList = ({ reviewData, displayReviewCount }) => {
     const displayReviews = results.slice(0, displayReviewCount);
 
     return (
-      <div className="rr-review-list">
+      <div
+        // className="rr-review-list">
+      >
         {displayReviews.map((review) => (
           <IndividualReview review={review} />
         ))}

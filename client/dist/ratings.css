@@ -9,18 +9,14 @@
   grid-column-gap: 5px;
   grid-row-gap: 5px;
   height: 100vh;
-
-  /* background-color: rgb(228, 234, 237); */
 }
 
-/* .rr-sort-buttons { grid-area: rr-sort-buttons; } */
 .rr-product-breakdown {
   grid-area: rr-product-breakdown;
   overflow: scroll;
   border: 1px solid black;
   border-spacing: 10px;
   padding: 10px;
-  /* background-image: linear-gradient(rgb(223, 227, 230), rgb(158, 173, 184)); */
   opacity: 0.8;
 }
 
@@ -28,15 +24,23 @@
   grid-area: rr-sort-buttons;
 }
 
+.sort-buttons {
+  height: 50px;
+  width: 200px;
+  text-indent: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #666;
+}
+
 .rr-review-list {
   grid-area: rr-review-list;
-  /* max-height: auto;
-  max-width: auto; */
   overflow: scroll;
   border: 1px solid black;
   border-spacing: 10px;
   padding: 10px;
-  /* background-image: linear-gradient(rgb(223, 227, 230), rgb(158, 173, 184)); */
   opacity: 0.8;
 }
 
@@ -48,4 +52,15 @@
 
 .rr-buttons {
   grid-area: rr-buttons;
+}
+
+.review-button {
+  height: 50px;
+  width: 200px;
+  text-indent: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #666;
 }
