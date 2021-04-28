@@ -4,17 +4,16 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import RatingBreakdown from './Rating-Breakdown/Rating-Breakdown.jsx';
+import SortReviews from './Sort-Reviews/Sort-Reviews.jsx';
 import ReviewList from './Review-List/Review-List.jsx';
 import Buttons from './Buttons/Buttons.jsx';
-
-// import data from './testReviewData.js';
 
 const RatingsAndReviews = ({ productId }) => {
   // pass down from App
   // productId = '23718';
 
-  // productId = '23146';
-  productId = '23156';
+  productId = '23146';
+  // productId = '23156';
 
   const [reviewData, setReviewData] = useState(undefined);
   const [reviewMetaData, setReviewMetaData] = useState(undefined);
@@ -53,6 +52,11 @@ const RatingsAndReviews = ({ productId }) => {
         setReviewMetaData={setReviewMetaData}
         displayReviewCount={displayReviewCount}
         setDisplayReviewCount={setDisplayReviewCount}
+      />
+      <SortReviews
+        displayReviewCount={displayReviewCount}
+        reviewData={reviewData}
+        setReviewData={setReviewData}
       />
     </div>
   );

@@ -1,9 +1,9 @@
 .rr-container {
   display: grid;
   grid-template-areas:
-  /* 'rr-product-breakdown  rr-sort-buttons' */
-  'rr-product-breakdown  rr-review-list'
-  'rr-product-breakdown  rr-buttons';
+  'rr-product-breakdown   rr-sort-buttons'
+  'rr-product-breakdown   rr-review-list'
+  'rr-product-breakdown   rr-buttons';
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr 4fr 1fr;
   grid-column-gap: 5px;
@@ -24,6 +24,10 @@
   opacity: 0.8;
 }
 
+.rr-sort-buttons {
+  grid-area: rr-sort-buttons;
+}
+
 .rr-review-list {
   grid-area: rr-review-list;
   /* max-height: auto;
@@ -36,13 +40,12 @@
   opacity: 0.8;
 }
 
-.rr-buttons {
-  grid-area: rr-buttons;
-}
-
 .review-photo {
   grid-area: review;
   height: 100px;
   width: 100px;
 }
 
+.rr-buttons {
+  grid-area: rr-buttons;
+}
