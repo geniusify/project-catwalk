@@ -2,10 +2,12 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+import moment from 'moment';
 
 const IndividualReview = ({ review }) => {
   const {
-    rating, reviewer_name, date, summary, body, photos, recommend, helpfulness,
+    review_id, rating, reviewer_name, date, summary, body, photos, recommend, helpfulness,
   } = review;
 
   let { response } = review;
@@ -13,6 +15,15 @@ const IndividualReview = ({ review }) => {
   if (!response) {
     response = '';
   }
+
+  const handleHelpfulClick = () => {
+    axios({
+      url: `api/reviews/${review_id}/helpful`,
+      method: 'put',
+    })
+      .then(() => console.log('success'))
+      .catch(() => console.log('fail'));
+  };
 
   return (
     <div className="rr-review-tile">
@@ -22,7 +33,7 @@ const IndividualReview = ({ review }) => {
         Username:
         {reviewer_name}
         Date:
-        {date}
+        {moment(date).fromNow()}
       </span>
       <p>
         Review Summary:
@@ -52,7 +63,10 @@ const IndividualReview = ({ review }) => {
         )
         : null}
       <p>
-        Helpful:
+        Helpful?
+        <text onClick={handleHelpfulClick}>
+          Yes
+        </text>
         {helpfulness}
       </p>
       <hr />
