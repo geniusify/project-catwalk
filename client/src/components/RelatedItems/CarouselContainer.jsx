@@ -17,20 +17,16 @@ class CarouselContainer extends React.Component {
       productsList: [],
       productStyles: [],
       selectedCategory: '',
-      selectedCatRun: 1,
-      outfitList: [],
-      outfitRun: 1
+      selectedCatRun: 1
     };
   }
 
-   componentDidMount() {
-
-     axios.get('api/products')
-      .then((resProduct) => { this.setState({ productsList: resProduct.data }); return (resProduct.data); })
+  componentDidMount() {
+    axios.get('api/products')
+      .then((resProduct) => {
+        this.setState({ productsList: resProduct.data }); return (resProduct.data); })
       .then((data) => {
-
         const dList = data;
-
         for (var i = 0; i < dList.length; i++) {
            axios.get(
             `api/products/` + dList[i]['id'] + `/styles`)
@@ -98,10 +94,6 @@ class CarouselContainer extends React.Component {
     //console.log('===>productSyles: ',productStyles);
 
 
-    var relatedOutfit = [
-      <YourOutfitList />
-    ]
-
     // This responsive variable was added from the react-multi-carousel docs (https://www.npmjs.com/package/react-multi-carousel)
     // The important option here is the items (number of cards shown at one time)
     const responsive = {
@@ -129,10 +121,8 @@ class CarouselContainer extends React.Component {
             {relatedItemsList}
         </Carousel>
         <h3 className="pRelated">YOUR OUTFIT</h3>
-        <Carousel className="test" responsive={responsive}>
-            {relatedOutfit}
-        </Carousel>
 
+        <YourOutfitList />
       </div>
     );
   }

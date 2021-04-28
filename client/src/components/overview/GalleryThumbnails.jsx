@@ -39,6 +39,7 @@ const GalleryThumbnails = ({
         <div className="ov-gallery-thumbnails" style={{ top: topIndex * thumbOffset + 3 }}>
           {photos.map((photo, index) => (
             <div
+              data-testid="thumbnails"
               key={photo.url}
               className={classNames(index)}
               onClick={() => chooseThumbnail(index)}
