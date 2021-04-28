@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const MoreReviews = ({ displayReviewCount, setDisplayReviewCount }) => (
   <button
     type="button"
+    className="review-button"
     onClick={() => setDisplayReviewCount(() => displayReviewCount + 2)}
   >
     More Reviews

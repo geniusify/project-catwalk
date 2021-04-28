@@ -9,7 +9,9 @@ import MoreReviews from './More-Reviews.jsx';
 const Buttons = ({
   productId, setReviewData, setReviewMetaData, displayReviewCount, setDisplayReviewCount,
 }) => (
-  <div className="rr-buttons">
+  <div
+    // className="rr-buttons"
+  >
     <MoreReviews
       displayReviewCount={displayReviewCount}
       setDisplayReviewCount={setDisplayReviewCount}

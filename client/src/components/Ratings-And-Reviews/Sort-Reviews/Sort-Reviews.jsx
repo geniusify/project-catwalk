@@ -35,6 +35,7 @@ const SortReviews = ({ displayReviewCount, reviewData, setReviewData }) => {
 
   return (
     <select
+      class="sort-buttons"
       onChange={handleClick.bind(this)}
     >
       <option>Helpful</option>
