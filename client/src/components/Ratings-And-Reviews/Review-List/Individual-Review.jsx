@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import moment from 'moment';
 
 const IndividualReview = ({ review }) => {
   const {
@@ -32,7 +33,7 @@ const IndividualReview = ({ review }) => {
         Username:
         {reviewer_name}
         Date:
-        {date}
+        {moment(date).fromNow()}
       </span>
       <p>
         Review Summary:
