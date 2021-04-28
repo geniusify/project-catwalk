@@ -1,27 +1,59 @@
 .ov-product-info {
-  background-color: #cfe;
-}
-
-.ov-style-selector {
-  background-color: #efc;
+  background-color: #fff;
 }
 
 .ov-container {
   box-sizing: border-box;
   display: grid;
-  grid-template:
-  'gallery info'
-  'gallery styles'
-  'gallery cart'
-  'description features';
-  grid-template-columns: 760px 457px;
-  grid-template-rows: 211px 284px 85px 300px;
   overflow: clip;
+}
+
+/* phone/tablet layout */
+@media (max-width:780px) {
+  .ov-container {
+    grid-template:
+    'gallery'
+    'info'
+    'styles'
+    'cart'
+    'description'
+    'features';
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }}
+
+/* desktop layout */
+@media (min-width:780px) {
+  .ov-container {
+    grid-template:
+    'gallery info'
+    'gallery styles'
+    'gallery cart'
+    'description features';
+    grid-template-rows: auto;
+  }
+}
+
+@media (min-width:780px) and (max-width: 1100px) {
+  .ov-container {
+    grid-template-columns: 3fr 320px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .ov-container {
+    grid-template-columns: 3fr 408px;
+  }
+}
+
+
+.ov-container-extended {
+  grid-template-columns: 1217px 0px;
+  grid-template-rows: 211px 284px 385px 0px;
 }
 
 .ov-image-gallery {
   grid-area: gallery;
-  background-color: pink;
 }
 
 .ov-product-info {
@@ -30,22 +62,21 @@
 
 .ov-description {
   grid-area: description;
-  background-color: #88f;
 }
 
 .ov-style-selector {
   grid-area: styles;
-  background-color: #ffa;
 }
 
 .ov-add-to-cart {
   grid-area: cart;
-  background-color: #fca;
 }
 
 .ov-features {
   grid-area: features;
 }
+
+/* product info */
 
 .ov-product-info,
 .ov-style-selector,
@@ -55,21 +86,23 @@
   margin-right: 30px;
 }
 
-.ov-product-info {
-  margin-top: 30px;
+.ov-rr-link {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.ov-description {
-  margin-left: 120px;
-  margin-top: 60px;
-  padding-top: 0px;
+@media (min-width: 780px) {
+  .ov-description {
+    margin-left: 120px;
+    padding-top: 0px;
+  }
 }
 
 .ov-features {
-  margin-top: 60px;
-}
-
-/* product info */
+  padding-top: 20px;
+  color: #444;
+  line-height: 1.5em;
+ }
 
 .ov-category {
   text-transform: uppercase
@@ -83,30 +116,217 @@
   text-decoration: line-through;
 }
 
+.ov-share-hn {
+  background-color: #ff4000;
+}
+
+.ov-share-reddit {
+  background-color: #ff4500;
+}
+
+.ov-share-pinterest {
+  background-color: #cb2027;
+}
+
+.ov-share-hn,
+.ov-share-reddit,
+.ov-share-pinterest {
+  display: inline-block;
+  object-fit: scale-down;
+}
+
+.ov-share-hn:hover,
+.ov-share-reddit:hover,
+.ov-share-pinterest:hover {
+  display: inline-block;
+  object-fit: scale-down;
+  opacity: .6;
+  cursor: pointer;
+}
+
+.ov-share-hn:hover,
+.ov-share-reddit:hover,
+.ov-share-pinterest:hover {
+  display: inline-block;
+  object-fit: scale-down;
+  opacity: .6;
+  cursor: pointer;
+}
+
+.ov-share-hn:active,
+.ov-share-reddit:active,
+.ov-share-pinterest:active {
+  display: inline-block;
+  object-fit: scale-down;
+  opacity: .8;
+  cursor: pointer;
+}
+
+
 /* gallery */
 
-.ov-main-gallery-image {
+.ov-image-gallery {
+  box-sizing: border-box;
+  display: grid;
+  height: 680px;
+  grid-template: 'thumbnails left image right';
+  grid-template-columns: 94px 1fr 20fr 1fr;
+}
+
+@media (max-width: 780px) {
+  .ov-image-gallery {
+    margin-bottom: 20px;
+  }
+}
+
+.ov-image-gallery-extended {
+  grid-template-columns: 94px 24px 1050px 24px;
+}
+
+.ov-main-gallery-image,
+.ov-main-gallery-image-extended
+ {
+  grid-area: image;
   width: 100%;
+  height: 100%;
+  max-height: 680px;
+  object-fit: contain;
+}
+
+.ov-main-gallery-image {
+  cursor: zoom-in;
+}
+
+.ov-main-gallery-image-extended {
+  cursor: zoom-out;
+}
+
+.ov-gallery-left, .ov-gallery-left-extended {
+  grid-area: left;
+}
+
+.ov-gallery-right, .ov-gallery-right-extended {
+  grid-area: right;
+}
+
+.ov-gallery-left,
+.ov-gallery-right {
+  display: inline-block;
+  position: relative;
+  top: 322px;
+  cursor: pointer;
+}
+
+.ov-gallery-left-extended,
+.ov-gallery-right-extended {
+  display: inline-block;
+  position: relative;
+  top: 430px;
+  cursor: pointer;
+}
+
+.ov-gallery-thumbnail-viewer {
+  position: relative;
+  grid-area: thumbnails;
+  display: grid;
+  justify-items: center;
+  grid-template: 'up' 'ths' 'down';
+  grid-template-columns: 80px;
+  height: 610px;
+}
+
+.ov-gallery-thumbnails-container {
+  position: absolute;
+  grid-area: ths;
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  overflow: hidden;
+  top: -15px;
+  width: 80px;
+  margin: 0;
+  padding: 0;
+}
+
+.ov-gallery-thumbnails {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  transition: top .25s ease-in-out;
+}
+
+.ov-gallery-thumbnail {
+  box-sizing: border-box;
+  height: 60px;
+  width: 60px;
+  margin: 0 0 30px 0;
+  opacity: .8;
+  background-size: cover;
+  background-position: center center;
+  cursor: pointer;
+}
+
+.ov-gallery-thumbnail-selected {
+  transform: scale(1.1, 1.1);
+  box-shadow: 0px 0px 5px 2px #0004;
+  opacity: 1;
+  transition: .2s;
+}
+
+.ov-gallery-thumbnail-extended {
+  box-sizing: border-box;
+  transform: scale(1.1, 1.1);
+  background-color: #666;
+  height: 60px;
+  width: 60px;
+  opacity: .4;
+  margin: 0 0 30px 0;
+  background-size: cover;
+  background-position: center center;
+  cursor: pointer;
+}
+
+.ov-gallery-thumbnail-extended-selected {
+  box-shadow: 0px 0px 5px 2px #0004;;
+  transition: .2s;
+  opacity: 1;
+}
+
+.ov-up-arrow {
+  grid-area: up;
+}
+
+.ov-down-arrow {
+  grid-area: down;
+}
+
+.ov-up-arrow,
+.ov-down-arrow {
+  display: block;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
 }
 
 /* style selector */
 
 .ov-style-selector {
-  background-color: pink;
+  margin-top: 12px;
+}
+
+.ov-style-item-container {
+  margin-right: 0;
 }
 
 .ov-style-item {
   display: inline-block;
-  /* position: relative; */
   height: 60px;
   width: 60px;
   margin: 12px;
   border-radius: 30px;
-  border: 1px solid red;
+  border: 1px solid #333;
   background-size: cover;
   background-position: center center;
-
-  /* background-size: contain; */
   cursor: pointer;
 }
 
@@ -116,19 +336,106 @@
 
 .ov-style-selector-check {
   position: absolute;
-  /* display:block; */
-  /* float: right; */
-  /* left: 20px; */
-  /* top: 0px; */
-  /* margin: 0px; */
-  /* padding: 0px; */
   margin-left: 40px;
+  margin-right: 0;
   background: white;
-  border: 2px solid purple;
-  color: purple;
-  padding-left: 2px;
-  font-size: .5em;
-  width: 13px;
+  border: 1px solid #333;
+  color: #333;
+  padding-left: 2.5px;
+  font-size: .4em;
+  width: 12px;
   border-radius: 999px;
-  /* display: none; */
+}
+
+/* add to cart */
+
+.ov-add-to-cart {
+  display: grid;
+  grid-template:
+    'atc1'
+    'atc2';
+  row-gap: 24px;
+  grid-template-rows: 60px 60px;
+}
+
+.atc1 {
+  grid-area: atc1;
+  display: grid;
+  grid-template: 'size quant';
+  column-gap: 24px;
+  grid-template-columns: 5fr 3fr;
+  grid-template-rows: 60px;
+  margin-bottom: 24px;
+}
+
+.atc2 {
+  grid-area: atc2;
+  display: grid;
+  grid-template: 'add like';
+  column-gap: 24px;
+  grid-template-columns: 1fr 60px;
+  grid-template-rows: 60px;
+}
+
+.ov-cart-size { grid-area: size; }
+.ov-cart-quantity {grid-area: quant; }
+.ov-cart-add { grid-area: add; }
+.ov-cart-like { grid-area: like; }
+
+.ov-cart-size {
+  height: 100%;
+  width: 100%;
+  text-indent: 12px;
+  text-transform: uppercase;
+}
+
+.ov-cart-quantity {
+  width: 100%;
+  height: 100%;
+  text-indent: 12px
+}
+
+.ov-cart-add {
+  height: 100%;
+  text-indent: 12px;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.ov-cart-add-active {
+  cursor: pointer;
+}
+
+.ov-cart-add-active:hover {
+  box-shadow: 0px 0px 2px 2px #0002;
+}
+
+.ov-cart-add-active:active {
+  box-shadow: 0px 0px 2px 2px #0004;
+}
+
+.ov-cart-like {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 60px;
+  height: 100%;
+  border: 1px solid black;
+  padding: 15px !important;
+  cursor: pointer;
+}
+
+.ov-cart-size,
+.ov-cart-quantity,
+.ov-cart-add {
+  padding: 0;
+  background-color: white;
+  border: 1px solid #666;
+}
+
+/* features list */
+
+.ov-feature-check {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2em;
+  padding-right: 5px;
 }

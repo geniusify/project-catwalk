@@ -1,25 +1,66 @@
 .rr-container {
-  box-sizing: border-box;
   display: grid;
-  grid-template:
-  'breakdown review';
+  grid-template-areas:
+  'rr-product-breakdown   rr-sort-buttons'
+  'rr-product-breakdown   rr-review-list'
+  'rr-product-breakdown   rr-buttons';
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr 5fr 1fr;
-  padding: 10px;
-  gap: 5%;
-  overflow: clip;
+  grid-template-rows: 1fr 4fr 1fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  height: 100vh;
 }
 
 .rr-product-breakdown {
-  grid-area: breakdown;
+  grid-area: rr-product-breakdown;
+  overflow: scroll;
+  border: 1px solid black;
+  border-spacing: 10px;
+  padding: 10px;
+  opacity: 0.8;
+}
+
+.rr-sort-buttons {
+  grid-area: rr-sort-buttons;
+}
+
+.sort-buttons {
+  height: 50px;
+  width: 200px;
+  text-indent: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #666;
 }
 
 .rr-review-list {
-  grid-area: review;
+  grid-area: rr-review-list;
+  overflow: scroll;
+  border: 1px solid black;
+  border-spacing: 10px;
+  padding: 10px;
+  opacity: 0.8;
 }
 
 .review-photo {
   grid-area: review;
   height: 100px;
   width: 100px;
+}
+
+.rr-buttons {
+  grid-area: rr-buttons;
+}
+
+.review-button {
+  height: 50px;
+  width: 200px;
+  text-indent: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #666;
 }

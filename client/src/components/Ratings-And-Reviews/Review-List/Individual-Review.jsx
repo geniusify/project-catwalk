@@ -1,23 +1,39 @@
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable camelcase */
-/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+import moment from 'moment';
 
 const IndividualReview = ({ review }) => {
   const {
-    rating, reviewer_name, date, summary, body, photos, recommend, response, helpfulness,
+    review_id, rating, reviewer_name, date, summary, body, photos, recommend, helpfulness,
   } = review;
 
+  let { response } = review;
+
+  if (!response) {
+    response = '';
+  }
+
+  const handleHelpfulClick = () => {
+    axios({
+      url: `api/reviews/${review_id}/helpful`,
+      method: 'put',
+    })
+      .then(() => console.log('success'))
+      .catch(() => console.log('fail'));
+  };
+
   return (
-    <div>
+    <div className="rr-review-tile">
       <span>
         Star rating:
         {rating}
         Username:
         {reviewer_name}
         Date:
-        {date}
+        {moment(date).fromNow()}
       </span>
       <p>
         Review Summary:
@@ -47,23 +63,19 @@ const IndividualReview = ({ review }) => {
         )
         : null}
       <p>
-        Helpful:
+        Helpful?
+        <text onClick={handleHelpfulClick}>
+          Yes
+        </text>
         {helpfulness}
       </p>
+      <hr />
     </div>
   );
 };
 
 IndividualReview.propTypes = {
-  rating: PropTypes.number.isRequired,
-  reviewer_name: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  summary: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  photos: PropTypes.array.isRequired,
-  recommend: PropTypes.bool.isRequired,
-  response: PropTypes.string.isRequired,
-  helpfulness: PropTypes.number.isRequired,
+  review: PropTypes.object.isRequired,
 };
 
 export default IndividualReview;

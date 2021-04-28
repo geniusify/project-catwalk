@@ -1,40 +1,70 @@
-import React from 'react';
-import axios from 'axios';
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable class-methods-use-this */
 
-import Overview from './Overview/Overview.jsx';
+import React from 'react';
+import { Element } from 'react-scroll';
+import logClicks from '../clicklogger.jsx';
+import Header from './Header.jsx';
+import Overview from './overview/Overview.jsx';
 import RatingsAndReviews from './Ratings-And-Reviews/Ratings-And-Reviews.jsx';
-import Related_Items from './Related_Items/Related_Items.jsx';
+import CarouselContainer from './RelatedItems/CarouselContainer.jsx';
+
+window.clicks = [];
+
+const handleClicks = (clickInfo) => {
+  console.log(clickInfo);
+  window.clicks.push(clickInfo);
+};
+
+const LoggedHeader = logClicks({ Header }, handleClicks);
+const LoggedOverview = logClicks({ Overview }, handleClicks);
+const LoggedCarouselContainer = logClicks({ CarouselContainer }, handleClicks);
+const LoggedRatingsAndReviews = logClicks({ RatingsAndReviews }, handleClicks);
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      data: {}
-    }
+      productId: undefined,
+    };
   }
 
   componentDidMount() {
-    axios({
-      url: 'api/products/23718/styles',
-      method: 'get'
-    })
-      .then(data => {
-        this.setState({
-          data: data
-        })
-      })
-      .catch(() => console.log('failed retrieving data'));
+    const defaultId = '23718'; // A random default product
+    const productId = this.getProductIdFromUrl() ?? defaultId;
+    this.setState({ productId });
+  }
+
+  getProductIdFromUrl() {
+    const { search } = window.location;
+    const productIdRegex = /p_id=([0-9]+)/; // E.g.: "?p_id=12345"
+    return productIdRegex.exec(search)?.[1];
   }
 
   render() {
-    return (
-      <div>
-        <Overview data={this.state.data}/>
-        <Related_Items data={this.state.data}/>
-        <RatingsAndReviews data={this.state.data}/>
+    return this.state.productId ? (
+      <div className="app-container">
+        <div className="header-container">
+          <LoggedHeader />
+        </div>
+
+        <div className="ov-c">
+          <LoggedOverview productId={this.state.productId} />
+        </div>
+
+        <div className="cc-c">
+          <LoggedCarouselContainer productId={this.state.productId} />
+        </div>
+
+        <div className="rr-c">
+          <Element name="reviewsContainer">
+            <LoggedRatingsAndReviews productId={this.state.productId} />
+          </Element>
+        </div>
+
       </div>
-    );
+    ) : (<div>loading...</div>);
   }
 }
 
