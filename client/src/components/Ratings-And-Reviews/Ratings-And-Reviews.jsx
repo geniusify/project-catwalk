@@ -21,7 +21,7 @@ const RatingsAndReviews = ({ productId }) => {
 
   useEffect(() => {
     axios({
-      url: `api/reviews?product_id=${productId}`,
+      url: `api/reviews?product_id=${productId}&count=20`,
       method: 'get',
     })
       .then(({ data }) => setReviewData(data))
@@ -39,25 +39,34 @@ const RatingsAndReviews = ({ productId }) => {
 
   const renderComponents = () => (
     <div className="rr-container" key="rr-container">
-      <RatingBreakdown
-        reviewMetaData={reviewMetaData}
-      />
-      <ReviewList
-        reviewData={reviewData}
-        displayReviewCount={displayReviewCount}
-      />
-      <Buttons
-        productId={productId}
-        setReviewData={setReviewData}
-        setReviewMetaData={setReviewMetaData}
-        displayReviewCount={displayReviewCount}
-        setDisplayReviewCount={setDisplayReviewCount}
-      />
-      <SortReviews
-        displayReviewCount={displayReviewCount}
-        reviewData={reviewData}
-        setReviewData={setReviewData}
-      />
+      <div className="rr-product-breakdown">
+        <RatingBreakdown
+          className="rr-product-breakdown"
+          reviewMetaData={reviewMetaData}
+        />
+      </div>
+      <div className="rr-sort-buttons">
+        <SortReviews
+          displayReviewCount={displayReviewCount}
+          reviewData={reviewData}
+          setReviewData={setReviewData}
+        />
+      </div>
+      <div className="rr-review-list">
+        <ReviewList
+          reviewData={reviewData}
+          displayReviewCount={displayReviewCount}
+        />
+      </div>
+      <div className="rr-buttons">
+        <Buttons
+          productId={productId}
+          setReviewData={setReviewData}
+          setReviewMetaData={setReviewMetaData}
+          displayReviewCount={displayReviewCount}
+          setDisplayReviewCount={setDisplayReviewCount}
+        />
+      </div>
     </div>
   );
 
