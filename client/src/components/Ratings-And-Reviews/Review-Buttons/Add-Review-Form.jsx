@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/jsx-boolean-value */
 /* eslint-disable radix */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable no-param-reassign */
@@ -7,7 +9,12 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import StarDynamic from '../../shared/StarDynamic.jsx';
+// import StarDynamic from '../../shared/StarDynamic.jsx';
+import Stars from '../../shared/Stars.jsx';
+
+// If the user can set a rating:
+// const [rating, setRating] = useState(initialValue);
+// return (<Stars rating={rating} setRating={setRating} clickable={true} />)
 
 const AddReviewForm = ({
   productId, setReviewData, setReviewMetaData,
@@ -17,6 +24,7 @@ const AddReviewForm = ({
   const [reviewBody, setReviewBody] = useState(undefined);
   const [nickname, setNickname] = useState(undefined);
   const [email, setEmail] = useState(undefined);
+  const [rating, setRating] = useState(undefined);
 
   const handleRadioButton = (event) => {
     if (event.target.id === 'yes') {
@@ -50,7 +58,7 @@ const AddReviewForm = ({
 
     const formData = {
       product_id: parseInt(productId),
-      rating: 5,
+      rating: rating || 3,
       summary: reviewSummary,
       body: reviewBody,
       recommend: true,
@@ -67,28 +75,23 @@ const AddReviewForm = ({
       method: 'post',
       data: formData,
     })
-      .then(() => console.log('added'))
-      .catch((error) => console.log(error));
+      .then(() => {});
 
     axios({
       url: `api/reviews?product_id=${productId}`,
       method: 'get',
     })
       .then(({ data }) => {
-        console.log('review data: ', data);
         setReviewData(data);
-      })
-      .catch((error) => console.log(error));
+      });
 
     axios({
       url: `api/reviews/meta?product_id=${productId}`,
       method: 'get',
     })
       .then(({ data }) => {
-        console.log('review meta data: ', data);
         setReviewMetaData(data);
-      })
-      .catch((error) => console.log(error));
+      });
   };
 
   return (
@@ -97,7 +100,11 @@ const AddReviewForm = ({
       onSubmit={handleSubmit.bind(this)}
     >
       <label htmlFor="star-rating">Star rating:</label>
-      <StarDynamic />
+      <Stars
+        rating={rating}
+        setRating={setRating}
+        clickable={true}
+      />
       <br />
 
       <label htmlFor="recommended">Recommended?</label>
