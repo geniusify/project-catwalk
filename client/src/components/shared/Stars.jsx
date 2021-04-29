@@ -15,7 +15,6 @@ return (<Stars rating={rating} setRating={setRating} clickable={true} />)
 
 // If static:
 return (<Stars rating={staticValue} clickable={false} />)
-
 */
 
 const Stars = ({ rating, setRating, clickable, totalStars = 5 }) => {
