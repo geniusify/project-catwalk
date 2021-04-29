@@ -18,13 +18,14 @@ return (<Stars rating={staticValue} clickable={false} />)
 
 */
 
-const Stars = ({ rating, setRating, clickable }) => {
+const Stars = ({ rating, setRating, clickable, totalStars = 5 }) => {
   const [hover, setHover] = useState(-1);
   const onClick = (idx) => setRating(idx + 1);
+
   const roundUp = 0.25;
   const value = (clickable && hover >= 0 ? hover + 1 : (rating + roundUp));
   const values = [];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < totalStars; i++) {
     if (value - i >= 1) {
       values.push(1);
     } else if (value - i >= 0.5) {
