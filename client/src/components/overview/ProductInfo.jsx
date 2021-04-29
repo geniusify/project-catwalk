@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useState } from 'react';
 import * as Scroll from 'react-scroll';
 import { Link } from 'react-scroll';
+
+import Stars from '../shared/Stars.jsx';
 
 // eslint-disable-next-line arrow-body-style
 
@@ -14,7 +16,7 @@ const getAverageRating = (ratings) => {
   const ratingSum = Object.entries(ratings)
     .reduce((sum, [rating, count]) => sum + rating * count, 0);
   const count = getRatingCount(ratings);
-  return (ratingSum / count).toFixed(1);
+  return ratingSum / count;
 };
 
 const shareUrl = 'https://example.com/geniusify';
@@ -25,14 +27,15 @@ const ProductInfo = ({
   info, ratings, price, salePrice,
 }) => {
   const ratingCount = getRatingCount(ratings);
-
+  const averageRating = getAverageRating(ratings);
+  const [rating, setRating] = useState(averageRating);
   return (
     <div className="ov-product-info">
       <div>
         {ratingCount >= 2
           ? (
             <>
-              <span>{`${getAverageRating(ratings)} STARS  `}</span>
+              <Stars rating={averageRating} clickable={false} />
               <Link className="ov-rr-link" to="reviewsContainer" smooth>
                 {`Read all ${ratingCount} reviews`}
               </Link>
