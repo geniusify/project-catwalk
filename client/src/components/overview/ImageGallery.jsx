@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import GalleryThumbnails from './GalleryThumbnails.jsx';
 
 const ImageGallery = ({
-  photos, alt, extendedView, setExtendedView,
+  photos, alt, extendedView, onClick,
 }) => {
   const [imageIndex, setImageIndex] = useState(0);
   const [topIndex, setTopIndex] = useState(0);
@@ -33,7 +33,7 @@ const ImageGallery = ({
         className={extendedView ? 'ov-main-gallery-image-extended' : 'ov-main-gallery-image'}
         src={photos[imageIndex].url}
         alt={alt}
-        onClick={() => setExtendedView((isSet) => !isSet)}
+        onClick={onClick}
       />
 
       {canScrollLeft

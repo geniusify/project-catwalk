@@ -323,6 +323,12 @@
   cursor: pointer;
 }
 
+.ov-gallery-extended-zoomed {
+  height: 880px;
+  width: 100%;
+  background-color: pink;
+}
+
 /* style selector */
 
 .ov-style-selector {
