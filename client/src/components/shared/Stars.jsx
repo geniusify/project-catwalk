@@ -57,6 +57,7 @@ const Star = ({
   return (
     <img
       src={src}
+      className="star-image"
       onMouseEnter={clickable ? () => setHover(index) : undefined}
       onMouseLeave={clickable ? () => setHover(-1) : undefined}
       onClick={clickable ? () => onClick(index) : undefined}

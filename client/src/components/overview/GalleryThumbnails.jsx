@@ -36,7 +36,7 @@ const GalleryThumbnails = ({
         ) : null}
 
       <div className="ov-gallery-thumbnails-container" style={{ height }}>
-        <div className="ov-gallery-thumbnails" style={{ top: topIndex * thumbOffset + 3 }}>
+        <div className="ov-gallery-thumbnails" style={{ top: topIndex * thumbOffset + 3 + 6}}>
           {photos.map((photo, index) => (
             <div
               data-testid="thumbnails"
