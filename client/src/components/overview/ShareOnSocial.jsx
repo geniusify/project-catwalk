@@ -7,7 +7,7 @@ const ShareOnSocial = ({ shareUrl, shareImageUrl, shareTitle }) => (
 
     <a href={`//pinterest.com/pin/create/link/?url=${shareUrl}&media=${shareImageUrl}&description=${shareTitle}`}>
       <img
-        src="https://platform-cdn.sharethis.com/img/pinterest.svg"
+        src="icons/pinterest.svg"
         alt="share on pinterest"
         title="share on pinterest"
         className="ov-share-pinterest"
@@ -17,7 +17,7 @@ const ShareOnSocial = ({ shareUrl, shareImageUrl, shareTitle }) => (
 
     <a href={`http://www.reddit.com/submit?url=${shareUrl}&title=${shareTitle}`}>
       <img
-        src="https://platform-cdn.sharethis.com/img/reddit.svg"
+        src="icons/reddit.svg"
         alt="share on reddit"
         title="share on reddit"
         className="ov-share-reddit"
@@ -27,7 +27,7 @@ const ShareOnSocial = ({ shareUrl, shareImageUrl, shareTitle }) => (
 
     <a href={`http://news.ycombinator.com/submitlink?u=${shareUrl}&t=${shareTitle}`}>
       <img
-        src="https://platform-cdn.sharethis.com/img/hackernews.svg"
+        src="icons/hackernews.svg"
         alt="share on hackernews"
         title="share on hackernews"
         className="ov-share-hn"
