@@ -10,14 +10,14 @@ const RatingBreakdown = ({ reviewMetaData }) => {
   const { ratings, recommended, characteristics } = reviewMetaData;
 
   return (
-    <div>
+    <>
       <RatingSummary
         ratings={ratings}
         recommended={recommended}
       />
       <Breakdown ratings={ratings} />
       <ProductBreakdown characteristics={characteristics} />
-    </div>
+    </>
   );
 };
 

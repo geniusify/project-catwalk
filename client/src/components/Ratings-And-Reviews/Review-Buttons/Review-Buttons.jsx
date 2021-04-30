@@ -6,12 +6,10 @@ import PropTypes from 'prop-types';
 import AddReview from './Add-Review.jsx';
 import MoreReviews from './More-Reviews.jsx';
 
-const Buttons = ({
-  productId, setReviewData, setReviewMetaData, displayReviewCount, setDisplayReviewCount,
+const ReviewButtons = ({
+  productId, setReviewData, reviewMetaData, setReviewMetaData, displayReviewCount, setDisplayReviewCount,
 }) => (
-  <div
-    // className="rr-buttons"
-  >
+  <>
     <MoreReviews
       displayReviewCount={displayReviewCount}
       setDisplayReviewCount={setDisplayReviewCount}
@@ -19,17 +17,19 @@ const Buttons = ({
     <AddReview
       productId={productId}
       setReviewData={setReviewData}
+      reviewMetaData={reviewMetaData}
       setReviewMetaData={setReviewMetaData}
     />
-  </div>
+  </>
 );
 
-Buttons.propTypes = {
+ReviewButtons.propTypes = {
   productId: PropTypes.string.isRequired,
   displayReviewCount: PropTypes.number.isRequired,
   setReviewData: PropTypes.func.isRequired,
+  reviewMetaData: PropTypes.object.isRequired,
   setReviewMetaData: PropTypes.func.isRequired,
   setDisplayReviewCount: PropTypes.func.isRequired,
 };
 
-export default Buttons;
+export default ReviewButtons;

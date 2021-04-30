@@ -1,9 +1,13 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import moment from 'moment';
+
+import Stars from '../../shared/Stars.jsx';
 
 const IndividualReview = ({ review }) => {
   const {
@@ -21,26 +25,33 @@ const IndividualReview = ({ review }) => {
       url: `api/reviews/${review_id}/helpful`,
       method: 'put',
     })
-      .then(() => console.log('success'))
-      .catch(() => console.log('fail'));
+      .then(() => {});
+  };
+
+  const handleReportClick = () => {
+    axios({
+      url: `api/reviews/${review_id}/report`,
+      method: 'put',
+    })
+      .then(() => {});
   };
 
   return (
     <div className="rr-review-tile">
       <span>
-        Star rating:
-        {rating}
-        Username:
+        <Stars
+          rating={rating}
+          clickable={false}
+        />
+        <br />
         {reviewer_name}
-        Date:
+        <br />
         {moment(date).fromNow()}
       </span>
       <p>
-        Review Summary:
         {summary}
       </p>
       <p>
-        Review body:
         {body}
       </p>
       {photos.length > 0
@@ -51,8 +62,15 @@ const IndividualReview = ({ review }) => {
         )
         : null}
       <p>
-        Recommended:
-        {recommend.toString()}
+        {recommend
+          ? (
+            (
+              <span>
+                I recommend this product!
+              </span>
+            )
+          )
+          : null}
       </p>
       {response.length > 0
         ? (
@@ -64,10 +82,16 @@ const IndividualReview = ({ review }) => {
         : null}
       <p>
         Helpful?
-        <text onClick={handleHelpfulClick}>
-          Yes
-        </text>
+        <span onClick={handleHelpfulClick}>
+        &nbsp;Yes&nbsp;
+        </span>
+        (
         {helpfulness}
+        )
+        &nbsp;|&nbsp;
+        <span onClick={handleReportClick}>
+          Report
+        </span>
       </p>
       <hr />
     </div>

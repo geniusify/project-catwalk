@@ -6,14 +6,13 @@ import axios from 'axios';
 import RatingBreakdown from './Rating-Breakdown/Rating-Breakdown.jsx';
 import SortReviews from './Sort-Reviews/Sort-Reviews.jsx';
 import ReviewList from './Review-List/Review-List.jsx';
-import Buttons from './Buttons/Buttons.jsx';
+import ReviewButtons from './Review-Buttons/Review-Buttons.jsx';
 
 const RatingsAndReviews = ({ productId }) => {
   // pass down from App
   // productId = '23718';
-
-  productId = '23146';
-  // productId = '23156';
+  // productId = '23146';
+  productId = '23156';
 
   const [reviewData, setReviewData] = useState(undefined);
   const [reviewMetaData, setReviewMetaData] = useState(undefined);
@@ -41,15 +40,15 @@ const RatingsAndReviews = ({ productId }) => {
     <div className="rr-container" key="rr-container">
       <div className="rr-product-breakdown">
         <RatingBreakdown
-          className="rr-product-breakdown"
           reviewMetaData={reviewMetaData}
         />
       </div>
       <div className="rr-sort-buttons">
         <SortReviews
-          displayReviewCount={displayReviewCount}
+          productId={productId}
           reviewData={reviewData}
           setReviewData={setReviewData}
+          reviewMetaData={reviewMetaData}
         />
       </div>
       <div className="rr-review-list">
@@ -58,10 +57,11 @@ const RatingsAndReviews = ({ productId }) => {
           displayReviewCount={displayReviewCount}
         />
       </div>
-      <div className="rr-buttons">
-        <Buttons
+      <div className="rr-review-buttons">
+        <ReviewButtons
           productId={productId}
           setReviewData={setReviewData}
+          reviewMetaData={reviewMetaData}
           setReviewMetaData={setReviewMetaData}
           displayReviewCount={displayReviewCount}
           setDisplayReviewCount={setDisplayReviewCount}
