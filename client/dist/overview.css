@@ -86,6 +86,16 @@
   margin-right: 30px;
 }
 
+.ov-product-info {
+  display: grid;
+  row-gap: 8px;
+}
+
+.ov-product-grid-line {
+  margin: 0;
+  padding-bottom: 0;
+}
+
 .ov-rr-link {
   text-decoration: underline;
   cursor: pointer;
@@ -114,6 +124,10 @@
 
 .ov-old-price {
   text-decoration: line-through;
+}
+
+.ov-share-on-social {
+  margin-top: -16px;
 }
 
 .ov-share-hn {
@@ -281,7 +295,7 @@
   height: 60px;
   width: 60px;
   opacity: .4;
-  margin: 0 0 30px 0;
+  margin: 0 0 28px 0;
   background-size: cover;
   background-position: center center;
   cursor: pointer;
