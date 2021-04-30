@@ -61,6 +61,7 @@ const RatingsAndReviews = ({ productId }) => {
         <ReviewButtons
           productId={productId}
           setReviewData={setReviewData}
+          reviewMetaData={reviewMetaData}
           setReviewMetaData={setReviewMetaData}
           displayReviewCount={displayReviewCount}
           setDisplayReviewCount={setDisplayReviewCount}

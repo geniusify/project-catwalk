@@ -7,7 +7,7 @@ import AddReview from './Add-Review.jsx';
 import MoreReviews from './More-Reviews.jsx';
 
 const ReviewButtons = ({
-  productId, setReviewData, setReviewMetaData, displayReviewCount, setDisplayReviewCount,
+  productId, setReviewData, reviewMetaData, setReviewMetaData, displayReviewCount, setDisplayReviewCount,
 }) => (
   <>
     <MoreReviews
@@ -17,6 +17,7 @@ const ReviewButtons = ({
     <AddReview
       productId={productId}
       setReviewData={setReviewData}
+      reviewMetaData={reviewMetaData}
       setReviewMetaData={setReviewMetaData}
     />
   </>
@@ -26,6 +27,7 @@ ReviewButtons.propTypes = {
   productId: PropTypes.string.isRequired,
   displayReviewCount: PropTypes.number.isRequired,
   setReviewData: PropTypes.func.isRequired,
+  reviewMetaData: PropTypes.object.isRequired,
   setReviewMetaData: PropTypes.func.isRequired,
   setDisplayReviewCount: PropTypes.func.isRequired,
 };

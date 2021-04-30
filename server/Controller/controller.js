@@ -15,7 +15,7 @@ module.exports = {
     const endpoint = req.originalUrl.slice(baseUrl.length);
 
     return model.add(endpoint, req.body)
-      .then((data) => res.status(201).send(data.data))
+      .then(() => res.status(201).send())
       .catch((error) => res.status(404).send(error));
   },
 
