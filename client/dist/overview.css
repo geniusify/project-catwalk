@@ -48,7 +48,7 @@
 
 
 .ov-container-extended {
-  grid-template-columns: 1217px 0px;
+  grid-template-columns: 1fr 0px;
   grid-template-rows: 211px 284px 385px 0px;
 }
 
@@ -180,7 +180,7 @@
 }
 
 .ov-image-gallery-extended {
-  grid-template-columns: 94px 24px 1050px 24px;
+  grid-template-columns: 94px 24px 1fr 24px !important;
 }
 
 .ov-main-gallery-image,
