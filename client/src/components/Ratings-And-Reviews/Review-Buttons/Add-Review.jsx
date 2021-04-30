@@ -7,12 +7,12 @@ import PropTypes from 'prop-types';
 import AddReviewForm from './Add-Review-Form.jsx';
 
 const AddReview = ({
-  productId, reviewData, setReviewData, reviewMetaData, setReviewMetaData,
+  productId, setReviewData, reviewMetaData, setReviewMetaData,
 }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div>
+    <>
       <button
         type="button"
         className="review-button"
@@ -25,19 +25,18 @@ const AddReview = ({
         ? (
           <AddReviewForm
             productId={productId}
-            reviewData={reviewData}
             setReviewData={setReviewData}
             reviewMetaData={reviewMetaData}
             setReviewMetaData={setReviewMetaData}
+            setShowModal={setShowModal}
           />
         ) : null}
-    </div>
+    </>
   );
 };
 
 AddReview.propTypes = {
   productId: PropTypes.string.isRequired,
-  reviewData: PropTypes.object.isRequired,
   setReviewData: PropTypes.func.isRequired,
   reviewMetaData: PropTypes.object.isRequired,
   setReviewMetaData: PropTypes.func.isRequired,
