@@ -65,9 +65,9 @@ const IndividualReview = ({ review }) => {
         {recommend
           ? (
             (
-              <text>
+              <span>
                 I recommend this product!
-              </text>
+              </span>
             )
           )
           : null}

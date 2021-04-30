@@ -48,14 +48,15 @@
   border-radius: 5px;
   width: 80%;
   height: 10px;
-  /* margin-left: -11.5%; */
   box-shadow: 1px 1px 4px rgba( 0, 0, 0, 0.2 );
 }
 
 .review-photo {
   grid-area: review;
-  height: 100px;
-  width: 100px;
+  /* height: 150px;
+  width: 200px; */
+  max-height: auto;
+  max-width: 40%;
 }
 
 .rr-review-buttons {
