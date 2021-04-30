@@ -213,7 +213,8 @@
 .ov-gallery-right {
   display: inline-block;
   position: relative;
-  top: 322px;
+  top: 48%;
+  left: 4px;
   cursor: pointer;
 }
 
@@ -221,7 +222,7 @@
 .ov-gallery-right-extended {
   display: inline-block;
   position: relative;
-  top: 430px;
+  top: 49%;
   cursor: pointer;
 }
 
