@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 const IndividualStarBar = ({ star, counts, max }) => (
   <p>
-    star:
     {star}
+    &nbsp;stars:
+    <progress className="star-bar" value={counts} max={max} />
     <br />
-    <progress value={counts} max={max} />
-    <br />
-    counts:
+    across&nbsp;
     {counts}
+    &nbsp;reviews
   </p>
 );
 

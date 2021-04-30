@@ -4,15 +4,13 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import RatingBreakdown from './Rating-Breakdown/Rating-Breakdown.jsx';
+import SortReviews from './Sort-Reviews/Sort-Reviews.jsx';
 import ReviewList from './Review-List/Review-List.jsx';
-import Buttons from './Buttons/Buttons.jsx';
-
-// import data from './testReviewData.js';
+import ReviewButtons from './Review-Buttons/Review-Buttons.jsx';
 
 const RatingsAndReviews = ({ productId }) => {
   // pass down from App
   // productId = '23718';
-
   // productId = '23146';
   productId = '23156';
 
@@ -22,7 +20,7 @@ const RatingsAndReviews = ({ productId }) => {
 
   useEffect(() => {
     axios({
-      url: `api/reviews?product_id=${productId}`,
+      url: `api/reviews?product_id=${productId}&count=20`,
       method: 'get',
     })
       .then(({ data }) => setReviewData(data))
@@ -40,20 +38,35 @@ const RatingsAndReviews = ({ productId }) => {
 
   const renderComponents = () => (
     <div className="rr-container" key="rr-container">
-      <RatingBreakdown
-        reviewMetaData={reviewMetaData}
-      />
-      <ReviewList
-        reviewData={reviewData}
-        displayReviewCount={displayReviewCount}
-      />
-      <Buttons
-        productId={productId}
-        setReviewData={setReviewData}
-        setReviewMetaData={setReviewMetaData}
-        displayReviewCount={displayReviewCount}
-        setDisplayReviewCount={setDisplayReviewCount}
-      />
+      <div className="rr-product-breakdown">
+        <RatingBreakdown
+          reviewMetaData={reviewMetaData}
+        />
+      </div>
+      <div className="rr-sort-buttons">
+        <SortReviews
+          productId={productId}
+          reviewData={reviewData}
+          setReviewData={setReviewData}
+          reviewMetaData={reviewMetaData}
+        />
+      </div>
+      <div className="rr-review-list">
+        <ReviewList
+          reviewData={reviewData}
+          displayReviewCount={displayReviewCount}
+        />
+      </div>
+      <div className="rr-review-buttons">
+        <ReviewButtons
+          productId={productId}
+          setReviewData={setReviewData}
+          reviewMetaData={reviewMetaData}
+          setReviewMetaData={setReviewMetaData}
+          displayReviewCount={displayReviewCount}
+          setDisplayReviewCount={setDisplayReviewCount}
+        />
+      </div>
     </div>
   );
 

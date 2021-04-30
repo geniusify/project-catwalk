@@ -10,23 +10,54 @@ import '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
 
 import ProductInfo from './ProductInfo.jsx';
+import mock from './mockdata.js';
 
+/*
 const info = {
-  category: 'stuff',
-  name: 'fake product',
-  default_price: '1000000.00',
-};
+    name: mock.styles.results[0].name,
+    category: mock.styles.results[0].category,
+  };
+  const { ratings } = mock.meta;
+  const price = mock.styles.results[0].original_price;
+  const salePrice = mock.styles.results[0].sale_price;
+*/
 
-it('renders the product\'s info', async () => {
-  render(<ProductInfo info={info} />);
+xit('renders the product\'s info', async () => {
+  const info = {
+    name: mock.styles.results[0].name,
+    category: mock.info.category,
+  };
+  const { ratings } = mock.meta;
+  const price = mock.styles.results[0].original_price;
+  const salePrice = mock.styles.results[0].sale_price;
 
-  expect(screen.getByText('stuff')).toBeInTheDocument();
-  expect(screen.getByText('fake product')).toBeInTheDocument();
-  expect(screen.getByText('$1000000.00')).toBeInTheDocument();
+  render(<ProductInfo
+    info={info}
+    ratings={ratings}
+    price={price}
+    salePrice={salePrice}
+  />);
+
+  expect(screen.getByText('Orange')).toBeInTheDocument();
+  expect(screen.getByText('Shirt')).toBeInTheDocument();
+  expect(screen.getByText('$42.00')).toBeInTheDocument();
 });
 
-it('is unaffected by a click', async () => {
-  render(<ProductInfo info={info} />);
+xit('is unaffected by a click', async () => {
+  const info = {
+    name: mock.styles.results[0].name,
+    category: mock.info.category,
+  };
+  const { ratings } = mock.meta;
+  const price = mock.styles.results[0].original_price;
+  const salePrice = mock.styles.results[0].sale_price;
+
+  render(<ProductInfo
+    info={info}
+    ratings={ratings}
+    price={price}
+    salePrice={salePrice}
+  />);
 
   const category = screen.getByText('stuff');
   await userEvent.click(category);

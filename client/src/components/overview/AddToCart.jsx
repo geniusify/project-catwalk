@@ -14,12 +14,12 @@ const AddToCart = ({ style }) => {
   const availableSkus = Object.entries(skus)
     .filter(([id, sku]) => sku.quantity > 0);
 
-  const [clicked, setClicked] = useState(false);
-  const [cartSize, setCartSize] = useState(false);
+  const [clicked, setClicked] = useState(undefined);
+  const [cartSize, setCartSize] = useState(undefined);
   const [skuId, setSkuId] = useState(-1);
-  const [sku, setSku] = useState(false);
-  const [quantity, setQuantity] = useState(false);
-  const [quantityAvail, setQuantityAvail] = useState(false);
+  const [sku, setSku] = useState(undefined);
+  const [quantity, setQuantity] = useState(undefined);
+  const [quantityAvail, setQuantityAvail] = useState(undefined);
 
   const onSizeChoice = (id) => {
     setSkuId(id);
@@ -28,6 +28,12 @@ const AddToCart = ({ style }) => {
     setQuantityAvail(skus[id].quantity);
     setQuantity(1);
   };
+
+  const onQuantityChoice = (e) => {
+    setQuantity(e.target.value);
+  };
+
+  const addButtonEnabled = cartSize !== undefined && quantity !== undefined;
 
   return (
     <div className="ov-add-to-cart">
@@ -54,7 +60,7 @@ const AddToCart = ({ style }) => {
             className="ov-cart-quantity"
             name="quantity"
             value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
+            onChange={onQuantityChoice}
           >
             {quantityAvail
               ? range(Math.min(15, quantityAvail)).map((n) => (
@@ -64,7 +70,13 @@ const AddToCart = ({ style }) => {
           </select>
         </div>
         <div className="atc2">
-          <button className="ov-cart-add" type="button">Add To Bag</button>
+          <button
+            className={`ov-cart-add ${addButtonEnabled ? 'ov-cart-add-active' : null}`}
+            type="button"
+            disabled={!addButtonEnabled}
+          >
+            Add To Bag
+          </button>
 
           <Favorite styleId={style.style_id} />
         </div>
