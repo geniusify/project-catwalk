@@ -16,6 +16,7 @@ const RatingBreakdown = ({ reviewMetaData }) => {
         recommended={recommended}
       />
       <Breakdown ratings={ratings} />
+      <br />
       <ProductBreakdown characteristics={characteristics} />
     </>
   );

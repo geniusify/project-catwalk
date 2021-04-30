@@ -41,6 +41,7 @@ const IndividualProductBreakdown = ({ barDescription, barValues }) => {
         clickable={false}
       />
       <br />
+      <br />
     </span>
   );
 };

@@ -43,7 +43,11 @@ const FormCharacteristics = ({
     <>
       {individualCharacteristic}
       :&nbsp;
-      <select id={individualCharacteristic} onChange={handleClick.bind(this)}>
+      <select
+        className="characteristic-selector"
+        id={individualCharacteristic}
+        onChange={handleClick.bind(this)}
+      >
         <IndividualFormCharacteristic
           individualCharacteristic={productCharacteristics[individualCharacteristic]}
         />

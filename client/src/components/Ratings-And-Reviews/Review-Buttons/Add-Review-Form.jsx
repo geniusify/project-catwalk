@@ -104,6 +104,7 @@ const AddReviewForm = ({
         clickable={true}
       />
       <br />
+      <br />
 
       <label htmlFor="recommended">Recommended?</label>
       <br />
@@ -113,8 +114,10 @@ const AddReviewForm = ({
       <input type="radio" id="no" name="recommended" value="no" onClick={handleRadioButton.bind(this)} />
       <label htmlFor="no">no</label>
       <br />
+      <br />
 
       Characteristics:
+      <br />
       <br />
       {Object.keys(characteristics).map((individualCharacteristic) => (
         <>
@@ -125,6 +128,7 @@ const AddReviewForm = ({
             setReviewCharacteristics={setReviewCharacteristics}
           />
           <br />
+          <br />
         </>
       ))}
       <br />
@@ -132,19 +136,23 @@ const AddReviewForm = ({
       <br />
       <input type="text" name="summary" onChange={handleUpdateTextBox.bind(this)} />
       <br />
+      <br />
       Review Body:
       <br />
       <textarea rows="5" cols="30" name="review-body" onChange={handleUpdateTextBox.bind(this)} />
+      <br />
       <br />
       Nickname:
       <br />
       <input type="text" name="nickname" onChange={handleUpdateTextBox.bind(this)} />
       <br />
+      <br />
       Email:
       <br />
       <input type="email" name="email" onChange={handleUpdateTextBox.bind(this)} />
       <br />
-      <input type="submit" value="Submit" onSubmit={handleSubmit.bind()} />
+      <br />
+      <input className="review-button" type="submit" value="Submit" />
     </form>
   );
 };
