@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable class-methods-use-this */
 

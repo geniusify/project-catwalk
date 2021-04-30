@@ -48,7 +48,7 @@
 
 
 .ov-container-extended {
-  grid-template-columns: 1217px 0px;
+  grid-template-columns: 1fr 0px;
   grid-template-rows: 211px 284px 385px 0px;
 }
 
@@ -86,6 +86,16 @@
   margin-right: 30px;
 }
 
+.ov-product-info {
+  display: grid;
+  row-gap: 8px;
+}
+
+.ov-product-grid-line {
+  margin: 0;
+  padding-bottom: 0;
+}
+
 .ov-rr-link {
   text-decoration: underline;
   cursor: pointer;
@@ -114,6 +124,10 @@
 
 .ov-old-price {
   text-decoration: line-through;
+}
+
+.ov-share-on-social {
+  margin-top: -16px;
 }
 
 .ov-share-hn {
@@ -180,7 +194,7 @@
 }
 
 .ov-image-gallery-extended {
-  grid-template-columns: 94px 24px 1050px 24px;
+  grid-template-columns: 94px 24px 1fr 24px !important;
 }
 
 .ov-main-gallery-image,
@@ -213,7 +227,8 @@
 .ov-gallery-right {
   display: inline-block;
   position: relative;
-  top: 322px;
+  top: 48%;
+  left: 4px;
   cursor: pointer;
 }
 
@@ -221,7 +236,7 @@
 .ov-gallery-right-extended {
   display: inline-block;
   position: relative;
-  top: 430px;
+  top: 49%;
   cursor: pointer;
 }
 
@@ -259,7 +274,7 @@
   box-sizing: border-box;
   height: 60px;
   width: 60px;
-  margin: 0 0 30px 0;
+  margin: 0 0 28px 0;
   opacity: .8;
   background-size: cover;
   background-position: center center;
@@ -280,7 +295,7 @@
   height: 60px;
   width: 60px;
   opacity: .4;
-  margin: 0 0 30px 0;
+  margin: 0 0 28px 0;
   background-size: cover;
   background-position: center center;
   cursor: pointer;
