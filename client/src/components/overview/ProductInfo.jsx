@@ -1,14 +1,9 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
-import * as Scroll from 'react-scroll';
+import React from 'react';
 import { Link } from 'react-scroll';
 
 import Stars from '../shared/Stars.jsx';
 import ShareOnSocial from './ShareOnSocial.jsx';
-
-// eslint-disable-next-line arrow-body-style
 
 const getRatingCount = (ratings) => Object.values(ratings)
   .reduce((sum, n) => sum + Number(n), 0);
@@ -25,7 +20,6 @@ const ProductInfo = ({
 }) => {
   const ratingCount = getRatingCount(ratings);
   const averageRating = getAverageRating(ratings);
-  const [rating, setRating] = useState(averageRating);
 
   return (
     <div className="ov-product-info">

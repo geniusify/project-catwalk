@@ -1,12 +1,8 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/prop-types */
-/* eslint-disable no-plusplus */
-/* eslint-disable arrow-body-style */
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-unused-vars */
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import mock from './mockdata.js';
 
 import ImageGallery from './ImageGallery.jsx';
 import ProductInfo from './ProductInfo.jsx';
@@ -47,7 +43,7 @@ const Overview = ({ productId }) => {
     if (!condition) {
       return axios({ url, method: 'get' })
         .then(cb)
-        .catch((err) => setLoadingError(true));
+        .catch(() => setLoadingError(true));
     }
     return null;
   };
@@ -76,7 +72,7 @@ const Overview = ({ productId }) => {
     [modes.zoomed]: 'ov-container-zoomed',
   }[viewMode];
 
-  const handleImageClick = (event) => {
+  const handleImageClick = () => {
     setViewMode({
       [modes.normal]: modes.extended,
       [modes.extended]: modes.zoomed,

@@ -22,5 +22,6 @@ module.exports = {
   ],
   rules: {
     'import/extensions': 'off',
+    'no-plusplus': [2, { allowForLoopAfterthoughts: true }],
   },
 };

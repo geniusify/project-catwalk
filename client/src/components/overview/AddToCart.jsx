@@ -1,10 +1,7 @@
 /* eslint-disable no-nested-ternary */
-/* eslint-disable react/prop-types */
-/* eslint-disable semi */
-/* eslint-disable arrow-body-style */
-/* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
 
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Favorite from './Favorite.jsx';
 
 const range = (n) => [...new Array(n)].map((_, idx) => idx + 1);
@@ -83,6 +80,19 @@ const AddToCart = ({ style }) => {
       </form>
     </div>
   );
+};
+
+AddToCart.propTypes = {
+  style: PropTypes.arrayOf(PropTypes.shape({
+    style_id: PropTypes.number,
+    name: PropTypes.string,
+    original_price: PropTypes.string,
+    'default?': PropTypes.string,
+    photos: PropTypes.arrayOf(PropTypes.shape({
+      thumbnail_url: PropTypes.string,
+      url: PropTypes.string,
+    })),
+  })).isRequired,
 };
 
 export default AddToCart;
