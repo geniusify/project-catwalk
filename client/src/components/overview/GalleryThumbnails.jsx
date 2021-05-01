@@ -1,7 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -44,6 +40,9 @@ const GalleryThumbnails = ({
               className={classNames(index)}
               onClick={() => chooseThumbnail(index)}
               style={false ? {} : { backgroundImage: `url(${photo.thumbnail_url})` }}
+              role="button"
+              tabIndex={0}
+              label="thumbnail"
             />
           ))}
         </div>

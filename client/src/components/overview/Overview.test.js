@@ -1,6 +1,3 @@
-/* eslint-disable object-curly-newline */
-/* eslint-disable no-undef */
-
 import React from 'react';
 // import { rest } from 'msw';
 // import { setupServer } from 'msw/node';

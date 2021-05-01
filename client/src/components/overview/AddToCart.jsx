@@ -1,5 +1,3 @@
-/* eslint-disable no-nested-ternary */
-
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Favorite from './Favorite.jsx';
