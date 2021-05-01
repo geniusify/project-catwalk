@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ShareOnSocial = ({ shareUrl, shareImageUrl, shareTitle }) => (
   <div className="ov-share-on-social">
@@ -36,5 +36,11 @@ const ShareOnSocial = ({ shareUrl, shareImageUrl, shareTitle }) => (
     </a>
   </div>
 );
+
+ShareOnSocial.propTypes = {
+  shareUrl: PropTypes.string.isRequired,
+  shareImageUrl: PropTypes.string.isRequired,
+  shareTitle: PropTypes.string.isRequired,
+};
 
 export default ShareOnSocial;
