@@ -64,6 +64,8 @@ const Overview = ({ productId }) => {
     }
   }, []);
 
+
+
   const className = {
     [modes.normal]: 'ov-container',
     [modes.extended]: 'ov-container ov-container-extended',
@@ -75,6 +77,10 @@ const Overview = ({ productId }) => {
   };
 
   const extendedView = viewMode === modes.extended;
+
+  const [imageIndex, setImageIndex] = useState(0);
+
+
 
   const readyToRender = !!(!!info && !!style && !!styles && !!meta);
   let rendering = 'unrendered';
@@ -92,6 +98,8 @@ const Overview = ({ productId }) => {
                   photos={style.photos}
                   alt={info.name}
                   extendedView={extendedView}
+                  imageIndex={imageIndex}
+                  setImageIndex={setImageIndex}
                   onClick={handleImageClick}
                 />
                 {extendedView ? null : (
@@ -120,6 +128,7 @@ const Overview = ({ productId }) => {
             : (
               <ExtendedViewZoom
                 onClick={handleImageClick}
+                image={style.photos[imageIndex].url}
               />
             )}
         </div>

@@ -7,9 +7,8 @@ import React, { useState } from 'react';
 import GalleryThumbnails from './GalleryThumbnails.jsx';
 
 const ImageGallery = ({
-  photos, alt, extendedView, onClick,
+  photos, alt, extendedView, onClick, imageIndex, setImageIndex
 }) => {
-  const [imageIndex, setImageIndex] = useState(0);
   const [topIndex, setTopIndex] = useState(0);
   const canScrollLeft = imageIndex > 0;
   const canScrollRight = imageIndex < (photos.length - 1);

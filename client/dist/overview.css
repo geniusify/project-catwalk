@@ -324,9 +324,19 @@
 }
 
 .ov-gallery-extended-zoomed {
+  position: relative;
   height: 880px;
   width: 100%;
   background-color: pink;
+  cursor: crosshair;
+  overflow: hidden;
+}
+
+.ov-zoomed-image {
+  position: absolute;
+  transform-origin: top left;
+  top: 0;
+  left: 0;
 }
 
 /* style selector */
