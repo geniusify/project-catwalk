@@ -16,17 +16,18 @@ const Breakdown = ({ ratings }) => {
     }
   });
 
-  return Object.entries(ratings).slice().reverse().map((rating) => {
+  const listOfRatings = Object.entries(ratings).slice().reverse();
+  return listOfRatings.map((rating) => {
     const [key, value] = rating;
 
     return (
-      <div key={Math.random() * 1000000}>
+      <>
         <IndividualStarBar
           star={parseInt(key)}
           counts={parseInt(value)}
           max={mostRatings}
         />
-      </div>
+      </>
     );
   });
 };

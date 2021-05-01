@@ -1,10 +1,10 @@
 .rr-container {
   display: grid;
   grid-template-areas:
-  'rr-product-breakdown   rr-sort-buttons'
-  'rr-product-breakdown   rr-review-list'
-  'rr-product-breakdown   rr-review-buttons';
-  grid-template-columns: 1fr 2fr;
+  'rr-product-breakdown   rr-sort-buttons     rr-review-form'
+  'rr-product-breakdown   rr-review-list      rr-review-form'
+  'rr-product-breakdown   rr-review-buttons   rr-review-form';
+  grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr 4fr 1fr;
   grid-column-gap: 5px;
   grid-row-gap: 5px;
@@ -53,8 +53,6 @@
 
 .review-photo {
   grid-area: review;
-  /* height: 150px;
-  width: 200px; */
   max-height: auto;
   max-width: 40%;
 }
@@ -72,4 +70,12 @@
   padding: 5px;
   background-color: white;
   border: 1px solid #666;
+}
+
+.rr-review-form {
+  grid-area: rr-review-form;
+  border: 1px solid black;
+  border-spacing: 10px;
+  padding: 10px;
+  opacity: 0.8;
 }
