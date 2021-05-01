@@ -17,12 +17,7 @@ return (<Stars rating={rating} setRating={setRating} clickable={true} />)
 return (<Stars rating={staticValue} clickable={false} />)
 */
 
-const Stars = ({ rating, setRating, clickable, totalStars = 5 }) => {
-  const [hover, setHover] = useState(-1);
-  const onClick = (idx) => setRating(idx + 1);
-
-  const roundUp = 0.25;
-  const value = (clickable && hover >= 0 ? hover + 1 : (rating + roundUp));
+const individualValues = (value, totalStars) => {
   const values = [];
   for (let i = 0; i < totalStars; i++) {
     if (value - i >= 1) {
@@ -33,16 +28,27 @@ const Stars = ({ rating, setRating, clickable, totalStars = 5 }) => {
       values.push(0);
     }
   }
+  return values;
+};
+
+const Stars = ({ rating, setRating, totalStars = 5 }) => {
+  const clickable = setRating !== undefined;
+  const [hoverVal, sethoverVal] = useState(-1);
+  const handleClick = (idx) => setRating(idx + 1);
+
+  const roundUp = 0.25;
+  const value = (clickable && hoverVal >= 0 ? hoverVal + 1 : (rating + roundUp));
+  const values = individualValues(value, totalStars);
 
   return (
     <div className="star-rating">
-      {values.map((s, i) => (
+      {values.map((val, i) => (
         <Star
           index={i}
           key={i}
-          value={s}
-          setHover={clickable ? setHover : undefined}
-          onClick={clickable ? onClick : undefined}
+          value={val}
+          sethoverVal={clickable ? sethoverVal : undefined}
+          handleClick={clickable ? handleClick : undefined}
           clickable={clickable}
         />
       ))}
@@ -50,16 +56,15 @@ const Stars = ({ rating, setRating, clickable, totalStars = 5 }) => {
   );
 };
 
-const Star = ({
-  index, value, setHover, onClick, clickable,
-}) => {
+const Star = ({ index, value, sethoverVal, handleClick, clickable }) => {
   const src = { 0: 'icons/star_outline.svg', 1: 'icons/star.svg', 0.5: 'icons/star_half.svg' }[value];
   return (
     <img
       src={src}
-      onMouseEnter={clickable ? () => setHover(index) : undefined}
-      onMouseLeave={clickable ? () => setHover(-1) : undefined}
-      onClick={clickable ? () => onClick(index) : undefined}
+      className="star-image"
+      onMouseEnter={clickable ? () => sethoverVal(index) : undefined}
+      onMouseLeave={clickable ? () => sethoverVal(-1) : undefined}
+      onClick={clickable ? () => handleClick(index) : undefined}
     />
   );
 };

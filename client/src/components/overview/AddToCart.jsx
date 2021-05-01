@@ -1,10 +1,5 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable react/prop-types */
-/* eslint-disable semi */
-/* eslint-disable arrow-body-style */
-/* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
-
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Favorite from './Favorite.jsx';
 
 const range = (n) => [...new Array(n)].map((_, idx) => idx + 1);
@@ -44,12 +39,11 @@ const AddToCart = ({ style }) => {
             name="size"
             value={skuId}
             onChange={(e) => onSizeChoice(e.target.value)}
-            // onChange={(e) => setCartSize(e.target.value)}
             onClick={() => setClicked(true)}
           >
             {clicked
-              ? availableSkus.map((s) => (
-                <option key={s[0]} value={s[0]}>{s[1].size}</option>
+              ? availableSkus.map((availSku) => (
+                <option key={availSku[0]} value={availSku[0]}>{availSku[1].size}</option>
               ))
               : sku
                 ? <option value={sku[1].size}>{sku[1].size}</option>
@@ -71,7 +65,7 @@ const AddToCart = ({ style }) => {
         </div>
         <div className="atc2">
           <button
-            className={`ov-cart-add ${addButtonEnabled ? 'ov-cart-add-active' : null}`}
+            className={`ov-cart-add ${addButtonEnabled ? 'ov-cart-add-active' : ''}`}
             type="button"
             disabled={!addButtonEnabled}
           >
@@ -84,6 +78,10 @@ const AddToCart = ({ style }) => {
       </form>
     </div>
   );
+};
+
+AddToCart.propTypes = {
+  style: PropTypes.object.isRequired,
 };
 
 export default AddToCart;
