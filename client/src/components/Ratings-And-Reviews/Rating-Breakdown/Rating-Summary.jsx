@@ -5,7 +5,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import StarRating from '../../shared/StarDynamic.jsx';
 import Stars from '../../shared/Stars.jsx';
 
 const calculateCounts = (ratings) => {
@@ -36,27 +35,51 @@ const calculateRecommended = (recommended) => {
     totalCount += parseInt(recommended[count]);
   }
 
-  return (recommended.true / totalCount).toFixed(2);
+  // return (recommended.true / totalCount).toFixed(2);
+  return ((recommended.true / totalCount) * 100).toFixed(2);
 };
 
-const RatingSummary = ({ ratings, recommended }) => (
-  <>
-    rating summmary:
-    {calculateAverage(ratings)}
-    <br />
-    <Stars
-      rating={Math.round(calculateAverage(ratings) * 2) / 2}
-      clickable={false}
-    />
-    <br />
-    reviews count:
-    {calculateCounts(ratings)}
-    <br />
-    recommended:
-    {calculateRecommended(recommended) * 100}
-    %
-  </>
-);
+const RatingSummary = ({ ratings, recommended }) => {
+  const averageRating = calculateAverage(ratings);
+  const reviewCounts = calculateCounts(ratings);
+  const averageRecommended = calculateRecommended(recommended);
+
+  return (
+    <>
+      rating summmary:
+      <br />
+      {isNaN(averageRating)
+        ? (
+          <span>
+            no ratings!
+          </span>
+        )
+        : averageRating}
+      <br />
+      <Stars
+        rating={Math.round(averageRating * 2) / 2}
+        clickable={false}
+      />
+      <br />
+      review count:&nbsp;
+      {reviewCounts}
+      <br />
+      recommended:&nbsp;
+      {isNaN(averageRecommended)
+        ? (
+          <span>
+            none yet!
+          </span>
+        )
+        : (
+          <span>
+            {averageRecommended}
+            %
+          </span>
+        )}
+    </>
+  );
+};
 
 RatingSummary.propTypes = {
   ratings: PropTypes.object.isRequired,

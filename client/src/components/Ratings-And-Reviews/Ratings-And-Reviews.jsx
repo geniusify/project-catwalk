@@ -7,24 +7,24 @@ import RatingBreakdown from './Rating-Breakdown/Rating-Breakdown.jsx';
 import SortReviews from './Sort-Reviews/Sort-Reviews.jsx';
 import ReviewList from './Review-List/Review-List.jsx';
 import ReviewButtons from './Review-Buttons/Review-Buttons.jsx';
+import AddReviewForm from './Review-Buttons/Add-Review-Form.jsx';
 
 const RatingsAndReviews = ({ productId }) => {
-  // pass down from App
   // productId = '23718';
-  // productId = '23146';
-  productId = '23156';
+  productId = '23146';
+  // productId = '23152';
 
   const [reviewData, setReviewData] = useState(undefined);
   const [reviewMetaData, setReviewMetaData] = useState(undefined);
   const [displayReviewCount, setDisplayReviewCount] = useState(2);
+  const [showAddReview, setShowAddReview] = useState(false);
 
   useEffect(() => {
     axios({
       url: `api/reviews?product_id=${productId}&count=20`,
       method: 'get',
     })
-      .then(({ data }) => setReviewData(data))
-      .catch(() => {});
+      .then(({ data }) => setReviewData(data));
   }, []);
 
   useEffect(() => {
@@ -32,8 +32,7 @@ const RatingsAndReviews = ({ productId }) => {
       url: `api/reviews/meta?product_id=${productId}`,
       method: 'get',
     })
-      .then(({ data }) => setReviewMetaData(data))
-      .catch(() => {});
+      .then(({ data }) => setReviewMetaData(data));
   }, []);
 
   const renderComponents = () => (
@@ -65,7 +64,21 @@ const RatingsAndReviews = ({ productId }) => {
           setReviewMetaData={setReviewMetaData}
           displayReviewCount={displayReviewCount}
           setDisplayReviewCount={setDisplayReviewCount}
+          showAddReview={showAddReview}
+          setShowAddReview={setShowAddReview}
         />
+      </div>
+      <div className="rr-review-form">
+        {(showAddReview)
+          ? (
+            <AddReviewForm
+              productId={productId}
+              setReviewData={setReviewData}
+              reviewMetaData={reviewMetaData}
+              setReviewMetaData={setReviewMetaData}
+              setShowAddReview={setShowAddReview}
+            />
+          ) : null}
       </div>
     </div>
   );
