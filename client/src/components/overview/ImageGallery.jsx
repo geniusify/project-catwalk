@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable react/prop-types */
 
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import GalleryThumbnails from './GalleryThumbnails.jsx';
 
 const ImageGallery = ({
@@ -69,6 +69,19 @@ const ImageGallery = ({
       )}
     </div>
   );
+};
+
+ImageGallery.propTypes = {
+  photos: PropTypes.arrayOf(PropTypes.shape({
+    thumbnail_url: PropTypes.string,
+    url: PropTypes.string,
+  })).isRequired,
+  alt: PropTypes.string.isRequired,
+  extendedView: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+  imageIndex: PropTypes.number.isRequired,
+  setImageIndex: PropTypes.func.isRequired,
+  exitExtended: PropTypes.func.isRequired,
 };
 
 export default ImageGallery;

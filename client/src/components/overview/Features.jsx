@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
-
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // eslint-disable-next-line arrow-body-style
 const Features = ({ features }) => {
@@ -15,6 +14,12 @@ const Features = ({ features }) => {
       ))}
     </div>
   );
+};
+
+Features.propTypes = {
+  features: PropTypes.arrayOf(PropTypes.shape({
+    feature: PropTypes.string,
+  })).isRequired,
 };
 
 export default Features;

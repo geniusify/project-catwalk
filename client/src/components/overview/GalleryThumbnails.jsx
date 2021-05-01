@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable react/prop-types */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const GalleryThumbnails = ({
   photos, chooseThumbnail, imageIndex, topIndex, setTopIndex, extendedView,
@@ -58,6 +59,18 @@ const GalleryThumbnails = ({
       )}
     </div>
   );
+};
+
+GalleryThumbnails.propTypes = {
+  photos: PropTypes.arrayOf(PropTypes.shape({
+    thumbnail_url: PropTypes.string,
+    url: PropTypes.string,
+  })).isRequired,
+  chooseThumbnail: PropTypes.func.isRequired,
+  imageIndex: PropTypes.number.isRequired,
+  topIndex: PropTypes.number.isRequired,
+  setTopIndex: PropTypes.func.isRequired,
+  extendedView: PropTypes.bool.isRequired,
 };
 
 export default GalleryThumbnails;

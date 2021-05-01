@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-scroll';
 
 import Stars from '../shared/Stars.jsx';
@@ -15,9 +15,7 @@ const getAverageRating = (ratings) => {
   return ratingSum / count;
 };
 
-const ProductInfo = ({
-  info, ratings, price, salePrice,
-}) => {
+const ProductInfo = ({ info, ratings, price, salePrice }) => {
   const ratingCount = getRatingCount(ratings);
   const averageRating = getAverageRating(ratings);
 
@@ -54,6 +52,12 @@ const ProductInfo = ({
       />
     </div>
   );
+};
+
+ProductInfo.propTypes = {
+  info: PropTypes.object.isRequired,
+  ratings: PropTypes.object.isRequired,
+  price: PropTypes.string.isRequired,
 };
 
 export default ProductInfo;

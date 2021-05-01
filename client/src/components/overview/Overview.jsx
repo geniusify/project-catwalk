@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
-/* eslint-disable react/prop-types */
 
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import ImageGallery from './ImageGallery.jsx';
@@ -134,6 +134,10 @@ const Overview = ({ productId }) => {
     : (<div>Sorry, something went wrong.</div>);
 
   return rendering;
+};
+
+Overview.propTypes = {
+  productId: PropTypes.string,
 };
 
 export default Overview;
