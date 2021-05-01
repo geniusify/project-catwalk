@@ -13,6 +13,7 @@ import ProductDescription from './ProductDescription.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 import Features from './Features.jsx';
+import ExtendedViewZoom from './ExtendedViewZoom.jsx';
 
 const getDefaultStyleIndex = (styles) => {
   let defaultStyleIndex = 0;
@@ -26,12 +27,13 @@ const getDefaultStyleIndex = (styles) => {
 };
 
 const Overview = ({ productId }) => {
+  const modes = { normal: 0, extended: 1, zoomed: 2 };
   const [info, setInfo] = useState(undefined);
   const [styles, setStyles] = useState(undefined);
   const [meta, setMeta] = useState(undefined);
   const [styleIndex, setStyleIndex] = useState(0);
   const [style, setStyle] = useState(undefined);
-  const [extendedView, setExtendedView] = useState(false);
+  const [viewMode, setViewMode] = useState(modes.normal);
 
   const updateStyleIndex = (idx) => {
     setStyleIndex(idx);
@@ -62,43 +64,80 @@ const Overview = ({ productId }) => {
     }
   }, []);
 
+  const className = {
+    [modes.normal]: 'ov-container',
+    [modes.extended]: 'ov-container ov-container-extended',
+    [modes.zoomed]: 'ov-container-zoomed',
+  }[viewMode];
+
+  const handleImageClick = (event) => {
+    switch (viewMode) {
+      case modes.normal:
+        setViewMode(modes.extended);
+        break;
+      case modes.extended:
+        setViewMode(modes.zoomed);
+        break;
+      case modes.zoomed:
+        setViewMode(modes.extended);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const extendedView = viewMode === modes.extended;
+
+  const [imageIndex, setImageIndex] = useState(0);
+
   const readyToRender = !!(!!info && !!style && !!styles && !!meta);
   let rendering = 'unrendered';
 
   try {
     rendering = readyToRender
       ? (
-        <div
-          className={`ov-container${extendedView ? ' ov-container-extended' : ''}`}
-        >
-          <ImageGallery
-            photos={style.photos}
-            alt={info.name}
-            extendedView={extendedView}
-            setExtendedView={setExtendedView}
-          />
-          {extendedView ? null : (
-            <>
-              <ProductInfo
-                info={info}
-                ratings={meta.ratings}
-                price={style.original_price}
-                salePrice={style.sale_salePrice}
+        <div className={className}>
+          {viewMode !== modes.zoomed
+            ? (
+              <>
+                <ImageGallery
+                  photos={style.photos}
+                  alt={info.name}
+                  extendedView={extendedView}
+                  imageIndex={imageIndex}
+                  setImageIndex={setImageIndex}
+                  onClick={handleImageClick}
+                  exitExtended={() => setViewMode(modes.normal)}
+                />
+                {extendedView ? null : (
+                  <>
+                    <ProductInfo
+                      info={info}
+                      ratings={meta.ratings}
+                      price={style.original_price}
+                      salePrice={style.sale_salePrice}
+                    />
+                    <ProductDescription
+                      description={info.description}
+                      slogan={info.slogan}
+                    />
+                    <StyleSelector
+                      styles={styles}
+                      index={styleIndex}
+                      select={updateStyleIndex}
+                    />
+                    <AddToCart style={style} />
+                    <Features features={info.features} />
+                  </>
+                )}
+              </>
+            )
+            : (
+              <ExtendedViewZoom
+                onClick={handleImageClick}
+                image={style.photos[imageIndex].url}
               />
-              <ProductDescription
-                description={info.description}
-                slogan={info.slogan}
-              />
-              <StyleSelector
-                styles={styles}
-                index={styleIndex}
-                select={updateStyleIndex}
-              />
-              <AddToCart style={style} />
-              <Features features={info.features} />
-            </>
-          )}
-
+            )}
         </div>
       )
       : (<div>loading...</div>);
