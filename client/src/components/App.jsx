@@ -48,11 +48,11 @@ class App extends React.Component {
 
           <Overview className="ov-c" productId={this.state.productId} />
 
-          {/* <CarouselContainer className="cc-c" productId={this.state.productId} />
+          <CarouselContainer className="cc-c" productId={this.state.productId} />
 
           <Element name="reviewsContainer" className="rr-c">
             <RatingsAndReviews productId={this.state.productId} />
-          </Element> */}
+          </Element>
 
         </LogClicks>
 

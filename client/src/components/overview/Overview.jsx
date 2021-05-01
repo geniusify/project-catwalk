@@ -33,7 +33,7 @@ const Overview = ({ productId }) => {
   const [meta, setMeta] = useState(undefined);
   const [styleIndex, setStyleIndex] = useState(0);
   const [style, setStyle] = useState(undefined);
-  const [viewMode, setViewMode] = useState(modes.zoomed);
+  const [viewMode, setViewMode] = useState(modes.normal);
 
   const updateStyleIndex = (idx) => {
     setStyleIndex(idx);
@@ -64,23 +64,31 @@ const Overview = ({ productId }) => {
     }
   }, []);
 
-
-
   const className = {
     [modes.normal]: 'ov-container',
     [modes.extended]: 'ov-container ov-container-extended',
     [modes.zoomed]: 'ov-container-zoomed',
   }[viewMode];
 
-  const handleImageClick = () => {
-    setViewMode((n) => (n + 1) % 3);
+  const handleImageClick = (event) => {
+    switch (viewMode) {
+      case modes.normal:
+        setViewMode(modes.extended);
+        break;
+      case modes.extended:
+        setViewMode(modes.zoomed);
+        break;
+      case modes.zoomed:
+        setViewMode(modes.extended);
+        break;
+      default:
+        break;
+    }
   };
 
   const extendedView = viewMode === modes.extended;
 
   const [imageIndex, setImageIndex] = useState(0);
-
-
 
   const readyToRender = !!(!!info && !!style && !!styles && !!meta);
   let rendering = 'unrendered';
@@ -88,9 +96,7 @@ const Overview = ({ productId }) => {
   try {
     rendering = readyToRender
       ? (
-        <div
-          className={className}
-        >
+        <div className={className}>
           {viewMode !== modes.zoomed
             ? (
               <>
@@ -101,6 +107,7 @@ const Overview = ({ productId }) => {
                   imageIndex={imageIndex}
                   setImageIndex={setImageIndex}
                   onClick={handleImageClick}
+                  exitExtended={() => setViewMode(modes.normal)}
                 />
                 {extendedView ? null : (
                   <>

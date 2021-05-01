@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable arrow-body-style */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const getOffset = (e, zoom) => {
   const t = e.target;
@@ -22,19 +22,13 @@ const getOffset = (e, zoom) => {
 };
 
 const ExtendedViewZoom = ({ onClick, image }) => {
-  const [offset, setOffset] = useState([0, 0]);
   const zoom = 2.5;
+  const [offset, setOffset] = useState([0, 0]);
+
   const onMouseMove = (e) => {
     setOffset(getOffset(e, zoom));
   };
-  // image 1650x1100, * 2.5 = 4125x2750
-  // window 1200x880
-  // diff = 2475x1870
-  // scale first:
-  // x range 495, -675 total = 1170
-  // y range 330, -418 total = 748
-  // scale second:
-  // x range 1237, -1687 = 2924
+
   return (
     <div
       className="ov-gallery-extended-zoomed"

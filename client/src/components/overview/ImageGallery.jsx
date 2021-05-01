@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import GalleryThumbnails from './GalleryThumbnails.jsx';
 
 const ImageGallery = ({
-  photos, alt, extendedView, onClick, imageIndex, setImageIndex
+  photos, alt, extendedView, onClick, imageIndex, setImageIndex, exitExtended,
 }) => {
   const [topIndex, setTopIndex] = useState(0);
   const canScrollLeft = imageIndex > 0;
@@ -62,6 +62,14 @@ const ImageGallery = ({
         setTopIndex={setTopIndex}
         extendedView={extendedView}
       />
+      {extendedView && (
+        <img
+          className="ov-extended-view-close"
+          src="icons/close.svg"
+          alt="close"
+          onClick={exitExtended}
+        />
+      )}
     </div>
   );
 };
