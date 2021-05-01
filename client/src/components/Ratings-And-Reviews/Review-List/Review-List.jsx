@@ -10,13 +10,19 @@ const ReviewList = ({ reviewData, displayReviewCount }) => {
     const { results } = reviewData;
     const displayReviews = results.slice(0, displayReviewCount);
 
-    return (
-      <div>
-        {displayReviews.map((review) => (
-          <IndividualReview review={review} />
-        ))}
-      </div>
-    );
+    return reviewData.results.length > 0
+      ? (
+        <div>
+          {displayReviews.map((review) => (
+            <IndividualReview review={review} />
+          ))}
+        </div>
+      )
+      : (
+        <span>
+          no reviews!
+        </span>
+      );
   }
 
   return null;

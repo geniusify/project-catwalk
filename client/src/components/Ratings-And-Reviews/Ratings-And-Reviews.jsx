@@ -11,8 +11,8 @@ import AddReviewForm from './Review-Buttons/Add-Review-Form.jsx';
 
 const RatingsAndReviews = ({ productId }) => {
   // productId = '23718';
-  // productId = '23146';
-  productId = '23156';
+  productId = '23146';
+  // productId = '23152';
 
   const [reviewData, setReviewData] = useState(undefined);
   const [reviewMetaData, setReviewMetaData] = useState(undefined);
@@ -24,8 +24,7 @@ const RatingsAndReviews = ({ productId }) => {
       url: `api/reviews?product_id=${productId}&count=20`,
       method: 'get',
     })
-      .then(({ data }) => setReviewData(data))
-      .catch(() => {});
+      .then(({ data }) => setReviewData(data));
   }, []);
 
   useEffect(() => {
@@ -33,8 +32,7 @@ const RatingsAndReviews = ({ productId }) => {
       url: `api/reviews/meta?product_id=${productId}`,
       method: 'get',
     })
-      .then(({ data }) => setReviewMetaData(data))
-      .catch(() => {});
+      .then(({ data }) => setReviewMetaData(data));
   }, []);
 
   const renderComponents = () => (
