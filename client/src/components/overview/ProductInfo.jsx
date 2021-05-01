@@ -41,15 +41,14 @@ const ProductInfo = ({
           : <span>{`$${price}`}</span>}
       </div>
       <div className="ov-product-grid-line">
-        {ratingCount >= 2
-          ? (
-            <>
-              <Stars rating={averageRating} clickable={false} />
-              <Link className="ov-rr-link" to="reviewsContainer" smooth>
-                {`Read all ${ratingCount} reviews`}
-              </Link>
-            </>
-          ) : null}
+        {(ratingCount >= 2) && (
+          <>
+            <Stars rating={averageRating} clickable={false} />
+            <Link className="ov-rr-link" to="reviewsContainer" smooth>
+              {`Read all ${ratingCount} reviews`}
+            </Link>
+          </>
+        )}
       </div>
       <h4 className="ov-category ov-product-grid-line">{info.category}</h4>
 

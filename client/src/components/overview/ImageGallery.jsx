@@ -35,24 +35,22 @@ const ImageGallery = ({
         onClick={onClick}
       />
 
-      {canScrollLeft
-        ? (
-          <img
-            src="icons/left.svg"
-            alt="left"
-            onClick={goLeft}
-            className={extendedView ? 'ov-gallery-left-extended' : 'ov-gallery-left'}
-          />
-        ) : null}
-      {canScrollRight
-        ? (
-          <img
-            src="icons/right.svg"
-            alt="right"
-            onClick={goRight}
-            className={extendedView ? 'ov-gallery-right-extended' : 'ov-gallery-right'}
-          />
-        ) : null}
+      {canScrollLeft && (
+        <img
+          src="icons/left.svg"
+          alt="left"
+          onClick={goLeft}
+          className={extendedView ? 'ov-gallery-left-extended' : 'ov-gallery-left'}
+        />
+      )}
+      {canScrollRight && (
+        <img
+          src="icons/right.svg"
+          alt="right"
+          onClick={goRight}
+          className={extendedView ? 'ov-gallery-right-extended' : 'ov-gallery-right'}
+        />
+      )}
 
       <GalleryThumbnails
         photos={photos}

@@ -25,18 +25,17 @@ const GalleryThumbnails = ({
       className="ov-gallery-thumbnail-viewer"
       style={{ gridTemplateRows: `50px ${height}px 50px` }}
     >
-      {canScrollUp
-        ? (
-          <img
-            className="ov-up-arrow"
-            src="icons/up.svg"
-            alt="up"
-            onClick={() => setTopIndex((i) => i - 1)}
-          />
-        ) : null}
+      {canScrollUp && (
+        <img
+          className="ov-up-arrow"
+          src="icons/up.svg"
+          alt="up"
+          onClick={() => setTopIndex((i) => i - 1)}
+        />
+      )}
 
       <div className="ov-gallery-thumbnails-container" style={{ height }}>
-        <div className="ov-gallery-thumbnails" style={{ top: topIndex * thumbOffset + 3 + 6}}>
+        <div className="ov-gallery-thumbnails" style={{ top: topIndex * thumbOffset + 3 + 6 }}>
           {photos.map((photo, index) => (
             <div
               data-testid="thumbnails"
@@ -49,15 +48,14 @@ const GalleryThumbnails = ({
         </div>
       </div>
 
-      {canScrollDown
-        ? (
-          <img
-            className="ov-down-arrow"
-            alt="down"
-            src="icons/down.svg"
-            onClick={() => setTopIndex((i) => i + 1)}
-          />
-        ) : null}
+      {canScrollDown && (
+        <img
+          className="ov-down-arrow"
+          alt="down"
+          src="icons/down.svg"
+          onClick={() => setTopIndex((i) => i + 1)}
+        />
+      )}
     </div>
   );
 };

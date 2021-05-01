@@ -11,7 +11,7 @@ const Features = ({ features }) => {
         <div key={idx}>
           <span className="ov-feature-check">✓</span>
           {feature.feature}
-          {feature.value ? `: ${feature.value}` : null}
+          {feature.value && `: ${feature.value}`}
         </div>
       ))}
     </div>
