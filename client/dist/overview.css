@@ -182,6 +182,7 @@
 .ov-image-gallery {
   box-sizing: border-box;
   display: grid;
+  position: relative;
   height: 680px;
   grid-template: 'thumbnails left image right';
   grid-template-columns: 94px 1fr 20fr 1fr;
@@ -194,7 +195,8 @@
 }
 
 .ov-image-gallery-extended {
-  grid-template-columns: 94px 24px 1fr 24px !important;
+  position: relative;
+  grid-template-columns: 94px 24px 1fr 24px;
 }
 
 .ov-main-gallery-image,
@@ -212,7 +214,7 @@
 }
 
 .ov-main-gallery-image-extended {
-  cursor: zoom-out;
+  cursor: zoom-in;
 }
 
 .ov-gallery-left, .ov-gallery-left-extended {
@@ -321,6 +323,33 @@
   height: 24px;
   width: 24px;
   cursor: pointer;
+}
+
+.ov-extended-view-close {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.ov-gallery-extended-zoomed {
+  cursor: crosshair;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.ov-zoomed-image {
+  position: absolute;
+  transform-origin: top left;
+  top: 0;
+  left: 0;
 }
 
 /* style selector */
