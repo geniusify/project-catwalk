@@ -1,9 +1,5 @@
-/* eslint-disable jsx-a11y/mouse-events-have-key-events */
-/* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable arrow-body-style */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const getOffset = (e, zoom) => {
   const t = e.target;
@@ -34,6 +30,8 @@ const ExtendedViewZoom = ({ onClick, image }) => {
       className="ov-gallery-extended-zoomed"
       onClick={onClick}
       onMouseMove={onMouseMove}
+      role="button"
+      tabIndex={0}
     >
       <img
         src={image}
@@ -43,6 +41,11 @@ const ExtendedViewZoom = ({ onClick, image }) => {
       />
     </div>
   );
+};
+
+ExtendedViewZoom.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default ExtendedViewZoom;
