@@ -37,7 +37,6 @@ const YourOutfitList = () => {
               riImage={resStyle.data.results[0].photos[0].thumbnail_url}
             />
           ];
-
           setOutfitRenderList(addData);
         })
       })
