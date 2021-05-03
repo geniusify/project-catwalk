@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Logo from '../../dist/icons/logo6.png';
 
 const Header = () => {
   const [searchText, setSearchText] = useState('');
@@ -9,9 +10,7 @@ const Header = () => {
   };
   return (
     <div>
-      <h1 className="hdr-logo">
-        GENIUSIFY
-      </h1>
+       <a href="http://localhost:3000/"><img className="hdr-image" src={Logo}></img></a>
       <div className="hdr-search">
         <input
           className="hdr-search-field"
