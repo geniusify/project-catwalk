@@ -1,10 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable radix */
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable no-param-reassign */
-/* eslint-disable react/no-typos */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';

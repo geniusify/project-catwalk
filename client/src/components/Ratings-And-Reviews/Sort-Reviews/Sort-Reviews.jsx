@@ -1,6 +1,3 @@
-/* eslint-disable no-case-declarations */
-/* eslint-disable no-param-reassign */
-/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
