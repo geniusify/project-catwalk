@@ -18,7 +18,6 @@ module.exports = {
 
   add: (endpoint, data) => {
     const url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo${endpoint}`;
-    console.log(data);
 
     return axios({
       url,
@@ -27,6 +26,17 @@ module.exports = {
         Authorization: `${TOKEN}`,
       },
       data,
+    });
+  },
+
+  update: (endpoint) => {
+    const url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo${endpoint}`;
+    return axios({
+      url,
+      method: 'put',
+      headers: {
+        Authorization: `${TOKEN}`,
+      },
     });
   },
 };

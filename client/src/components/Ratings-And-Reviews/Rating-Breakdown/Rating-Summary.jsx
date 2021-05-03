@@ -5,7 +5,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import StarRating from '../../shared/StarDynamic.jsx';
+// import StarRating from '../../shared/StarDynamic.jsx';
+import Stars from '../../shared/Stars.jsx';
 
 const calculateCounts = (ratings) => {
   let count = 0;
@@ -39,21 +40,22 @@ const calculateRecommended = (recommended) => {
 };
 
 const RatingSummary = ({ ratings, recommended }) => (
-  <div className="rr-rating-summary">
-    <p>
-      rating summmary:
-      {calculateAverage(ratings)}
-      <br />
-      <StarRating />
-      <br />
-      reviews count:
-      {calculateCounts(ratings)}
-      <br />
-      recommended:
-      {calculateRecommended(recommended) * 100}
-      %
-    </p>
-  </div>
+  <>
+    rating summmary:
+    {calculateAverage(ratings)}
+    <br />
+    <Stars
+      rating={Math.round(calculateAverage(ratings) * 2) / 2}
+      clickable={false}
+    />
+    <br />
+    reviews count:
+    {calculateCounts(ratings)}
+    <br />
+    recommended:
+    {calculateRecommended(recommended) * 100}
+    %
+  </>
 );
 
 RatingSummary.propTypes = {

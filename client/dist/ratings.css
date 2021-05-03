@@ -3,24 +3,20 @@
   grid-template-areas:
   'rr-product-breakdown   rr-sort-buttons'
   'rr-product-breakdown   rr-review-list'
-  'rr-product-breakdown   rr-buttons';
+  'rr-product-breakdown   rr-review-buttons';
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr 4fr 1fr;
   grid-column-gap: 5px;
   grid-row-gap: 5px;
   height: 100vh;
-
-  /* background-color: rgb(228, 234, 237); */
 }
 
-/* .rr-sort-buttons { grid-area: rr-sort-buttons; } */
 .rr-product-breakdown {
   grid-area: rr-product-breakdown;
   overflow: scroll;
   border: 1px solid black;
   border-spacing: 10px;
   padding: 10px;
-  /* background-image: linear-gradient(rgb(223, 227, 230), rgb(158, 173, 184)); */
   opacity: 0.8;
 }
 
@@ -28,24 +24,52 @@
   grid-area: rr-sort-buttons;
 }
 
+.sort-buttons {
+  height: 50px;
+  width: 200px;
+  text-indent: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #666;
+}
+
 .rr-review-list {
   grid-area: rr-review-list;
-  /* max-height: auto;
-  max-width: auto; */
   overflow: scroll;
   border: 1px solid black;
   border-spacing: 10px;
   padding: 10px;
-  /* background-image: linear-gradient(rgb(223, 227, 230), rgb(158, 173, 184)); */
   opacity: 0.8;
+}
+
+.star-bar {
+  border-radius: 5px;
+  width: 80%;
+  height: 10px;
+  box-shadow: 1px 1px 4px rgba( 0, 0, 0, 0.2 );
 }
 
 .review-photo {
   grid-area: review;
-  height: 100px;
-  width: 100px;
+  /* height: 150px;
+  width: 200px; */
+  max-height: auto;
+  max-width: 40%;
 }
 
-.rr-buttons {
-  grid-area: rr-buttons;
+.rr-review-buttons {
+  grid-area: rr-review-buttons;
+}
+
+.review-button {
+  height: 50px;
+  width: 200px;
+  text-indent: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #666;
 }

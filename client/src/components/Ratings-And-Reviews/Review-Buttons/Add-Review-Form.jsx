@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/jsx-boolean-value */
 /* eslint-disable radix */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable no-param-reassign */
@@ -7,16 +9,21 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import StarDynamic from '../../shared/StarDynamic.jsx';
+import FormCharacteristics from './Form-Characteristics.jsx';
+import Stars from '../../shared/Stars.jsx';
 
 const AddReviewForm = ({
-  productId, setReviewData, setReviewMetaData,
+  productId, setReviewData, reviewMetaData, setReviewMetaData, setShowModal,
 }) => {
-  const [recommended, setRecommended] = useState(undefined);
-  const [reviewSummary, setReviewSummary] = useState(undefined);
-  const [reviewBody, setReviewBody] = useState(undefined);
-  const [nickname, setNickname] = useState(undefined);
-  const [email, setEmail] = useState(undefined);
+  const [recommended, setRecommended] = useState(false);
+  const [reviewSummary, setReviewSummary] = useState('summary placeholder');
+  const [reviewBody, setReviewBody] = useState('body placeholder');
+  const [nickname, setNickname] = useState('nickname placeholder');
+  const [email, setEmail] = useState('placeholder@email.com');
+  const [rating, setRating] = useState(3);
+
+  const { characteristics } = reviewMetaData;
+  const [reviewCharacteristics, setReviewCharacteristics] = useState({});
 
   const handleRadioButton = (event) => {
     if (event.target.id === 'yes') {
@@ -50,45 +57,39 @@ const AddReviewForm = ({
 
     const formData = {
       product_id: parseInt(productId),
-      rating: 5,
+      rating,
       summary: reviewSummary,
       body: reviewBody,
-      recommend: true,
+      recommend: recommended,
       name: nickname,
       email,
       photos: [],
-      characteristics: {
-        77680: 5,
-      },
+      characteristics: reviewCharacteristics,
     };
 
     axios({
       url: 'api/reviews',
       method: 'post',
       data: formData,
-    })
-      .then(() => console.log('added'))
-      .catch((error) => console.log(error));
+    });
 
     axios({
       url: `api/reviews?product_id=${productId}`,
       method: 'get',
     })
       .then(({ data }) => {
-        console.log('review data: ', data);
         setReviewData(data);
-      })
-      .catch((error) => console.log(error));
+      });
 
     axios({
       url: `api/reviews/meta?product_id=${productId}`,
       method: 'get',
     })
       .then(({ data }) => {
-        console.log('review meta data: ', data);
         setReviewMetaData(data);
-      })
-      .catch((error) => console.log(error));
+      });
+
+    setShowModal(false);
   };
 
   return (
@@ -97,7 +98,11 @@ const AddReviewForm = ({
       onSubmit={handleSubmit.bind(this)}
     >
       <label htmlFor="star-rating">Star rating:</label>
-      <StarDynamic />
+      <Stars
+        rating={rating}
+        setRating={setRating}
+        clickable={true}
+      />
       <br />
 
       <label htmlFor="recommended">Recommended?</label>
@@ -110,6 +115,18 @@ const AddReviewForm = ({
       <br />
 
       Characteristics:
+      <br />
+      {Object.keys(characteristics).map((individualCharacteristic) => (
+        <>
+          <FormCharacteristics
+            individualCharacteristic={individualCharacteristic}
+            characteristics={characteristics}
+            reviewCharacteristics={reviewCharacteristics}
+            setReviewCharacteristics={setReviewCharacteristics}
+          />
+          <br />
+        </>
+      ))}
       <br />
       Review Summary:
       <br />
@@ -135,7 +152,9 @@ const AddReviewForm = ({
 AddReviewForm.propTypes = {
   productId: PropTypes.string.isRequired,
   setReviewData: PropTypes.func.isRequired,
+  reviewMetaData: PropTypes.object.isRequired,
   setReviewMetaData: PropTypes.func.isRequired,
+  setShowModal: PropTypes.func.isRequired,
 };
 
 export default AddReviewForm;

@@ -1,9 +1,10 @@
+/* eslint-disable no-console */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable class-methods-use-this */
 
 import React from 'react';
 import { Element } from 'react-scroll';
-import logClicks from '../clicklogger.jsx';
+import LogClicks from '../clicklogger.jsx';
 import Header from './Header.jsx';
 import Overview from './overview/Overview.jsx';
 import RatingsAndReviews from './Ratings-And-Reviews/Ratings-And-Reviews.jsx';
@@ -16,11 +17,6 @@ const handleClicks = (clickInfo) => {
   window.clicks.push(clickInfo);
 };
 
-const LoggedHeader = logClicks({ Header }, handleClicks);
-const LoggedOverview = logClicks({ Overview }, handleClicks);
-const LoggedCarouselContainer = logClicks({ CarouselContainer }, handleClicks);
-const LoggedRatingsAndReviews = logClicks({ RatingsAndReviews }, handleClicks);
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +27,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const defaultId = '23718'; // A random default product
+    const defaultId = '23149'; // A random default product
     const productId = this.getProductIdFromUrl() ?? defaultId;
     this.setState({ productId });
   }
@@ -45,26 +41,24 @@ class App extends React.Component {
   render() {
     return this.state.productId ? (
       <div className="app-container">
-        <div className="header-container">
-          <LoggedHeader />
-        </div>
 
-        <div className="ov-c">
-          <LoggedOverview productId={this.state.productId} />
-        </div>
+        <LogClicks callback={handleClicks}>
 
-        <div className="cc-c">
-          <LoggedCarouselContainer productId={this.state.productId} />
-        </div>
+          <Header className="header-c" />
 
-        <div className="rr-c">
-          <Element name="reviewsContainer">
-            <LoggedRatingsAndReviews productId={this.state.productId} />
+          <Overview className="ov-c" productId={this.state.productId} />
+
+          <CarouselContainer className="cc-c" productId={this.state.productId} />
+
+          <Element name="reviewsContainer" className="rr-c">
+            <RatingsAndReviews productId={this.state.productId} />
           </Element>
-        </div>
+
+        </LogClicks>
 
       </div>
-    ) : (<div>loading...</div>);
+    )
+      : (<div>loading...</div>);
   }
 }
 
