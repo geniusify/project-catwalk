@@ -1,7 +1,3 @@
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable guard-for-in */
-/* eslint-disable radix */
-/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -35,7 +31,6 @@ const calculateRecommended = (recommended) => {
     totalCount += parseInt(recommended[count]);
   }
 
-  // return (recommended.true / totalCount).toFixed(2);
   return ((recommended.true / totalCount) * 100).toFixed(2);
 };
 
